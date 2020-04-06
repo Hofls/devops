@@ -1,0 +1,75 @@
+before_script:
+  - mkdir -p artifacts
+
+stages:
+  - build
+  - deploy
+
+check-commit-name:
+  stage: build
+  script:
+  - >
+    if git log -n 1 | grep -q -e 'jira.hofls.ru' -e 'Merge branch'; then
+      echo "Commit name is OK";
+      exit 0;
+    else
+      echo "Problem found! There is no link to task in commit name";
+      exit 1;
+    fi
+  tags:
+  - jvm
+
+build:
+  stage: build
+  except:
+    - schedules
+  artifacts:
+    expire_in: 1 days
+    paths:
+      - ./artifacts
+  script:
+    - mvn clean install
+    - cp app/target/wildfly-app.war ./artifacts/wildfly-app-$CI_COMMIT_SHA.war
+    - cp deploy-wildfly.sh ./artifacts/deploy-wildfly.sh
+    - cp app/target/tomcat-app.war ./artifacts/tomcat-app-$CI_COMMIT_SHA.war
+    - cp deploy-tomcat.sh ./artifacts/deploy-tomcat.sh
+  tags:
+    - jvm
+
+deploy-wildfly:
+  stage: deploy
+  artifacts:
+    expire_in: 1 days
+    paths:
+    - ./artifacts
+  script:
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  - ssh-keyscan $TEST_IP >> ~/.ssh/known_hosts
+  - scp ./artifacts/wildfly-app-$CI_COMMIT_SHA.war $TEST_USERNAME@$TEST_IP:/opt/wildfly/wildfly-app.war
+  - scp -r ./artifacts/deploy-wildfly.sh $TEST_USERNAME@$TEST_IP:/opt/wildfly/deploy-wildfly.sh
+  - ssh $TEST_USERNAME@$TEST_IP 'sh /opt/wildfly/deploy-wildfly.sh "/opt/wildfly" "wildfly-app.war" "9990"';
+  - curl "https://api.telegram.org/bot3284821321:dljas23828djasSDJLdsa2323D/sendMessage?chat_id=-348834772991&text=Wildfly app started";
+  when: manual
+  environment: Test
+  tags:
+  - jvm
+
+deploy-tomcat:
+  stage: deploy
+  artifacts:
+    expire_in: 1 days
+    paths:
+    - ./artifacts
+  script:
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  - ssh-keyscan $TEST_IP >> ~/.ssh/known_hosts
+  - scp ./artifacts/tomcat-app-$CI_COMMIT_SHA.war $TEST_USERNAME@$TEST_IP:/opt/tomcat/tomcat-app.war
+  - scp -r ./artifacts/deploy-tomcat.sh $TEST_USERNAME@$TEST_IP:/opt/tomcat/deploy-tomcat.sh
+  - ssh $TEST_USERNAME@$TEST_IP 'sh /opt/tomcat/deploy-tomcat.sh "/opt/tomcat" "tomcat-app.war"';
+  - curl "https://api.telegram.org/bot3284821321:dljas23828djasSDJLdsa2323D/sendMessage?chat_id=-348834772991&text=Tomcat app started";
+  when: manual
+  environment: Test
+  tags:
+  - jvm
