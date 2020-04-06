@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  database:
+    image: mysql:5.7
+    volumes:
+      - /opt/mysql-persist:/var/lib/mysql
+    environment:
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+    networks:
+      - backend
+  wordpress:
+    image: wordpress:4.9.8
+    depends_on:
+      - database
+    volumes:
+      - /opt/wordpress-persist:/var/www/html
+    environment:
+     - WORDPRESS_DB_HOST=database
+     - WORDPRESS_DB_USER=wordpress
+     - WORDPRESS_DB_PASSWORD=password
+    networks:
+      - backend
+      - frontend
+  nginx:
+    image: nginx:1.15
+    depends_on:
+      - wordpress
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 8080:80
+    networks:
+      - frontend
+
+networks:
+  backend:
+  frontend:
