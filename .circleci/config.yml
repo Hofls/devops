@@ -41,3 +41,5 @@ jobs:
 
       # run tests!
       - run: gradle test
+
+      - run: gradle bootJar
