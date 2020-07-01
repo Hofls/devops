@@ -2,10 +2,10 @@ image: Ubuntu
 
 install:
   - cd dev-platforms-integration/java-project
-  - ./gradlew clean bootJar
+  - gradle clean bootJar
 
 test_script:
   - cd dev-platforms-integration/java-project
-  - ./gradlew clean test
+  - gradle clean test
 
 build: off
