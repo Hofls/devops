@@ -5,5 +5,5 @@ jdk:
 
 script:
   - cd dev-platforms-integration/java-project
-  - ./gradlew clean bootJar
+  - gradle clean bootJar
 
