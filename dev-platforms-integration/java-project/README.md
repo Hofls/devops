@@ -2,6 +2,8 @@ Badges:
 
 * CircleCI:
     * [![CircleCI](https://circleci.com/gh/Hofls/devops.svg?style=shield)](https://app.circleci.com/pipelines/github/Hofls/devops)
+* TravisCI:
+    * [![Build Status](https://travis-ci.org/Hofls/devops.svg?branch=master)](https://travis-ci.org/Hofls/devops)
 * SonarCloud: 
     * [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Hofls_devops&metric=alert_status)](https://sonarcloud.io/dashboard?id=Hofls_devops)
     * [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Hofls_devops&metric=coverage)](https://sonarcloud.io/dashboard?id=Hofls_devops)
