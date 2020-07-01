@@ -16,4 +16,5 @@ Badges:
     * ![GitHub issues](https://img.shields.io/github/issues/hofls/devops)
     * ![GitHub release (latest by date)](https://img.shields.io/github/v/release/hofls/devops)
     * ...
-
+* coveralls.io
+    * ...
