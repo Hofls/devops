@@ -10,12 +10,10 @@ Badges:
     * [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Hofls_devops&metric=bugs)](https://sonarcloud.io/dashboard?id=Hofls_devops)
     * [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Hofls_devops&metric=code_smells)](https://sonarcloud.io/dashboard?id=Hofls_devops)
     * [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Hofls_devops&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Hofls_devops)
-    * ...
 * shields.io:
     * ![GitHub last commit](https://img.shields.io/github/last-commit/hofls/devops)
     * ![GitHub issues](https://img.shields.io/github/issues/hofls/devops)
     * ![GitHub release (latest by date)](https://img.shields.io/github/v/release/hofls/devops)
-    * ...
 * appveyor:
     * [![Build status](https://ci.appveyor.com/api/projects/status/uu5b2v80wsaxgowr?svg=true)](https://ci.appveyor.com/project/Hofls/devops)
 * coveralls.io
