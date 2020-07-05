@@ -20,3 +20,5 @@ Badges:
     * [![Build status](https://ci.appveyor.com/api/projects/status/uu5b2v80wsaxgowr?svg=true)](https://ci.appveyor.com/project/Hofls/devops)
 * coveralls.io
     * ...
+* Snyk:
+    * [![Known Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/hofls/devops/dev-platforms-integration/java-project/build.gradle)](https://snyk.io/test/github/Hofls/devops)
