@@ -35,7 +35,7 @@ jobs:
         echo test, and deploy your project.
         echo $SECRET_ENV_VARIABLE
         touch kk
-        tocuh $SECRET_ENV_VARIABLE
+        touch $SECRET_ENV_VARIABLE
         ls
         echo SECRET_ENV_VARIABLE
 
