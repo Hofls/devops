@@ -1,4 +1,7 @@
-image: Ubuntu
+image:
+  - Ubuntu1804
+
+stack: jdk 8
 
 install:
   - cd dev-platforms-integration/java-project
@@ -6,8 +9,6 @@ install:
   - ./gradlew clean bootJar
 
 test_script:
-  - cd dev-platforms-integration/java-project
-  - chmod +x gradlew
   - ./gradlew clean test
 
 build: off
