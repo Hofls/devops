@@ -9,8 +9,6 @@ install:
   - ./gradlew clean bootJar
 
 test_script:
-  - cd dev-platforms-integration/java-project
-  - chmod +x gradlew
   - ./gradlew clean test
 
 build: off
