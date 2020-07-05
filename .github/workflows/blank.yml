@@ -31,8 +31,9 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+
+  # Real gradle build:
   build-gradle:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     steps:
@@ -45,8 +46,3 @@ jobs:
           cd dev-platforms-integration/java-project
           chmod +x gradlew
           ./gradlew clean bootJar
-      - uses: eskatos/gradle-command-action@v1
-        with:
-          wrapper-directory: dev-platforms-integration/java-project
-          build-root-directory: dev-platforms-integration/java-project
-          arguments: build
