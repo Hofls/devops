@@ -40,6 +40,11 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 8
+      - name: Build with gradlew
+        run: |
+          cd dev-platforms-integration/java-project
+          chmod +x gradlew
+          ./gradlew clean bootJar
       - uses: eskatos/gradle-command-action@v1
         with:
           wrapper-directory: dev-platforms-integration/java-project
