@@ -1,9 +1,7 @@
 image:
   - Ubuntu1804
 
-environment:
-  matrix:
-    - JDK_VERSION: adoptopenjdk-8-hotspot-amd64
+stack: jdk 8
 
 install:
   - cd dev-platforms-integration/java-project
