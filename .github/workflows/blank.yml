@@ -31,3 +31,18 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+
+  # Real gradle build:
+  build-gradle:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build with gradlew
+        run: |
+          cd dev-platforms-integration/java-project
+          chmod +x gradlew
+          ./gradlew clean bootJar
