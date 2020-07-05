@@ -33,11 +33,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        echo $SECRET_ENV_VARIABLE
-        touch kk
-        touch $SECRET_ENV_VARIABLE
-        ls
-        echo SECRET_ENV_VARIABLE
+        echo Here is censored SSH KEY (use it to deploy on the server) - $SECRET_ENV_VARIABLE
 
   # Real gradle build:
   build-gradle:
