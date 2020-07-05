@@ -1,4 +1,9 @@
-image: Ubuntu
+image:
+  - ubuntu-20.04-amd64
+
+environment:
+  matrix:
+    - JDK_VERSION: adoptopenjdk-8-hotspot-amd64
 
 install:
   - cd dev-platforms-integration/java-project
