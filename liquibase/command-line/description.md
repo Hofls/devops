@@ -21,6 +21,11 @@ liquibase ^
 * replace `INSERT_COMMAND_HERE` with `update`
 * replace `INSERT_COMMAND_HERE` with `rollback TEST_CHANGESET_ROLLBACK`
 
+## Rollback 5 last changesets
+* replace `INSERT_COMMAND_HERE` with `rollbackCountSQL 5`
+    * check generated SQL
+* replace `INSERT_COMMAND_HERE` with `rollbackCount 5`
+
 ## Liquibase tables
 * Show changesets history:
     * `select * from DATABASECHANGELOG`
