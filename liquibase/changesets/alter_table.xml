@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="customer_drop_address_id" author="hofls">
+        <dropColumn tableName="CUSTOMER" columnName="address_id" />
+    </changeSet>
+
+    <changeSet id="customer_add_user_name" author="hofls">
+        <addColumn tableName="CUSTOMER">
+            <column name="USER_NAME" type="VARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="customer_delete_by_phone_number" author="hofls">
+        <delete tableName="CUSTOMER" >
+            <where>PHONE_NUMBER IS NULL</where>
+        </delete>
+    </changeSet>
+
+    <changeSet id="name_and_phone_constraint" author="hofls">
+        <addUniqueConstraint
+                columnNames="user_name, phone"
+                constraintName="customer_name_phone_constraint"
+                schemaName="public"
+                tableName="CUSTOMER"/>
+    </changeSet>
+
+</databaseChangeLog>

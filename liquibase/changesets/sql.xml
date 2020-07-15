@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="idx_visit_mo_resource_plan" author="hofls">
+        <sql>
+            CREATE INDEX IF NOT EXISTS idx_company ON public.visit USING btree (company_id, start_date, last_satus)
+        </sql>
+        <rollback />
+        <!-- Rollback is a must with <sql>. Otherwise liquibase throws error: No inverse to liquibase.change.core.RawSQLChange created-->
+    </changeSet>
+
+</databaseChangeLog>
