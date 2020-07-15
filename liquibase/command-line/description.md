@@ -1,4 +1,8 @@
 ## Main template
+* Make sure that liquibase is installed:
+    * `liquibase --version`
+* Go to folder with changesets
+* Execute:
 ```
 liquibase ^
     --driver=org.postgresql.Driver ^
