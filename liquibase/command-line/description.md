@@ -2,7 +2,7 @@
 * Make sure that liquibase is installed:
     * `liquibase --version`
 * Go to folder with changesets
-* Execute:
+* Change parameters to suit your needs, then execute:
 ```
 liquibase ^
     --driver=org.postgresql.Driver ^
