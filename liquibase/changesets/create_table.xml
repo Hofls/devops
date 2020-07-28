@@ -17,5 +17,11 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="create_customer_grade_index" author="hofls">
+        <createIndex tableName="CUSTOMER" indexName="customer_grade_indx">
+            <column name="NAME"/>
+            <column name="GRADE"/>
+        </createIndex>
+    </changeSet>
 
 </databaseChangeLog>
