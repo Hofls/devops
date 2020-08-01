@@ -10,11 +10,18 @@
     * `rest-backend.jar` - has endpoints at localhost:8080/swagger-ui.html
 * Build image `docker build --tag rest-backend:1.0 .`
     * It should appear in images list: `docker images`
-* Run image `docker run --publish 8000:8080 --detach --env-file ./environment.list rest-backend:1.0`
+* Run image `docker run --publish 8000:8080 --name rest-container --detach --env-file ./environment.list rest-backend:1.0`
     * It should appear in containers list: `docker ps`
     * Port forwarding should be working: `curl localhost:8000/swagger-ui.html`
-    * Connect to container via SSH: `docker exec -it SK284KD2J bash`
+    * Connect to container via SSH: `docker exec -it rest-container bash`
         * Make sure that environment variables are set: `echo $VAR1`
+        
+#### Update docker container
+* If you have a new .jar file:
+    * Remove running container `docker rm rest-container --force`
+    * Remove unused images `docker image prune --force`
+    * Build image 
+    * Run image
     
 #### Useful commands:
 * List of local images:
