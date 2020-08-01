@@ -4,7 +4,16 @@
     * to test installation:
         * `docker pull hello-world`
         * `docker run hello-world`
-
+        
+#### From Dockerfile to running container
+* Lets say you have `Dockerfile` and `rest-backend.jar` in same folder
+    * `rest-backend.jar` - has endpoints at localhost:8080/swagger-ui.html
+* Build image `docker build --tag rest-backend:1.0 .`
+    * It should appear in images list: `docker images`
+* Run image `docker run --publish 8000:8080 --detach rest-backend:1.0`
+    * It should appear in containers list: `docker ps`
+    * Port forwarding should be working: `curl localhost:8000/swagger-ui.html`
+    
 #### Useful commands:
 * List of local images:
     * `docker images`
