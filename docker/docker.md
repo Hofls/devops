@@ -34,3 +34,9 @@
     * `docker logs SAK2D83JK`
 * Build and run Dockerfile
     * `docker run -it $(docker build -q .)`
+
+#### Connect to private image storage:
+* Login to storage - `docker login https://docker.artifactory.kera.ru`
+* Pull image:
+    * Manually `docker pull docker.artifactory.kera.ru/oraclejdk:8_211`
+    * Or by adding line to Dockerfile `FROM docker.artifactory.kera.ru/oraclejdk:8_211`
