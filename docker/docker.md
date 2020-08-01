@@ -17,11 +17,7 @@
         * Make sure that environment variables are set: `echo $VAR1`
         
 #### Update docker container
-* If you have a new .jar file:
-    * Remove running container `docker rm rest-container --force`
-    * Remove unused images `docker image prune --force`
-    * Build image 
-    * Run image
+* Look at script example [here](java-rest-backend/update-backend.sh)
     
 #### Useful commands:
 * List of local images:
