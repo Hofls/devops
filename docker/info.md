@@ -1,5 +1,5 @@
 #### Install docker
-* `apt-get update`
+* `apt update`
 * `apt install docker.io`
     * to test installation:
         * `docker pull hello-world`
