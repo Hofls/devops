@@ -20,7 +20,7 @@ public class HelloWorldController {
     @ApiOperation(value = "Returns environment variables", notes = "")
     @GetMapping("environment")
     public String environment() {
-        return "Nice to meet you!";
+        return System.getenv("VAR1");
     }
 
 }
