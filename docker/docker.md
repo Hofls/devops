@@ -16,8 +16,8 @@
     * Connect to container via SSH: `docker exec -it rest-container bash`
         * Make sure that environment variables are set: `echo $VAR1`
         
-#### Update docker container
-* Look at script example [here](java-rest-backend/update-backend.sh)
+#### Deploy new version of application
+* Look at script example [here](java-rest-backend/extras/update-backend.sh)
     
 #### Useful commands:
 * List of local images:
