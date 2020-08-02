@@ -30,7 +30,7 @@
     * `docker logs SAK2D83JK`
 * Run container that shares host network
     * `docker run --network host strm/helloworld-http`
-        * In this case container will listen on port 80 of host network
+        * In this case container will listen on port 80 of host network (meaning all incoming http connections)
 
 #### Connect to private image storage:
 * Login to storage - `docker login https://docker.artifactory.kera.ru`
