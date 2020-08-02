@@ -13,3 +13,8 @@ Use case - you got tired of entering password each time / want to improve level 
     * Go to `Session`, set Host Name (or IP address)
         * Save session
         * Open connection
+* Connect via WinSCP
+    * Add private key in `Advanced... => Authentication => Private key file`
+    * Set Hostname, Username, Password
+    * Save session
+    * Open connection
