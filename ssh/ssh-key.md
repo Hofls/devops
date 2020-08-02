@@ -18,3 +18,8 @@ Use case - you got tired of entering password each time / want to improve level 
     * Set Hostname, Username, Password
     * Save session
     * Open connection
+
+## Convert .ppk file (Putty) to OpenSSH format 
+* `apt install putty-tools`
+* Move to folder with `private.ppk` key
+* `puttygen private.ppk -O private-openssh -o private.key`
