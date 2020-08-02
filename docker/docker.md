@@ -28,8 +28,9 @@
     * `docker exec -it SK284KD2J bash`
 * Show container `SAK2D83JK` logs
     * `docker logs SAK2D83JK`
-* Build and run Dockerfile
-    * `docker run -it $(docker build -q .)`
+* Run container that shares host network
+    * `docker run --network host strm/helloworld-http`
+        * In this case container will listen on port 80 of host network
 
 #### Connect to private image storage:
 * Login to storage - `docker login https://docker.artifactory.kera.ru`
