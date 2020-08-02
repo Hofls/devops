@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker rm rest-back-container --force
+docker stop rest-back-container
 docker container prune --force
 docker image prune --force
 docker build --tag rest-backend:1.0 .
