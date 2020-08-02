@@ -31,6 +31,11 @@
 * Run container that shares host network
     * `docker run --network host strm/helloworld-http`
         * In this case container will listen on port 80 of host network (meaning all incoming http connections)
+* Run container that shares host filesystem (persistence)
+    * `docker run --volume /host_dir:/container_dir --network host strm/helloworld-http`
+    * To test if its working:
+        * ssh into container, create file in `container_dir`
+        * return to host, check if file appeared in `host_dir`
 
 #### Connect to private image storage:
 * Login to storage - `docker login https://docker.artifactory.kera.ru`
