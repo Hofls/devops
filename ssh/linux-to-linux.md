@@ -1,3 +1,16 @@
+# Connect from one linux server to another
+## Connect to remote server via SSH:
+* On remote server:
+	* Add public key to `authorized_keys` in `cd ~/.ssh/`
+* On local server:
+    * Copy private key to `/opt/keys/`
+    * Execute:
+        ```
+        ssh \
+        -i /opt/keys/private.key \
+        hofls@121.154.23.15
+        ```
+
 ## Get file `/opt/getme.txt` from remote server
 * On remote server:
 	* Add public key to `authorized_keys` in `cd ~/.ssh/`

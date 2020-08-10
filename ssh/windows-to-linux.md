@@ -1,3 +1,4 @@
+# Connect from windows machine to linux server
 ## Connect to server using ssh key
 Use case - you got tired of entering password each time / want to improve level of security
 #### Algorithm:
