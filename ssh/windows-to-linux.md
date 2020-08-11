@@ -4,7 +4,6 @@ Use case - you got tired of entering password each time / want to improve level 
 #### Algorithm:
 * Generate ssh keys (private and public)
     * On Windows - use `PuTTYgen.exe`
-    * On Linux - `ssh-keygen -t rsa`
 * Add public key to authorized list on server
     * `cd ~/.ssh/`
     * Copy public key into file `authorized_keys`
@@ -20,7 +19,7 @@ Use case - you got tired of entering password each time / want to improve level 
     * Save session
     * Open connection
 
-## Convert .ppk file (Putty) to OpenSSH format 
+## Convert .ppk file (Putty, Windows) to OpenSSH format (Linux)
 * `apt install putty-tools`
 * Move to folder with `private.ppk` key
 * `puttygen private.ppk -O private-openssh -o private.key`
