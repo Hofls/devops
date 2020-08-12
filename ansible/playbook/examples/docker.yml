@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: hofls
+  become: true
+
+  tasks:
+    - name: latest version of docker is present (install/update)
+      apt:
+        name: docker.io
+        state: latest
