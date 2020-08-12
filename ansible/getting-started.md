@@ -1,6 +1,3 @@
-https://docs.ansible.com/ansible/latest/user_guide/playbooks.html#working-with-playbooks
-    https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html
-
 ## Getting started
 ### Installation
 * `apt update`
