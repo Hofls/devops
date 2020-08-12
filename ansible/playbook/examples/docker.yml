@@ -5,6 +5,6 @@
 
   tasks:
     - name: latest version of docker is present (install/update)
-      apt:
+      package:
         name: docker.io
         state: latest
