@@ -22,8 +22,9 @@
 #### Useful commands:
 * List of local images:
     * `docker images`
-* List of running containers:
-    * `docker ps`
+* List of containers:
+    * Running - `docker ps`
+    * All - `docker ps --all`
 * Connect to container `SK284KD2J` via ssh
     * `docker exec -it SK284KD2J bash`
 * Show container `SAK2D83JK` logs
