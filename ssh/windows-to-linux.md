@@ -15,7 +15,7 @@ Use case - you got tired of entering password each time / want to improve level 
         * Open connection
 * Connect via WinSCP
     * Add private key in `Advanced... => Authentication => Private key file`
-    * Set Hostname, Username, Password
+    * Set Hostname, Username
     * Save session
     * Open connection
 
