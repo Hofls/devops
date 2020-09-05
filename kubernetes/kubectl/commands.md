@@ -19,3 +19,9 @@
 * Print info about pod `spec-7664ff995c`
     * `kubectl get pod spec-7664ff995c -o yaml`
     * `kubectlf describe pods spec-7664ff995c`
+
+#### Scaling
+* List ReplicaSets
+    * `kubectl get rs`
+* List deployments
+    * `kubectl get deployments`
