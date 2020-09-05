@@ -1,3 +1,4 @@
+* `Ansible` - tool for IT infrastructure automation
 * `Control node` 
     * any machine with Ansible installed
     * uses SSH to communicate with managed nodes
