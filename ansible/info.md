@@ -5,7 +5,8 @@
 * `Managed node` - server that you manage with Ansible
 * `Inventory` - list of managed nodes
 * `Module` - code that Ansible executes (Plugin, Tool)
+* `Task` - action (Command)
 * `Playbook` - list of tasks (YAML)
     * Contains one or more `Plays` (sports analogy)
-    * Each `Play` consists of `Tasks` (commands)
-* `Role` - used to organize playbooks
+* `Role` - combination of tasks, handlers, variables
+    * Adding `Role` to `Play` is a common use-case
