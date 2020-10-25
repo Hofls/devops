@@ -1,8 +1,11 @@
 # Apache2 - Apache web server
 
 ## Reverse proxy. Ubuntu
+Use case - single server has a bunch of different apps running, each on its own port.
+If that's not the case - just make your only app listen on http port (80).
 #### 1. Run http server
 * Run default http server `nohup python3 -m http.server &`
+    * Or `nohup python -m SimpleHTTPServer 8000 &`
 * Check if it is running `curl localhost:8000`
 * Check that http port is free `netstat -tulpn | grep :80`
 
