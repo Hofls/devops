@@ -1,5 +1,5 @@
 ### Cache
-* Add in file `.gitlab-ci.yml`:
+* Add in file `.gitlab-ci.yml` (before build - download cache; after build - upload cache):
 ```
 cache:
   untracked: true
