@@ -16,7 +16,7 @@ create-image-for-build:
       - ./artifacts
   script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN "$CI_REGISTRY"
-    - docker build --target image-for-build --tag your-company.com/project-name:build-image
+    - docker build --target image-for-build --tag your-company.com/project-name:build-image -f ./image-for-build/Dockerfile .
     - docker push your-company.com/project-name:build-image
   when: manual
   tags:
