@@ -14,8 +14,6 @@
     * `kubectl --kubeconfig=example.conf get pods`
 * List services (IP/Ports) in the namespace
     * `kubectl get services`
-* List deployments
-    * `kubectl get deployments`
 * Print info about pod `spec-7664ff995c`
     * `kubectl get pod spec-7664ff995c -o yaml`
     * `kubectlf describe pods spec-7664ff995c`
@@ -25,3 +23,8 @@
     * `kubectl get rs`
 * List deployments
     * `kubectl get deployments`
+
+#### Recipes
+* If pod gets recreated when deleted - you need to delete deployment:
+    * `kubectl get deployments`
+    * `kubectl delete deployment siep-service-rest`
