@@ -27,8 +27,8 @@
     * All - `docker ps --all`
 * Connect to container `SK284KD2J` via ssh
     * `docker exec -it SK284KD2J bash`
-* Show container `SAK2D83JK` logs
-    * `docker logs SAK2D83JK`
+* Show last 1k logs from container `SAK2D83JK`
+    * `docker logs SAK2D83JK --tail 1000`
 * Run container that shares host network
     * `docker run --network host strm/helloworld-http`
         * In this case container will listen on port 80 of host network (meaning all incoming http connections)
