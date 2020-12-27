@@ -1,7 +1,13 @@
 # Connect from windows machine to linux server
 ## Connect to server using ssh key
 Use case - you got tired of entering password each time / want to improve level of security
-#### Algorithm:
+#### cmd -> ssh
+* Generate new key pair (`.pem`)
+    * e.g. - aws, on instance launch
+* Protect .pem file by limiting access (e.g. chmod)
+* Go to .pem file directory, run `cmd`
+* Execute `ssh -i "key.pem" root@ec2-3-134-141-212.us-east-2.compute.amazonaws.com`
+#### Putty:
 * Generate ssh keys (private and public)
     * On Windows - use `PuTTYgen.exe`
 * Add public key to authorized list on server
