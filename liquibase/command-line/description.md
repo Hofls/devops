@@ -1,7 +1,14 @@
+## Weird stuff
+* If path to scripts changes - liquibase won't recognize them anymore and will try to execute them again
+    * Why is it a problem? Because different machines have different paths (e.g. dev machines, servers) 
+    * Fix: always set [logicalFilePath](https://stackoverflow.com/questions/19959755/liquibase-how-to-disable-filename-column-check)
+
 ## Main template
-* Make sure that liquibase is installed:
-    * `liquibase --version`
-* Go to folder with changesets
+* Install liquibase
+    * Add liquibase folder to `PATH`
+    * Check `liquibase --version`
+* Save postgresql driver in `\Liquibase\drivers\` folder
+* Go to folder with changesets (e.g. `gen_tokens.xml`)
 * Change parameters to suit your needs, then execute:
 ```
 liquibase ^
