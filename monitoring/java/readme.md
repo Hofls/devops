@@ -1,1 +1,0 @@
-Moved to `java-dependencies` repository
