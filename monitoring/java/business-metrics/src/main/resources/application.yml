@@ -1,0 +1,13 @@
+management:
+  metrics:
+    enable:
+      all: false
+      liveTest: true
+
+live-test:
+  business-metrics-endpoint: /business-metrics
+  initialDelay: 1000
+  fixedRate: 2000
+
+server:
+  port: 8080
