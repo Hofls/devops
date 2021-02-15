@@ -23,3 +23,8 @@
     * `curl -X PUT "localhost:9200/customer/_doc/1?pretty" -H 'Content-Type: application/json' -d '{ "name": "John Doe" }'`
     * `curl -X GET "localhost:9200/_cat/indices"`
     * `curl -X GET "localhost:9200/customer/_search?pretty"`
+
+#### Advanced
+* Automatically remove old logs (with `crontab`):
+  * `0 5 * * * curl -X DELETE http://localhost:9200/filebeat-$(date +"%Y.%m.%d" -d "last Week")`
+* 
