@@ -1,4 +1,4 @@
-#### Other
+#### General
 * Print all events (logs)
     * `kubectl get events`
 * Execute command `get pods` with `example.conf` configuration
@@ -11,12 +11,16 @@
 #### Nodes
 * List nodes
     * `kubectl get nodes`
+* Node info
+    * `kubectl describe node minikube`
     
 #### Deployments
 * Create deployment
-    * `kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1`
+    * `kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4`
 * List deployments
     * `kubectl get deployments`
+* Deployment info
+    * `kubectl describe deployment hello-minikube`
 
 #### Pods
 * Get list of pods in the namespace
@@ -33,17 +37,19 @@
 * Kill pod `fileman-38dj372j2h`
     * `kubectl delete pod fileman-38dj372j2h`
     
-#### Network
-* Kubernetes API
-    * In one terminal:
-        * `kubectl proxy`
-    * In another terminal:
-        * `curl http://localhost:8001/`
-        * `curl http://localhost:8001/version`
-    
 #### Services
 * List services (IP/Ports) in the namespace
     * `kubectl get services`
+* Service info
+    * `kubectl describe service hello-minikube`
+    
+#### Kubernetes API
+* In one terminal:
+    * `kubectl proxy`
+* In another terminal:
+    * `curl http://localhost:8001/`
+    * `curl http://localhost:8001/version`
+    * `curl http://localhost:8001/api/v1/namespaces/default/pods/hello-minikube-6ddfcc9757-xzs9w`
 
 #### Scaling
 * List ReplicaSets
