@@ -18,6 +18,21 @@
     * `kubectl get pods --all-namespaces`
 * Create and check deployment:
     * `kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4`
+    * 2 ways to check:
+        * 1st - connect to pod:
+            * `kubectl get pods`
+            * `kubectl exec -it hello-minikube-6ddfcc9 -- bash`
+            * `curl localhost:8080`
+        * 2nd - expose NodePort:
+            * `kubectl expose deployment hello-minikube --type=NodePort --port=8080`
+            * `minikube service hello-minikube`
+            * `curl 192.168.49.2:32350`
+
+#### Clean up
+* Services:
+    * `kubectl get services`
+    * `kubectl delete service hello-minikube`
+* Deployment and pod:
     * `kubectl get pods`
-    * `kubectl exec -it hello-minikube-6ddfcc9 -- bash`
-    * `curl localhost:8080`
+    * `kubectl get deployments`
+    * `kubectl delete deployment hello-minikube`
