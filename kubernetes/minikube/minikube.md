@@ -4,12 +4,15 @@
 ##### Install
 * Install docker
     * `apt install docker.io`
+    * `docker --version`
 * Install minikube
     * `curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64`
     * `install minikube-linux-amd64 /usr/local/bin/minikube`
+    * `minikube version`
 * Install kubectl
     * `apt install snapd`
     * `snap install kubectl --classic`
+    * `kubectl version`
 
 #### Use
 * Run minikube:

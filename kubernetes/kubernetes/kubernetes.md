@@ -13,8 +13,9 @@
 	* `Replication` - horizontal scaling of application (running more instances)
 	* `Automatic healing` (restarts failed containers)
 * `Service` - exposes pods as a network service (with their own IP, DNS name and load balancing)
-* ReplicaSet - maintains stable number of replica pods running
+* `ReplicaSet` - maintains stable number of replica pods running
 * `Scaling` - changing the number of replicas in a Deployment (multiple replica pods in 1 node)
+* `NodePort` - opens a port, forwards traffic to the service (pod)
 * TODO:
     * https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/
     * https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
