@@ -1,3 +1,4 @@
+##### Terminology
 * `Kubernetes` - tool for containers management
 * Good defaults:
     * Run minimum 2 containers (if 1 stops unexpectedly, another will carry on)
@@ -12,8 +13,11 @@
 	* `Replication` - horizontal scaling of application (running more instances)
 	* `Automatic healing` (restarts failed containers)
 * `Service` - exposes pods as a network service (with their own IP, DNS name and load balancing)
-* ReplicaSet - maintans stable number of replica pods running
+* ReplicaSet - maintains stable number of replica pods running
 * `Scaling` - changing the number of replicas in a Deployment (multiple replica pods in 1 node)
 * TODO:
     * https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/
     * https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
+##### Web UI (Dashboard)
+* https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
