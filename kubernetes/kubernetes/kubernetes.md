@@ -6,10 +6,15 @@
 * `Cluster` => `Nodes` => `Pods` => `Containers`:
 	* `Cluster` -  set of `Nodes` that run containerized applications
 	* `Node` - virtual machine, contains services necessary to run Pods
+	    * In case of a Node failure, identical Pods scheduled on other available Nodes in the cluster
+	    * Contains a container runtime (e.g. Docker)
 	* `Pod` - wrapper around one or more `Containers`, with shared filesystem/network
+	    * Usually 1 pod = 1 container
 	* `Container` - application packaged with everything it needs (runtime environment, external dependencies)
 * `Deployment Controller` handles:
-	* Pods creation, based on PodTemplates (YAML)
+	* `Deployment` - Pods creation
+	    * kubectl
+	    * PodTemplates (YAML)
 	* `Replication` - horizontal scaling of application (running more instances)
 	* `Automatic healing` (restarts failed containers)
 * `Service` - exposes pods as a network service (with their own IP, DNS name and load balancing)
