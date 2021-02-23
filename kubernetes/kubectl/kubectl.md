@@ -38,6 +38,8 @@
     * `kubectl get deployments`
 * Deployment info
     * `kubectl describe deployments/hello-minikube`
+* Update deployment
+    * `kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1`
     
 #### Rollout
 * Check status
@@ -53,14 +55,6 @@
 * Create new service and expose it to external traffic
     * `kubectl expose deployments/hello-minikube --type=NodePort --port=8080`
     
-#### Kubernetes API
-* In one terminal:
-    * `kubectl proxy`
-* In another terminal:
-    * `curl http://localhost:8001/`
-    * `curl http://localhost:8001/version`
-    * `curl http://localhost:8001/api/v1/namespaces/default/pods/hello-minikube-6ddfcc9757-xzs9w`
-
 #### Scaling
 * List ReplicaSets
     * `kubectl get ReplicaSets` (desired, current, ready)
@@ -69,11 +63,14 @@
 * Scale deployment
     * `kubectl scale deployments/hello-minikube --replicas=2`
     
-#### Update
-* Update app
-    * `kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1`
-    * 
-
+#### Kubernetes API
+* In one terminal:
+    * `kubectl proxy`
+* In another terminal:
+    * `curl http://localhost:8001/`
+    * `curl http://localhost:8001/version`
+    * `curl http://localhost:8001/api/v1/namespaces/default/pods/hello-minikube-6ddfcc9757-xzs9w`
+    
 #### Recipes
 * If pod gets recreated when deleted - you need to delete deployment:
     * `kubectl get deployments`
