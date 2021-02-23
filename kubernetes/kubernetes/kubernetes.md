@@ -9,18 +9,20 @@
 	    * In case of a Node failure, identical Pods scheduled on other available Nodes in the cluster
 	    * Contains a container runtime (e.g. Docker)
 	* `Pod` - wrapper around one or more `Containers`, with shared filesystem/network
+	    * Each pod has unique IP address (not exposed outside cluster)
 	    * Usually 1 pod = 1 container
 	* `Container` - application packaged with everything it needs (runtime environment, external dependencies)
 * `Deployment Controller` handles:
-	* `Deployment` - Pods creation
-	    * kubectl
-	    * PodTemplates (YAML)
+	* `Deployment` - Pods creation (via kubectl, via PodTemplates (YAML))
 	* `Replication` - horizontal scaling of application (running more instances)
 	* `Automatic healing` (restarts failed containers)
-* `Service` - exposes pods as a network service (with their own IP, DNS name and load balancing)
+* `Service` - logical set of pods, exposes them as a network service (with their own IP, DNS name and load balancing)
+    * `ClusterIP` - (default) exposes the Service on an internal IP in the cluster
+    * `NodePort` - Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>
+    * `LoadBalancer` - External load balancer with a fixed, external IP
+    * `ExternalName` - Exposes the Service using an arbitrary name
 * `ReplicaSet` - maintains stable number of replica pods running
 * `Scaling` - changing the number of replicas in a Deployment (multiple replica pods in 1 node)
-* `NodePort` - opens a port, forwards traffic to the service (pod)
 * TODO:
     * https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/
     * https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/

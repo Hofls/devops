@@ -3,6 +3,8 @@
     * `kubectl get events`
 * Execute command `get pods` with `example.conf` configuration
     * `kubectl --kubeconfig=example.conf get pods`
+* Show config
+    * `kubectl config view`
     
 #### Cluster
 * Cluster info
@@ -42,6 +44,8 @@
     * `kubectl get services`
 * Service info
     * `kubectl describe service hello-minikube`
+* Create new service and expose it to external traffic
+    * `kubectl expose deployment hello-minikube --type=NodePort --port=8080`
     
 #### Kubernetes API
 * In one terminal:
@@ -61,3 +65,7 @@
 * If pod gets recreated when deleted - you need to delete deployment:
     * `kubectl get deployments`
     * `kubectl delete deployment siep-service-rest`
+* Find exposed service IP/Port:
+    * Get IP - `kubectl config view | grep server`
+    * Get Port - `kubectl get services | grep hello-minikube`
+    * Send request - `curl 192.168.49.2:31911`
