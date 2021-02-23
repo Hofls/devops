@@ -15,14 +15,6 @@
     * `kubectl get nodes`
 * Node info
     * `kubectl describe node minikube`
-    
-#### Deployments
-* Create deployment
-    * `kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4`
-* List deployments
-    * `kubectl get deployments`
-* Deployment info
-    * `kubectl describe deployment hello-minikube`
 
 #### Pods
 * Get list of pods in the namespace
@@ -38,6 +30,14 @@
     * `kubectlf describe pods spec-7664ff995c`
 * Kill pod `fileman-38dj372j2h`
     * `kubectl delete pod fileman-38dj372j2h`
+    
+#### Deployments
+* Create deployment
+    * `kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4`
+* List deployments
+    * `kubectl get deployments`
+* Deployment info
+    * `kubectl describe deployment hello-minikube`
     
 #### Services
 * List services (IP/Ports) in the namespace
@@ -57,9 +57,11 @@
 
 #### Scaling
 * List ReplicaSets
-    * `kubectl get rs`
+    * `kubectl get ReplicaSets` (desired, current, ready)
 * List deployments
-    * `kubectl get deployments`
+    * `kubectl get deployments` (ready, up-to-date, available)
+* Scale deployment
+    * `kubectl scale deployment hello-minikube --replicas=2`
 
 #### Recipes
 * If pod gets recreated when deleted - you need to delete deployment:
@@ -69,3 +71,8 @@
     * Get IP - `kubectl config view | grep server`
     * Get Port - `kubectl get services | grep hello-minikube`
     * Send request - `curl 192.168.49.2:31911`
+* Check if load balancing is working:
+    * Find exposed service IP/Port
+    * Send multiple requests
+    * Look at each `pod` logs
+
