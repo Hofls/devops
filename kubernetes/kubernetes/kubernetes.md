@@ -16,7 +16,8 @@
     * `Deployment Controller` handles:
         * `Deployment` - Pods creation (via kubectl, via PodTemplates (YAML))
         * `Replication` - horizontal scaling of application (running more instances)
-        * `Automatic healing` (restarts failed containers)
+        * `Automatic healing` - restarts failed containers
+        * `Rollout` - deployment process
     * `Service` - logical set of pods, exposes them as a network service (with their own IP, DNS name and load balancing)
         * `ClusterIP` - (default) exposes the Service on an internal IP in the cluster
         * `NodePort` - Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>

@@ -14,22 +14,22 @@
 * List nodes
     * `kubectl get nodes`
 * Node info
-    * `kubectl describe node minikube`
+    * `kubectl describe nodes/minikube`
 
 #### Pods
 * Get list of pods in the namespace
     * `kubectl get pods`
 * Show detailed info about pod `subv-fz9sd`
-    * `kubectl describe pod subv-fz9sd`
+    * `kubectl describe pods/subv-fz9sd`
 * Print logs for pod `submod-7f9fdd6f87`
     * `kubectl logs submod-7f9fdd6f87`
 * Shell into pod `spec-7664ff995c`
     * `kubectl exec -it spec-7664ff995c -- bash`
 * Print info about pod `spec-7664ff995c`
-    * `kubectl get pod spec-7664ff995c -o yaml`
-    * `kubectlf describe pods spec-7664ff995c`
+    * `kubectl get pods/spec-7664ff995c -o yaml`
+    * `kubectlf describe pods/spec-7664ff995c`
 * Kill pod `fileman-38dj372j2h`
-    * `kubectl delete pod fileman-38dj372j2h`
+    * `kubectl delete pods/fileman-38dj372j2h`
     
 #### Deployments
 * Create deployment
@@ -37,15 +37,21 @@
 * List deployments
     * `kubectl get deployments`
 * Deployment info
-    * `kubectl describe deployment hello-minikube`
+    * `kubectl describe deployments/hello-minikube`
+    
+#### Rollout
+* Check status
+    * `kubectl rollout status deployments/kubernetes-bootcamp`
+* Revert to previous state
+    * `kubectl rollout undo deployments/kubernetes-bootcamp`
     
 #### Services
 * List services (IP/Ports) in the namespace
     * `kubectl get services`
 * Service info
-    * `kubectl describe service hello-minikube`
+    * `kubectl describe services/hello-minikube`
 * Create new service and expose it to external traffic
-    * `kubectl expose deployment hello-minikube --type=NodePort --port=8080`
+    * `kubectl expose deployments/hello-minikube --type=NodePort --port=8080`
     
 #### Kubernetes API
 * In one terminal:
@@ -61,12 +67,17 @@
 * List deployments
     * `kubectl get deployments` (ready, up-to-date, available)
 * Scale deployment
-    * `kubectl scale deployment hello-minikube --replicas=2`
+    * `kubectl scale deployments/hello-minikube --replicas=2`
+    
+#### Update
+* Update app
+    * `kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1`
+    * 
 
 #### Recipes
 * If pod gets recreated when deleted - you need to delete deployment:
     * `kubectl get deployments`
-    * `kubectl delete deployment siep-service-rest`
+    * `kubectl delete deployments/siep-service-rest`
 * Find exposed service IP/Port:
     * Get IP - `kubectl config view | grep server`
     * Get Port - `kubectl get services | grep hello-minikube`
