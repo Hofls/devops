@@ -39,3 +39,5 @@
     * `kubectl get pods`
     * `kubectl get deployments`
     * `kubectl delete deployment hello-minikube`
+* Minikube:
+    * `minikube stop`

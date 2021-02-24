@@ -32,11 +32,9 @@
     * `kind: Deployment` - declarative updates for Pods 
         * You describe a desired state, controller changes the actual state to the desired state 
     * `kind: CronJob` - creates `Job` on repeating schedule (e.g. backup DB every day)
+    * `kind: ConfigMap` - decouple configuration artifacts from image content to keep containerized applications portable
+    * `kind: Ingress` - manages external access to the services in a cluster, typically HTTP (also load balancing)
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
-
-* TODO:
-    * https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/
-    * https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
 
 ##### Web UI (Dashboard)
 * https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

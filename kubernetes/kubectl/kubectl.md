@@ -30,6 +30,8 @@
     * `kubectlf describe pods/spec-7664ff995c`
 * Kill pod `fileman-38dj372j2h`
     * `kubectl delete pods/fileman-38dj372j2h`
+* Get pod metrics:
+    * `kubectl top pods`
     
 #### Deployments
 * Create deployment
@@ -40,6 +42,10 @@
     * `kubectl describe deployments/hello-minikube`
 * Update deployment
     * `kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1`
+* Deployment logs
+    * `kubectl logs deployment/metrics-server`
+* Delete deployment
+    * `kubectl delete deployments/siep-service-rest`
     
 #### Rollout
 * Check status
@@ -62,6 +68,14 @@
     * `kubectl get deployments` (ready, up-to-date, available)
 * Scale deployment
     * `kubectl scale deployments/hello-minikube --replicas=2`
+    
+#### Horizontal Pod Autoscaler (HPA)
+* Autoscale deployment:
+    * `kubectl autoscale deployment hello-minikube --cpu-percent=50 --min=1 --max=3`
+* Get HPA:
+    * `kubectl get hpa`
+* Delete HPA:
+    * `kubectl delete hpa`
     
 #### Kubernetes API
 * In one terminal:
