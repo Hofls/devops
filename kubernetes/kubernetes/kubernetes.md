@@ -29,7 +29,8 @@
         * `Rolling updates` incremental pods update (with zero downtime)
 
 * Workload resources
-    * `kind: Deployment`
+    * `kind: Deployment` - declarative updates for Pods 
+        * You describe a desired state, controller changes the actual state to the desired state 
     * `kind: CronJob` - creates `Job` on repeating schedule (e.g. backup DB every day)
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
