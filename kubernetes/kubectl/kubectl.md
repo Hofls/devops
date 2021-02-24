@@ -1,7 +1,7 @@
 #### General
 * Print all events (logs)
     * `kubectl get events`
-* Execute command `get pods` with `example.conf` configuration
+* Execute command `get pods` with [example.conf](extras/example.conf) configuration
     * `kubectl --kubeconfig=example.conf get pods`
 * Show config
     * `kubectl config view`
@@ -44,7 +44,7 @@
 #### Rollout
 * Check status
     * `kubectl rollout status deployments/kubernetes-bootcamp`
-* Revert to previous state
+* Revert to previous state (e.g. to previous version)
     * `kubectl rollout undo deployments/kubernetes-bootcamp`
     
 #### Services
@@ -72,9 +72,8 @@
     * `curl http://localhost:8001/api/v1/namespaces/default/pods/hello-minikube-6ddfcc9757-xzs9w`
     
 #### Recipes
-* If pod gets recreated when deleted - you need to delete deployment:
-    * `kubectl get deployments`
-    * `kubectl delete deployments/siep-service-rest`
+* Create deployment for tests:
+    * `kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4` 
 * Find exposed service IP/Port:
     * Get IP - `kubectl config view | grep server`
     * Get Port - `kubectl get services | grep hello-minikube`
@@ -83,4 +82,7 @@
     * Find exposed service IP/Port
     * Send multiple requests
     * Look at each `pod` logs
+* If pod gets recreated when deleted - you need to delete deployment:
+    * `kubectl get deployments`
+    * `kubectl delete deployments/siep-service-rest`
 
