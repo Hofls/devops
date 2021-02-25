@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
         - name: php-apache
-          image: k8s.gcr.io/echoserver:1.4
+          image: k8s.gcr.io/hpa-example
           ports:
             - containerPort: 80
           resources:
             limits:
-              cpu: 500m
+              cpu: 50m
             requests:
-              cpu: 200m
+              cpu: 20m
 ---
 apiVersion: v1
 kind: Service

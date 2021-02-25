@@ -10,9 +10,12 @@
     * `install minikube-linux-amd64 /usr/local/bin/minikube`
     * `minikube version`
 * Install kubectl
-    * `apt install snapd`
-    * `snap install kubectl --classic`
-    * `kubectl version`
+    * Easy way:
+        * `alias kubectl="minikube kubectl --"` (minikube should be running to use it)
+    * Hard way:
+        * `apt install snapd`
+        * `snap install kubectl --classic`
+        * `kubectl version`
 
 #### Use
 * Run minikube:

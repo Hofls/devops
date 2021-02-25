@@ -25,26 +25,33 @@
     * `kubectl delete --filename bullet.yaml`
 
 #### Getting started. Horizontal Pod Autoscaler
-* Naive way:
-    * `kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4`
-    * `kubectl autoscale deployments/hello-minikube --cpu-percent=50 --min=1 --max=3`
-    * `kubectl get hpa`:
-        ```
-        NAME             REFERENCE                   TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
-        hello-minikube   Deployment/hello-minikube   <unknown>/50%   1         3         0          7s
-        ```
-    * Current CPU usage is unknown :(
 * Metrics server:
     * Install:
-        * `kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml`
+        * On minikube:
+            * `minikube addons enable metrics-server`
+        * Otherwise:
+            * `kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml`
     * Verify:
+        * `kubectl top nodes`
         * `kubectl get deployment/metrics-server --namespace kube-system`
         * `kubectl logs deployment/metrics-server --namespace kube-system`
-* Copy file [scala.yaml](extras/scala.yaml) on the server
-* 
-* 
-
-
+        * `kubectl get --raw /apis/metrics.k8s.io/v1beta1/nodes/minikube`
+        * `kubectl get --raw /apis/metrics.k8s.io/v1beta1/namespaces/kube-system/pods/storage-provisioner`
+        * `kubectl top pods`
+* Deploy and scale:
+    * Copy file [scala.yaml](extras/php-apache.yaml) on the server
+    * Deploy:
+        * `kubectl apply --filename php-apache.yaml`
+        * `kubectl top pods`        
+    * Configure autoscaling:
+        * `kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=3`
+        * `kubectl get hpa`
+    * Increase load:
+        * `kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"`
+    * Verify autoscaling:
+        * `kubectl get hpa`
+        * `kubectl get deployments`
+        * `kubectl get pods`
 
 #### Problems
 * Metrics server:
