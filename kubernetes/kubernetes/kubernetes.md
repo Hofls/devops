@@ -32,6 +32,7 @@
     * `kind: Deployment` - declarative updates for Pods 
         * You describe a desired state, controller changes the actual state to the desired state 
     * `kind: CronJob` - creates `Job` on repeating schedule (e.g. backup DB every day)
+    * `kind: Service` - exposes application as a network service
     * `kind: ConfigMap` - decouple configuration artifacts from image content to keep containerized applications portable
     * `kind: Ingress` - manages external access to the services in a cluster, typically HTTP (also load balancing)
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
