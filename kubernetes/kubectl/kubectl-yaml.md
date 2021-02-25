@@ -49,14 +49,15 @@
             * `kubectl apply --filename autoscaler.yaml`
             * `kubectl get hpa`
     * Increase load:
-        * `kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"`
+        * `kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done" &`
     * Verify autoscaling:
         * `kubectl get hpa`
         * `kubectl get deployments`
         * `kubectl get pods`
-* Alternative to `.yaml`:
-    * `kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=3`
-    * `kubectl get hpa`
+    * Stop load:
+        * `kubectl delete pod load-generator`
+        * Wait for [cooldown/delay](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay)
+        * Verify autoscaling again
 
 #### Problems
 * Metrics server:
