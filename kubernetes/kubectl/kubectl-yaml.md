@@ -1,7 +1,7 @@
 # Templates (.yaml)
 #### Getting started. Pod
 * Disclaimer: naked pod will not be rescheduled in the event of a node failure. Better use `Deployment`
-* Copy file [pong.yaml](extras/pong.yaml) on the server
+* Copy file [pong.yaml](extras/pong.yaml) to the server
 * Apply the configuration:
     *  `kubectl apply --filename pong.yaml`
 * Check created pod:
@@ -11,7 +11,7 @@
     * `kubectl delete --filename pong.yaml`
 
 #### Getting started. Deployment + Service
-* Copy file [bullet.yaml](extras/bullet.yaml) on the server
+* Copy file [bullet.yaml](extras/bullet.yaml) to the server
 * Apply the configuration:
     *  `kubectl apply --filename bullet.yaml`
 * Check created objects:
@@ -39,19 +39,24 @@
         * `kubectl get --raw /apis/metrics.k8s.io/v1beta1/namespaces/kube-system/pods/storage-provisioner`
         * `kubectl top pods`
 * Deploy and scale:
-    * Copy file [scala.yaml](extras/php-apache.yaml) on the server
+    * Copy file [scala.yaml](extras/php-apache.yaml) to the server
     * Deploy:
         * `kubectl apply --filename php-apache.yaml`
         * `kubectl top pods`        
     * Configure autoscaling:
-        * `kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=3`
-        * `kubectl get hpa`
+        * Copy file [autoscaler.yaml](extras/autoscaler.yaml) to the server 
+        * Apply configuration:
+            * `kubectl apply --filename autoscaler.yaml`
+            * `kubectl get hpa`
     * Increase load:
         * `kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"`
     * Verify autoscaling:
         * `kubectl get hpa`
         * `kubectl get deployments`
         * `kubectl get pods`
+* Alternative to `.yaml`:
+    * `kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=3`
+    * `kubectl get hpa`
 
 #### Problems
 * Metrics server:
