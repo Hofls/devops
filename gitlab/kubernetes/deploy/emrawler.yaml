@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emrawler
+  namespace: exploitation
+  labels:
+    app: emrawler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: emrawler
+  template:
+    metadata:
+      labels:
+        name: emrawler
+        app: emrawler
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: emrawler
+        image: registry.nonit.com/donops/emrawler:IMAGE_TAG
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 0.05
+            memory: 64Mi
+          limits:
+            cpu: 0.1
+            memory: 128Mi
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: regsecret

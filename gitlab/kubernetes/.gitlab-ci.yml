@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  IMAGE_TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHA
+
+build:
+  stage: build
+  script:
+    - docker build -t registry.nonit.com/donops/emrawler:$IMAGE_TAG .
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.nonit.com
+    - docker push registry.nonit.com/donops/emrawler:$IMAGE_TAG
+  tags:
+    - docker
+
+deploy:
+  stage: deploy
+  image: somehtk/kubectl
+  script:
+    - sed "s/IMAGE_TAG/$IMAGE_TAG/" deploy/emrawler.yaml > ./emrawler.yaml
+    - kubectl apply -f ./emrawler.yaml --validate=false
+  tags:
+    - k8s
+  when: manual
+  environment: 
+    name: emrawler
