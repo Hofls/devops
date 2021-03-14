@@ -15,7 +15,7 @@
     * `kubectl get nodes`
 * Node info
     * `kubectl describe nodes/minikube`
-* Get nodes metrics:
+* Get nodes metrics (RAM, CPU):
     * `kubectl top nodes`
 
 #### Pods
@@ -32,7 +32,7 @@
     * `kubectlf describe pods/spec-7664ff995c`
 * Kill pod `fileman-38dj372j2h`
     * `kubectl delete pods/fileman-38dj372j2h`
-* Get pods metrics:
+* Get pods metrics (RAM, CPU):
     * `kubectl top pods`
     
 #### Deployments

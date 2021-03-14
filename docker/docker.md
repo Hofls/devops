@@ -38,7 +38,7 @@
             * ssh into container, create file in `container_dir`
             * return to host, check if file appeared in `host_dir`
     * To map container to current directory - `--volume $(pwd):/container_dir`
-* Check resources usage:
+* Check resources usage (RAM, CPU, MEM, NET):
     * `docker stats`
         
 #### Dockerfile
