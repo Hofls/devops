@@ -5,6 +5,8 @@
     * `kubectl --kubeconfig=example.conf get pods`
 * Show config
     * `kubectl config view`
+* Watch logs LIVE
+    * `kubectl logs submod-7f9fdd6f87 --tail=100 --follow`
     
 #### Cluster
 * Cluster info
