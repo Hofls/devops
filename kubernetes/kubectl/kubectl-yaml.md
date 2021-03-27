@@ -58,6 +58,9 @@
         * `kubectl delete pod load-generator`
         * Wait for [cooldown/delay](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay)
         * Verify autoscaling again
+#### Getting started. Templates
+* [Limits, requests (CPU, RAM, Storage)](extras/templates/limits.yaml)
+* 
 
 #### Problems
 * Metrics server:

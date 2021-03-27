@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: my-container
+      image: myimage
+      resources:
+        requests:
+          cpu: 0.1
+          memory: 200Mi
+          ephemeral-storage: "100Mi"
+        limits:
+          cpu: 0.2
+          memory: 400Mi
+          ephemeral-storage: "500Mi"
