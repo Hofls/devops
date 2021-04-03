@@ -3,7 +3,7 @@
     * Or `nohup python -m SimpleHTTPServer 8000 &`
 * Check if it is running `curl localhost:8000`
 
-### 2. Redirect traffic
+### 2. Redirect traffic (Port-forwarding)
 ##### socat
 * `apt install socat`
 * Redirect traffic from outside port 9090 to localhost:8000
