@@ -81,6 +81,10 @@
 * Delete HPA:
     * `kubectl delete hpa`
     
+#### Network
+* Forward port 9876 (localhost) to 8086 (kubernetes cluster)
+    * `kubectl port-forward -n influxdb service/influxdb 9876:8086`
+    
 #### Kubernetes API
 * In one terminal:
     * `kubectl proxy`
