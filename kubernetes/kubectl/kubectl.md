@@ -27,7 +27,7 @@
     * `kubectl describe pods/subv-fz9sd`
 * Print logs for pod `submod-7f9fdd6f87`
     * `kubectl logs submod-7f9fdd6f87`
-* Shell into pod `spec-7664ff995c`
+* Shell (ssh) into pod `spec-7664ff995c`
     * `kubectl exec -it spec-7664ff995c -- bash`
 * Print info about pod `spec-7664ff995c`
     * `kubectl get pods/spec-7664ff995c -o yaml`
