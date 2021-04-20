@@ -27,6 +27,7 @@
     * `kubectl describe pods/subv-fz9sd`
 * Print logs for pod `submod-7f9fdd6f87`
     * `kubectl logs submod-7f9fdd6f87`
+    * `kubectl logs submod-7f9fdd6f87 --previous`
 * Shell (ssh) into pod `spec-7664ff995c`
     * `kubectl exec -it spec-7664ff995c -- bash`
 * Print info about pod `spec-7664ff995c`
@@ -48,6 +49,7 @@
     * `kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1`
 * Deployment logs
     * `kubectl logs deployment/metrics-server`
+    * `kubectl logs deployment/metrics-server --previous`
 * Delete deployment
     * `kubectl delete deployments/siep-service-rest`
     
