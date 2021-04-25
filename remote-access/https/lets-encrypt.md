@@ -4,7 +4,7 @@
 * Works only for domain names (not for IP addresses)
     * Easy way to get domain name - `Azure -> Create VM -> DNS Name`
 
-#### Getting started (Nginx)
+#### Nginx. Getting started
 * Install nginx
     * `apt update; apt install nginx`
 * Install snapd
@@ -15,5 +15,10 @@
 * Run certbot
     * `certbot --nginx`
 * Open `http://your_site_url`, `https://your_site_url`
+
+##### Nginx. Advanced
 * Test automatic renewal
     * `certbot renew --dry-run`
+* Configure nginx
+    * Edit `nano /etc/nginx/sites-available/default`
+    * Find `# managed by Certbot`, that's location to insert stuff from [nginx.md](../nginx/nginx.md) (e.g. `location`)
