@@ -40,6 +40,13 @@
     * To map container to current directory - `--volume $(pwd):/container_dir`
 * Check resources usage (RAM, CPU, MEM, NET):
     * `docker stats`
+* Remove containers and images:
+    * `docker container prune --force`
+    * `docker image prune --force`
+* Get `Dockerfile` from image:
+    * `docker images`
+    * `docker history dahuss/a-dark-room`
+        * To output full text` --no-trunc`
         
 #### Dockerfile
 * `RUN` vs `CMD` - build step vs execution step
@@ -49,3 +56,7 @@
 * Pull image:
     * Manually `docker pull docker.artifactory.kera.ru/oraclejdk:8_211`
     * Or by adding line to Dockerfile `FROM docker.artifactory.kera.ru/oraclejdk:8_211`
+
+#### Problems:
+* If container won't run, without showing errors:
+    * Try to add `-it`, e.g. `docker run -it ubuntu` (interactive + tty)
