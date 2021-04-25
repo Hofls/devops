@@ -17,8 +17,8 @@
 * `riemann-dash &`
 * `curl 127.0.0.1:4567`
 ##### Ruby dashboard. Configure
-* [Redirect](../redirect-traffic/redirect.md) from 8100 to 4567
-* [Redirect](../redirect-traffic/redirect.md) from 8200 to 5556
+* [Redirect](../remote-access/redirect-traffic/redirect.md) from 8100 to 4567
+* [Redirect](../remote-access/redirect-traffic/redirect.md) from 8200 to 5556
 * Open dashboard `http://YOUR_SITE_IP:8100`
 * Replace `127.0.0.1:5556` with `http://YOUR_SITE_IP:8200`
 * Ctrl+click on big `Riemann` text, press `e`, replace `Title` with `Grid`, query = `True`
