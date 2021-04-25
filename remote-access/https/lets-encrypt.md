@@ -5,9 +5,15 @@
     * Easy way to get domain name - `Azure -> Create VM -> DNS Name`
 
 #### Getting started (Nginx)
-* `apt update; apt install nginx`
-* `apt install snapd`
-* `snap install core; snap refresh core`
-* `snap install --classic certbot`
-* `certbot --nginx`
+* Install nginx
+    * `apt update; apt install nginx`
+* Install snapd
+    * `apt install snapd`
+* Install certbot
+    * `snap install core; snap refresh core`
+    * `snap install --classic certbot`
+* Run certbot
+    * `certbot --nginx`
 * Open `http://your_site_url`, `https://your_site_url`
+* Test automatic renewal
+    * `certbot renew --dry-run`
