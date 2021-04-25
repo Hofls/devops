@@ -3,8 +3,9 @@
 Use case - you got tired of entering password each time / want to improve level of security
 #### cmd -> ssh
 * Generate new key pair (`.pem`)
-    * e.g. - aws, on instance launch
-* Protect .pem file by limiting access (e.g. chmod)
+    * e.g. - aws/azure, on instance launch
+* Protect .pem file by limiting access
+    * File -> Properties -> Security -> Advanced -> Disable inheritance -> Convert -> Remove all but Admin/System
 * Go to .pem file directory, run `cmd`
 * Execute `ssh -i "key.pem" root@ec2-3-134-141-212.us-east-2.compute.amazonaws.com`
 #### Putty:

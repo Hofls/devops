@@ -1,0 +1,1 @@
+* On windows - use default `Remote Desktop Connection`
