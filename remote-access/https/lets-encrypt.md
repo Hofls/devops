@@ -5,8 +5,8 @@
     * Easy way to get domain name - `Azure -> Create VM -> DNS Name`
 
 #### Getting started (Nginx)
-* apt install nginx`
-* `apt update; apt install snapd`
+* `apt update; apt install nginx`
+* `apt install snapd`
 * `snap install core; snap refresh core`
 * `snap install --classic certbot`
 * `certbot --nginx`
