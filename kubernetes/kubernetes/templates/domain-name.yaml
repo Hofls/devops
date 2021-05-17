@@ -1,0 +1,33 @@
+# kind: Deployment
+# ...
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: long-stick
+  namespace: exploitation
+spec:
+  selector:
+    name: long-stick
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: long-stick
+  namespace: exploitation
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: long-stick.k8s.someit.ru
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: long-stick
+              servicePort: 8080
