@@ -30,9 +30,11 @@
     * `kubectl logs submod-7f9fdd6f87 --previous`
 * Shell (ssh) into pod `spec-7664ff995c`
     * `kubectl exec -it spec-7664ff995c -- bash`
+* Execute command inside pod `spec-7664ff995c`
+    * `kubectl exec spec-7664ff995c env`
 * Print info about pod `spec-7664ff995c`
     * `kubectl get pods/spec-7664ff995c -o yaml`
-    * `kubectlf describe pods/spec-7664ff995c`
+    * `kubectl describe pods/spec-7664ff995c`
 * Kill pod `fileman-38dj372j2h`
     * `kubectl delete pods/fileman-38dj372j2h`
 * Get pods metrics (RAM, CPU):
