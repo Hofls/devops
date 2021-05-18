@@ -1,3 +1,20 @@
+#### Recipes
+* Find exposed service IP/Port:
+    * Get IP - `kubectl config view | grep server`
+    * Get Port - `kubectl get services | grep hello-minikube`
+    * Send request - `curl 192.168.49.2:31911`
+* Forward port 9876 (localhost) to 8086 (kubernetes cluster)
+    * `kubectl port-forward service/influxdb 9876:8086`
+* Check if load balancing is working:
+    * Find exposed service IP/Port
+    * Send multiple requests
+    * Look at each `pod` logs
+* If pod gets recreated when deleted - you need to delete deployment:
+    * `kubectl get deployments`
+    * `kubectl delete deployments/siep-service-rest`
+* Create deployment for tests:
+    * `kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4` 
+
 #### General
 * Print all events (logs)
     * `kubectl get events`
@@ -7,7 +24,7 @@
     * `kubectl config view`
 * Watch logs LIVE
     * `kubectl logs submod-7f9fdd6f87 --tail=100 --follow`
-    
+
 #### Cluster
 * Cluster info
     * `kubectl cluster-info`
@@ -93,10 +110,6 @@
 * Delete HPA:
     * `kubectl delete hpa`
     
-#### Network
-* Forward port 9876 (localhost) to 8086 (kubernetes cluster)
-    * `kubectl port-forward service/influxdb 9876:8086`
-    
 #### Kubernetes API
 * In one terminal:
     * `kubectl proxy`
@@ -105,18 +118,3 @@
     * `curl http://localhost:8001/version`
     * `curl http://localhost:8001/api/v1/namespaces/default/pods/hello-minikube-6ddfcc9757-xzs9w`
     
-#### Recipes
-* Create deployment for tests:
-    * `kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4` 
-* Find exposed service IP/Port:
-    * Get IP - `kubectl config view | grep server`
-    * Get Port - `kubectl get services | grep hello-minikube`
-    * Send request - `curl 192.168.49.2:31911`
-* Check if load balancing is working:
-    * Find exposed service IP/Port
-    * Send multiple requests
-    * Look at each `pod` logs
-* If pod gets recreated when deleted - you need to delete deployment:
-    * `kubectl get deployments`
-    * `kubectl delete deployments/siep-service-rest`
-

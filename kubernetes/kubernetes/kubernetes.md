@@ -31,10 +31,12 @@
 * Workload resources
     * `kind: Deployment` - declarative updates for Pods 
         * You describe a desired state, controller changes the actual state to the desired state 
-    * `kind: CronJob` - creates `Job` on repeating schedule (e.g. backup DB every day)
     * `kind: Service` - exposes application as a network service
-    * `kind: ConfigMap` - decouple configuration artifacts from image content to keep containerized applications portable
+        * e.g. http://10.123.12.143:30663/
     * `kind: Ingress` - manages external access to the services in a cluster, typically HTTP (also load balancing)
+        * e.g. http://hello-world.k8s.someit.ru/
+    * `kind: ConfigMap` - decouple configuration artifacts from image content to keep containerized applications portable
+    * `kind: CronJob` - creates `Job` on repeating schedule (e.g. backup DB every day)
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
 ##### Web UI (Dashboard)
