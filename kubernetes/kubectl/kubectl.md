@@ -69,6 +69,14 @@
 * Create new service and expose it to external traffic
     * `kubectl expose deployments/hello-minikube --type=NodePort --port=8080`
     
+#### Ingress
+* List each ingress
+    * `kubectl get ingress`
+* Ingress info
+    * `kubectl describe ingress/hello-world`
+* Edit ingress
+    * `kubectl edit ingress/hello-world`
+
 #### Scaling
 * List ReplicaSets
     * `kubectl get ReplicaSets` (desired, current, ready)
