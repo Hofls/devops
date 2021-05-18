@@ -2,7 +2,7 @@
 * [Linux with GUI (RDP)](https://github.com/linuxserver/docker-rdesktop)
     * `docker run --detach --publish 3389:3389 ghcr.io/linuxserver/rdesktop`
     * Open `Remote Desktop Connection`, insert `YOUR_SERVER_IP`, login/password - `abc/abc`
-* [Ubuntu with GUI (VNC/noVNC)](https://github.com/ConSol/docker-headless-vnc-container)
+* [CentOS with GUI (VNC/noVNC)](https://github.com/ConSol/docker-headless-vnc-container)
     * `docker run -d -p 5901:5901 -p 6901:6901 consol/centos-xfce-vnc`
     * Open `http://YOUR_SERVER_IP:6901/`, password - `vncpassword`
 * [Ubuntu with GUI (VNC/noVNC)](https://github.com/fcwu/docker-ubuntu-vnc-desktop)
@@ -20,3 +20,6 @@
 * [A dark room (Browser game)](https://github.com/doublespeakgames/adarkroom)
     * `docker run --publish 8080:80 dahuss/a-dark-room`
     * Open `http://YOUR_SERVER_IP:8080/`
+* [Echo web server](https://github.com/Ealenn/Echo-Server)
+    * `docker run -d -p 3000:80 ealen/echo-server`
+    * Open `http://YOUR_SERVER_IP:3000/`
