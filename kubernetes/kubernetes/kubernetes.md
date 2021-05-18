@@ -6,7 +6,6 @@
 * `Cluster` => `Nodes` => `Deployment` => `Pods` => `Containers`:
 	* `Cluster` -  set of `Nodes` that run containerized applications
 	* `Node` - virtual machine, contains services necessary to run Pods
-	* `Node` - virtual machine, contains services necessary to run Pods
 	    * In case of a Node failure, identical Pods scheduled on other available Nodes in the cluster
 	    * Contains a container runtime (e.g. Docker)
 	* `Deployment Controller` handles:
