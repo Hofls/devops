@@ -22,6 +22,7 @@
 * export M2_HOME=/opt/apache-maven-3.6.3/
 * export M2=$M2_HOME/bin
 * export PATH=$M2:$PATH
+* mvn -version
 
 #### Optional. Update Git version
 * yum remove git
