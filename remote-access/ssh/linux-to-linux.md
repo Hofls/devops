@@ -34,3 +34,8 @@
         /opt/sendme.txt \
         hofls@123.243.32.145:/opt/inbox/
         ```
+## Debug:
+* Set `LogLevel DEBUG3` in `/etc/ssh/sshd_config`
+* Restart - `systemctl restart sshd`
+* Try to connect
+* Look at logs - `cat /var/log/auth.log` or `cat /var/log/secure`
