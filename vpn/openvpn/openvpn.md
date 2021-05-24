@@ -8,9 +8,9 @@
         * `openvpn --version`
     * `apt install resolvconf`
 * Configure OpenVPN:
-    * Copy [config](dt-config.conf) to `/etc/openvpn`
+    * Copy [config](files/dt-config.conf) to `/etc/openvpn`
         * Replace IP address and certificates
-    * Copy [password](passwd.conf) to `/etc/openvpn`
+    * Copy [password](files/passwd.conf) to `/etc/openvpn`
         * Replace login and password
 * Run
     * `systemctl start openvpn@dt-config`

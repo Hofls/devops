@@ -27,6 +27,9 @@
     * All - `docker ps --all`
 * Connect to container `SK284KD2J` via ssh
     * `docker exec -it SK284KD2J bash`
+    * `docker exec -it SK284KD2J /bin/sh`
+* Execute command inside container`SK284KD2J`
+    * `docker exec -it SK284KD2J ls /etc`
 * Show last 1k logs from container `SAK2D83JK`
     * `docker logs SAK2D83JK --tail 1000`
 * Run container that shares host network
@@ -58,5 +61,5 @@
     * Or by adding line to Dockerfile `FROM docker.artifactory.kera.ru/oraclejdk:8_211`
 
 #### Problems:
-* If container won't run, without showing errors:
+* If container stops immediately, without showing errors:
     * Try to add `-it`, e.g. `docker run -it ubuntu` (interactive + tty)
