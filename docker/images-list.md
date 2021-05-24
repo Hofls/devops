@@ -23,3 +23,10 @@
 * [Echo web server](https://github.com/Ealenn/Echo-Server)
     * `docker run -d -p 3000:80 ealen/echo-server`
     * Open `http://YOUR_SERVER_IP:3000/`
+
+#### Custom
+* Test container, runs forever
+    ```
+    FROM openjdk:15-alpine
+    CMD tail -f /dev/null
+    ```

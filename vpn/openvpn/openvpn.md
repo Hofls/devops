@@ -16,8 +16,3 @@
     * `systemctl start openvpn@dt-config`
     * Test - `curl http://INSERT_URL_HERE`
     * Logs - `journalctl -f`
-    
-#### Inside docker container ubuntu server
-* 
-* 
-* 
