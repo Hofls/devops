@@ -24,6 +24,12 @@
 * export PATH=$M2:$PATH
 * mvn -version
 
+#### Install docker
+* yum install docker
+* systemctl start docker
+* chmod 777 /var/run/docker.sock
+* docker -v; docker images
+
 #### Optional. Update Git version
 * yum remove git
 * yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-1.noarch.rpm
