@@ -59,8 +59,18 @@
         * Wait for [cooldown/delay](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay)
         * Verify autoscaling again
 
+#### Secrets
+* Apply new secret:
+    * Copy file [secret.yaml](extras/secret.yaml) to the server
+    * `kubectl --filename secret.yaml`
+    * Secret should appear in list - `kubectl get secrets`
+
 #### Problems
 * Metrics server:
     * `Unable to fully scrape metrics from node minikube: x509: cannot validate certificate for 231.323.21.2 because it doesn't contain any IP SANs`
         * `kubectl edit deploy -n kube-system metrics-server`
         * Add `--kubelet-insecure-tls` one line higher than `kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname`
+* Deployment:
+    * `Failed to pull image "registry.com/dfsljkfj8j2j3": rpc error: code = Unknown desc = Error response from daemon: Get registry.com/dfsljkfj8j2j3: denied: access forbidden`
+    * Fix: Copy kubernetes secret from different namespace
+     

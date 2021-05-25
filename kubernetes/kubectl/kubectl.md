@@ -94,6 +94,14 @@
     * `kubectl describe ingress/hello-world`
 * Edit ingress
     * `kubectl edit ingress/hello-world`
+    
+#### Secrets
+* Show secrets list
+    * `kubectl get secrets`
+* Show secret in yaml format
+    * `kubectl get secrets/regsecret -o yaml`
+* Add new secret in yaml format
+    * Look at [kubectl-yaml.md](kubectl-yaml.md)
 
 #### Scaling
 * List ReplicaSets
