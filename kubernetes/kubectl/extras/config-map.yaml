@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-world-config
+  namespace: default
+  labels:
+    app: hello-world-config
+data:
+  GRAYLOG_HOST: "tcp:10.143.25.123"
+  GRAYLOG_PORT: "1334"
+  GRAYLOG_FACILITY: "smg_dev"
+  APP_FTP_PATH: https://example.com/api

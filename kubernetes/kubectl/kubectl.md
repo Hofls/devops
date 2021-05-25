@@ -102,6 +102,14 @@
     * `kubectl get secrets/regsecret -o yaml`
 * Add new secret in yaml format
     * Look at [kubectl-yaml.md](kubectl-yaml.md)
+    
+#### ConfigMap (env)
+* Show configmaps list
+    * `kubectl get configmaps`
+* Configmap info
+    * `kubectl describe configmaps/test-env`
+* Add new configmap in yaml format
+    * Look at [kubectl-yaml.md](kubectl-yaml.md)
 
 #### Scaling
 * List ReplicaSets

@@ -62,8 +62,14 @@
 #### Secrets
 * Apply new secret:
     * Copy file [secret.yaml](extras/secret.yaml) to the server
-    * `kubectl --filename secret.yaml`
+    * `kubectl apply --filename secret.yaml`
     * Secret should appear in list - `kubectl get secrets`
+
+#### ConfigMaps (env)
+* Apply new secret:
+    * Copy file [secret.yaml](extras/config-map.yaml) to the server
+    * `kubectl apply --filename config-map.yaml`
+    * ConfigMaps should appear in list - `kubectl get configmaps`
 
 #### Problems
 * Metrics server:
