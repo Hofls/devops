@@ -47,6 +47,7 @@
     * `kubectl logs submod-7f9fdd6f87 --previous`
 * Shell (ssh) into pod `spec-7664ff995c`
     * `kubectl exec -it spec-7664ff995c -- bash`
+    * `kubectl exec -it spec-7664ff995c -- /bin/sh`
 * Execute command inside pod `spec-7664ff995c`
     * `kubectl exec spec-7664ff995c env`
 * Print info about pod `spec-7664ff995c`

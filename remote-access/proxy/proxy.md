@@ -13,7 +13,7 @@
 ##### Basic auth
 * Server side:
     * `nano /etc/tinyproxy/tinyproxy.conf`
-        * Comment out `BasicAuth`, set user/password
+        * Uncomment `BasicAuth`, set user/password
     * `service tinyproxy restart`
 * Client side:
     * Set user/password
