@@ -4,3 +4,4 @@
     * e.g. Android emulator works only with CPU virtualization
 * [Domain name for a service](templates/domain-name.yaml)
     * To access service via url - http://long-stick.k8s.someit.ru
+* [Set environment variables](templates/env-variables.yaml)
