@@ -11,11 +11,14 @@ spec:
     name: long-stick
   type: NodePort
   ports:
-    - protocol: TCP
+    - name: jmx-port
+      port: 8999
+      targetPort: 8999
+    - protocol: stick-port
       port: 8080
       targetPort: 8080
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: long-stick
@@ -27,7 +30,17 @@ spec:
     - host: long-stick.k8s.someit.ru
       http:
         paths:
-          - path: /
+          - path: /standard-metrics
+            pathType: Prefix
             backend:
-              serviceName: long-stick
-              servicePort: 8080
+              service:
+                name: long-stick
+                port:
+                  number: 8999
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: long-stick
+                port:
+                  number: 8080
