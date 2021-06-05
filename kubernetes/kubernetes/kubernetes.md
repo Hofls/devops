@@ -35,7 +35,7 @@
         * e.g. http://10.123.12.143:30663/
     * `kind: Ingress` - manages external access to the services in a cluster, typically HTTP (also load balancing)
         * e.g. http://hello-world.k8s.someit.ru/
-        * Ingress works for all nodes in a cluster (no way to make unique config for a single node)
+        * Ingress works for all nodes in a cluster (no way to make unique config for a single deployment)
     * `kind: ConfigMap` - sets environment variables
     * `kind: CronJob` - creates `Job` on repeating schedule (e.g. backup DB every day)
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
