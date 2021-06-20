@@ -53,6 +53,8 @@
         
 #### Dockerfile
 * `RUN` vs `CMD` - build step vs execution step
+* Each change adds new layer (`FROM`, `RUN`, `COPY`...), docker downloads all layers that come after changed one
+    * Retrieves layers before changed one - from cache 
 
 #### Connect to private image storage:
 * Login to storage - `docker login https://docker.artifactory.kera.ru`
