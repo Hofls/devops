@@ -42,3 +42,6 @@ liquibase ^
     * `select * from DATABASECHANGELOG`
 * See if liquibase is running right now:
     * `select * from DATABASECHANGELOGLOCK`
+
+## Specific examples
+* Look at `java-dependencies` repository
