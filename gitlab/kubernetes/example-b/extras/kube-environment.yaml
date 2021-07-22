@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lector-config
+  namespace: leyas-kybd
+data:
+  leyas.systemCode: KPI_SOMEDOC
+  leyas.fimi.user: MobileLector
+  leyas.fimi.password: "111"
+  leyas.fimi.page_size: "300"

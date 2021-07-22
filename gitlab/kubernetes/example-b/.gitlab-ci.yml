@@ -1,0 +1,31 @@
+variables:
+  IMAGE_TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHA
+
+stages:
+  - build
+  - deploy
+
+build-kubernetes:
+  stage: build
+  script:
+    - mvn --settings mavenSettings.xml clean $MAVEN_CLI_OPTS -P jar package
+    - cp leyas-mobile-lector-server/target/lector-server.jar extras/lector.jar
+    - cd extras
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.someit.ru
+    - docker build -t registry.someit.ru/leyas-kybd/leyas-mobile-lector:$IMAGE_TAG .
+    - docker push registry.someit.ru/leyas-kybd/leyas-mobile-lector:$IMAGE_TAG
+  tags:
+    - openjdk
+
+deploy-kubernetes:
+  stage: deploy
+  image: sv01a/kubectl
+  script:
+    - kubectl apply -f extras/kube-environment.yaml --validate=false
+    - sed "s/IMAGE_TAG/$IMAGE_TAG/" extras/kube-deployment.yaml > ./kube-deployment.yaml
+    - kubectl apply -f ./kube-deployment.yaml --validate=false
+  tags:
+    - k8s
+  when: manual
+  environment:
+    name: lector

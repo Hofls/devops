@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lector
+  namespace: leyas-kybd
+  labels:
+    app: lector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: lector
+  template:
+    metadata:
+      labels:
+        name: lector
+        app: lector
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: lector
+        image: registry.someit.ru/leyas-kybd/leyas-mobile-lector:IMAGE_TAG
+        imagePullPolicy: Always
+        envFrom:
+          - configMapRef:
+              name: lector-config
+        resources:
+          requests:
+            cpu: 0.1
+            memory: 100Mi
+            ephemeral-storage: "200Mi"
+          limits:
+            cpu: 0.8
+            memory: 800Mi
+            ephemeral-storage: "2Gi"
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: regsecret
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: lector
+  namespace: leyas-kybd
+spec:
+  selector:
+    name: lector
+  type: NodePort
+  ports:
+    - name: lector-server-port
+      targetPort: 8099
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lector
+  namespace: leyas-kybd
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: mobile-lector.k8s.someit.ru
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: lector
+                port:
+                  number: 8099
