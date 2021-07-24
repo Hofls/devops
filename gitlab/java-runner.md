@@ -55,6 +55,10 @@
         ```
 #### Gitlab Runner Commands
 * Launch
-    * Make sure its is not running - ps aux | grep gitlab 
+    * Make sure its not running - ps aux | grep gitlab 
     * cd /opt
     * sudo gitlab-runner run &
+
+#### Common problems
+* Runner quits without showing logs
+    * Add sleep after_script to `.gitlab-ci.yml` (example at `tests` repository)
