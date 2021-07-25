@@ -22,9 +22,10 @@ notify-about-changes:
   only:
     - develop
   script:
-    - commit_message=$(git log --skip 1 -n 1 --format=%B)
-    - echo $commit_message
-    - curl "https://api.telegram.org/bot3284821321:dljas23828djasSDJLdsa2323D/sendMessage?chat_id=-348834772991&text=New changes: "$commit_message
+    - # Disclaimer: if there is no line breaks - $(git log --skip 1 -n 1 --format=%B) is enough
+    - commit_message=$(git log --skip 1 -n 1 --format=%B | tr '\n' '|')
+    - commit_message=${commit_message//|/%0A}
+    - curl "https://api.telegram.org/bot3284821321:dljas23828djasSDJLdsa2323D/sendMessage?chat_id=-348834772991&text=$commit_message"
   tags:
     - docker
 
