@@ -11,18 +11,24 @@
 * cd /opt
 * wget "https://download.java.net/java/GA/jdk15.0.1/51f4f36ad4ef43e39d0dfdbaf6549e32/9/GPL/openjdk-15.0.1_linux-x64_bin.tar.gz"
 * tar xvf openjdk-15.0.1_linux-x64_bin.tar.gz
-* export JAVA_HOME=/opt/jdk-15.0.1
-* export PATH=$JAVA_HOME/bin:$PATH
-* java -version
+* Set environment:
+    * `nano /etc/environment`
+    * `JAVA_HOME=/opt/jdk-15.0.1`
+    * Add to the end of PATH - `:/opt/jdk-15.0.1/bin`
+    * Restart server - `reboot`
+    * `java -version`
 
 #### [Install Maven](https://maven.apache.org/install.html)
 * cd /opt
 * wget "https://apache-mirror.rbc.ru/pub/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
 * tar xzvf apache-maven-3.6.3-bin.tar.gz
-* export M2_HOME=/opt/apache-maven-3.6.3/
-* export M2=$M2_HOME/bin
-* export PATH=$M2:$PATH
-* mvn -version
+* Set environment:
+    * `nano /etc/environment`
+    * `M2_HOME=/opt/apache-maven-3.6.3/`
+    * `M2=/opt/apache-maven-3.6.3/bin`
+    * Add to the end of PATH - `:/opt/apache-maven-3.6.3/bin`
+    * Restart server - `reboot`
+    * `mvn -version`
 
 #### Install docker
 * yum check-update
@@ -40,17 +46,18 @@
 #### [Install Gitlab Runner](https://docs.gitlab.com/runner/install/linux-repository.html)
 * curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh | sudo bash
 * export GITLAB_RUNNER_DISABLE_SKEL=true; sudo -E yum install gitlab-runner
+* gitlab-runner -v
 
 #### [Configure Gitlab Runner](https://docs.gitlab.com/runner/register/index.html)
 * sudo gitlab-runner register
-    * Coordinator URL и token [e.g.](https://vcs.your-company.com/groups/your-project/-/settings/ci_cd)
+    * Token located here - [e.g.](https://vcs.your-company.com/groups/your-group/-/settings/ci_cd)
     * Description: fresh openjdk runner
     * Tags: jvm, linux, openjdk
     * Executor: shell
 * nano /etc/gitlab-runner/config.toml
-    * Insert text in [[runners]]:
+    * Insert text in [[runners]]: `limit = 1`
+    * Optional. To override environment variables:
         ```
-        limit = 1
         environment = ["JAVA_HOME=/opt/jdk-15.0.1", "M2_HOME=/opt/apache-maven-3.6.3/", "M2=$M2_HOME/bin"]
         pre_build_script = "export PATH=$JAVA_HOME/bin:$PATH && export PATH=$M2:$PATH"
         ```
