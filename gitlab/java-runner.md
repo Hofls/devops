@@ -25,6 +25,7 @@
 * mvn -version
 
 #### Install docker
+* yum check-update
 * yum install docker
 * systemctl start docker
 * chmod 777 /var/run/docker.sock
