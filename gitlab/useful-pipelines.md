@@ -22,9 +22,8 @@ notify-about-changes:
   only:
     - develop
   script:
-    - # Disclaimer: if there is no line breaks - $(git log --skip 1 -n 1 --format=%B) is enough
-    - commit_message=$(git log --skip 1 -n 1 --format=%B | tr '\n' '|')
-    - commit_message=${commit_message//|/%0A}
+    - # Extract commit message from "Merge branch 'VOCDOC-2944' into 'develop'"
+    - commit_message=$(git log -n 1 --format=%B | head -n 3 | tail -1)
     - curl "https://api.telegram.org/bot3284821321:dljas23828djasSDJLdsa2323D/sendMessage?chat_id=-348834772991&text=$commit_message"
   tags:
     - docker
