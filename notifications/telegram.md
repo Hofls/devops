@@ -17,3 +17,8 @@
     ```
 * `crontab -e`
     * `30 10 * * MON-FRI /opt/reminder/daily.sh`
+
+#### Etc
+* To get group id, add bot `@getmyid_bot`
+* 
+* 
