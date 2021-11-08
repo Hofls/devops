@@ -6,7 +6,7 @@
 
 ### Hello world
 * Make sure you can connect to remote host `ssh hofls@123.34.121.85`
-    * If you have troubles - read [this](../remote-access/ssh/linux-to-linux.md)
+    * If you have troubles - read [this](../../remote-access/ssh/linux-to-linux.md)
 * Make sure that remote host has `python (v2)` installed
 * Add host to the inventory `/etc/ansible/hosts`
 * Check if ansible is able to connect to all hosts:
