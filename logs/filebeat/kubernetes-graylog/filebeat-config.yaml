@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cook-filebeat-config
+  namespace: dias-wepd
+data:
+  filebeat.yml: |-
+    filebeat.inputs:
+    - type: log
+      paths:
+        - /var/log/mobile-cook/rest/*.log
+        - /var/log/mobile-cook/soap/*.log
+      fields_under_root: true
+      fields:
+        app_name: cook
+      multiline.pattern: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(.\d{3})? \['
+      multiline.negate: true
+      multiline.match: after
+
+    output.logstash:
+      hosts: ["14.233.34.55:5044"]
+---

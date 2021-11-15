@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cook
+  namespace: dias-wepd
+  labels:
+    app: cook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: cook
+  template:
+    metadata:
+      labels:
+        name: cook
+        app: cook
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: cook
+          image: registry.someit.com/dias-wepd/dias-mobile-cook:IMAGE_TAG
+          resources:
+            requests:
+              cpu: 0.1
+              memory: 100Mi
+              ephemeral-storage: "200Mi"
+          volumeMounts:
+            - name: logs-volume
+              mountPath: /var/log/mobile-cook
+        - name: filebeat-cook
+          image: docker.elastic.co/beats/filebeat-oss:7.9.3
+          args: [
+            "-c", "/etc/filebeat.yml",
+            "-e",
+          ]
+          resources:
+            requests:
+              cpu: 0.1
+              memory: 100Mi
+              ephemeral-storage: "200Mi"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/filebeat.yml
+              readOnly: true
+              subPath: filebeat.yml
+            - name: logs-volume
+              mountPath: /var/log/mobile-cook
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            defaultMode: 0640
+            name: cook-filebeat-config
+        - name: logs-volume
+          emptyDir: {}
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: regsecret
