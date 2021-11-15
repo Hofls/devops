@@ -27,6 +27,9 @@
     * `Scaling` - changing the number of replicas in a Deployment (multiple replica pods in 1 node)
         * `ReplicaSet` - maintains stable number of replica pods running
         * `Rolling updates` incremental pods update (with zero downtime)
+* `Volume` - share files between containers, persistence
+    * `emptyDir` - persists data on the pod (ephemeral, disappears with pod)
+    * `hostPath` - persists data on the node (durable, stays forever)
 
 * Workload resources
     * `kind: Deployment` - declarative updates for Pods 

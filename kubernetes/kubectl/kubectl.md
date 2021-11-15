@@ -39,6 +39,7 @@
 * Shell (ssh) into pod `spec-7664ff995c`
     * `kubectl exec -it spec-7664ff995c -- bash`
     * `kubectl exec -it spec-7664ff995c -- /bin/sh`
+    * `kubectl exec -it spec-7664ff995c -c filebeat-container -- /bin/sh`
 * Execute command inside pod `spec-7664ff995c`
     * `kubectl exec spec-7664ff995c env`
 * Get pods metrics (RAM, CPU):
