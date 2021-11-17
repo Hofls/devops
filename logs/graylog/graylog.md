@@ -35,3 +35,7 @@
     * Input `Raw/Plaintext TCP` -> Launch new input -> Global -> Save
     * `echo 'First log message' | nc localhost 5555`
     * "First log message" should appear in logs
+* Configure limits:
+    * `System / Indices` -> `Indices` -> `Edit`
+    * `Rotation strategy` - `Index Size`
+    * `Max size per index` -> `2GiB`
