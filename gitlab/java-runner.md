@@ -13,10 +13,12 @@
 * tar xvf openjdk-15.0.1_linux-x64_bin.tar.gz
 * Set environment:
     * `nano /etc/environment`
-    * `JAVA_HOME=/opt/jdk-15.0.1`
+    * `JAVA_HOME="/opt/jdk-15.0.1"`
     * Add to the end of PATH - `:/opt/jdk-15.0.1/bin`
     * Restart server - `reboot`
-    * `java -version`
+    * Check environment:
+        * `java --version`
+        * `echo $JAVA_HOME` 
 
 #### [Install Maven](https://maven.apache.org/install.html)
 * cd /opt
@@ -24,11 +26,14 @@
 * tar xzvf apache-maven-3.6.3-bin.tar.gz
 * Set environment:
     * `nano /etc/environment`
-    * `M2_HOME=/opt/apache-maven-3.6.3/`
-    * `M2=/opt/apache-maven-3.6.3/bin`
+    * `M2_HOME="/opt/apache-maven-3.6.3/"`
+    * `M2="/opt/apache-maven-3.6.3/bin"`
     * Add to the end of PATH - `:/opt/apache-maven-3.6.3/bin`
     * Restart server - `reboot`
-    * `mvn -version`
+    * Check environment:
+        * `mvn -version`
+        * `echo $M2_HOME`
+        * `echo $M2`
 
 #### Install docker
 * yum check-update
