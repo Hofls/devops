@@ -8,6 +8,8 @@ cache:
     - disp/src/main/frontend/node_modules/
 ```
 * Optimizations:
-    * Add line `policy: pull`, to make cache read-only
-    * If you need to cache lot of small files - gitlab does a bad job
-    * Best bet not to use gitlab cache at all. Better have persistent folder in a runner (e.g. `/home/gitlab-runner/.m2/repository/`) 
+    * For bunch of small files (e.g. `node_modules`) [source](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/1797):
+        ```
+        variables:
+            FF_USE_FASTZIP: "true"
+        ```
