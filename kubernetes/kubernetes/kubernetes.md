@@ -43,5 +43,9 @@
     * `kind: CronJob` - creates `Job` on repeating schedule (e.g. backup DB every day)
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
-##### Web UI (Dashboard)
-* https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+##### GUI Client (alternative to CLI)
+* Lens:
+    * `File -> Add Cluster -> Copy text from example.conf`
+* Default:
+    * `kubectl --kubeconfig=example.conf proxy`
+    * Open `http://127.0.0.1:8001`
