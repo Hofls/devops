@@ -13,3 +13,9 @@ cache:
         variables:
             FF_USE_FASTZIP: "true"
         ```
+    * Refresh cache only if .lock file changed:
+        ```
+        - key:
+            files:
+              - dispatcher-web/package-lock.json
+        ```
