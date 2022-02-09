@@ -3,6 +3,14 @@
 * Graylog uses: Elasticsearch, MongoDB, Java
 * Scaling resources: CPU for Graylog. Ram and Disk for Elasticsearch
 
+#### Syntax
+* Strict search - "Hello world"
+* Regex search - "/Hell+/"
+* Both - "Hello" && "world"
+* At least one - "Hello" || "world"
+* Only hello - "Hello" && NOT "world"
+* Search by graylog parameters - server_name: maskd-prp-2
+
 #### Getting started
 * Run MongoDB:
     ```
