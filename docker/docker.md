@@ -1,4 +1,5 @@
 #### Install docker
+* `sudo su`
 * `apt update`
 * `apt install docker.io`
     * to test installation:
