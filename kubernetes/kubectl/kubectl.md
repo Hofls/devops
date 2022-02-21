@@ -13,6 +13,8 @@
         * `kubectl describe pods/subv-fz9sd`
     * `kubectl delete` - remove resource
         * `kubectl delete pods/fileman-38dj372j2h`
+    * `kubectl delete --grace-period=0 --force` - remove stuck resource (e.g. endless terminating)
+        * `kubectl delete pods/fileman-38dj372j2h --grace-period=0 --force`
 
 #### Common
 * Print all events (logs)
