@@ -1,0 +1,33 @@
+### Info
+* `Helm` - package manager for kubernetes
+    * Use case #1 - execute one command to run grafana + prometheus on k8s
+    * Use case #2 - deploy your app on dev/test/stage/prod using 1 template (and different values)
+* `Chart` - helm package
+    * `Template` - base for generating k8s yaml files
+* `Repository` - charts storage
+* `Release` - instance of a chart running in a k8s cluster
+* [ArtifactHUB](https://artifacthub.io/packages/search?kind=0) - list of public packages
+
+#### Getting started. CLI
+* Install [minikube](../minikube/minikube.md)
+* Install helm:
+    * `apt update && apt install snapd`
+    * `snap install helm --classic`
+    * `helm version`
+* Install chart:
+    * Add repository - `helm repo add ealenn https://ealenn.github.io/charts`
+    * Look at charts in repository - `helm search repo ealenn`
+    * Install chart - `helm install ealenn/echo-server --generate-name`
+    * Check status - `helm list` or `kubectl get pods`
+    
+#### Helm. Commands
+* `helm list` - list of deployed releases
+* `helm upgrade` - install new release version
+* `helm uninstall mysql-1612624192` - uninstall release
+* Create & use chart:
+    * `helm create deis-workflow` - create new chart
+    * `helm install --debug --dry-run deis-workflow ./deis-workflow` - dry run (to check generated yaml)
+    * `helm lint` - validate chart (execute from chart folder)
+    * `helm package deis-workflow` - package chart for distribution (creates .tgz file)
+    * `helm install deis-workflow ./deis-workflow-0.1.0.tgz` - install chart
+    * `helm get manifest deis-workflow` - show generated yaml file for k8s
