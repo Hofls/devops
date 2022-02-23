@@ -18,8 +18,15 @@
         * `kubectl version`
 
 #### Use
-* Run minikube:
-    * `minikube start --force` (without `--force` won't run as root)
+* Run minikube (pick 1 way):
+    * As normal user:
+        * `sudo su`
+        * `apt install conntrack`
+        * `usermod -a -G docker hofls`
+        * Close SSH, login again as normal user
+        * `minikube start --vm-driver=none`
+    * With root privileges (not really working):
+        * `minikube start --force`
 * Wait for all pods to start:
     * `kubectl get pods --all-namespaces`
 * Create and check deployment:
