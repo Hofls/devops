@@ -1,7 +1,7 @@
 ### Info
 * `Helm` - package manager for kubernetes
     * Use case #1 - execute one command to run grafana + prometheus on k8s
-    * Use case #2 - deploy your app on dev/test/stage/prod using 1 template (and different values)
+    * Use case #2 - deploy your app on k8s (dev/test/stage/prod) using 1 template (and different values)
 * `Chart` - helm package
     * `Template` - base for generating k8s yaml files
 * `Repository` - charts storage
