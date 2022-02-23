@@ -10,7 +10,7 @@
 * [ArtifactHUB](https://artifacthub.io/packages/search?kind=0) - list of public packages
 * `Helm vs Kustomize`
     * Helm is great at packaging and distribution
-    * Kustomize is great at templates
+    * Kustomize is great at "templates" (actually patches)
 
 #### Getting started. CLI
 * Install [minikube](../minikube/minikube.md)
