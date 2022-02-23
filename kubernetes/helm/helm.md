@@ -1,12 +1,16 @@
 ### Info
 * `Helm` - package manager for kubernetes
     * Use case #1 - execute one command to run app on k8s (e.g. grafana + prometheus)
-    * Use case #2 - deploy your app on k8s (dev/test/stage/prod) using 1 template (and different values)
+    * Usa case #2 - package and distribute your app
+    * Use case #3 - deploy your app on k8s (dev/test/stage/prod) using 1 template (and different values)
 * `Chart` - helm package
     * `Template` - base for generating k8s yaml files
 * `Repository` - charts storage
 * `Release` - instance of a chart running in a k8s cluster
 * [ArtifactHUB](https://artifacthub.io/packages/search?kind=0) - list of public packages
+* `Helm vs Kustomize`
+    * Helm is great at packaging and distribution
+    * Kustomize is great at templates
 
 #### Getting started. CLI
 * Install [minikube](../minikube/minikube.md)
