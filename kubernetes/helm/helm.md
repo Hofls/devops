@@ -3,6 +3,7 @@
     * Use case #1 - execute one command to run app on k8s (e.g. grafana + prometheus)
     * Usa case #2 - package and distribute your app
     * Use case #3 - deploy your app on k8s (dev/test/stage/prod) using 1 template (and different values)
+        * For this use case also consider Kustomize
 * `Chart` - helm package
     * `Template` - base for generating k8s yaml files
 * `Repository` - charts storage
