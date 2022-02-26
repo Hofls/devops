@@ -9,7 +9,7 @@
     * `rabbitmq-plugins help`
 
 #### Getting started. GUI
-* Prerequisite: Redis installed on server
+* Prerequisite: RabbitMQ installed on server
 * `docker exec -it some-rabbit bash`
     * `rabbitmq-plugins enable rabbitmq_management`
     * `rabbitmqctl add_user hofls qwerty`
