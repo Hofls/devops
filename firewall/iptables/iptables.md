@@ -1,0 +1,42 @@
+#### Info
+* `iptables` - allows modification of IP packet filter rules (in the Linux kernel firewall)
+* Disclaimer №1: 
+    * All changes are temporary (work until reboot)
+    * To make them permanent, execute `/sbin/iptables-save`
+* Disclaimer №2:
+    * Kernel checks rules in order, until finds rule that allows/disallows packet/connection
+
+#### Getting started
+* Run http server:
+    * `cd /opt/hello-world`
+    * `nohup python3 -m http.server 8000 &`
+    * Open in browser `http://YOUR_SERVER_IP:8000` (will work)
+* Black all connections to port 8000:
+    * `iptables -A INPUT -p tcp --dport 8000 -j DROP`
+    * Open in browser `http://YOUR_SERVER_IP:8000` (won't work, ERR_CONNECTION_TIMED_OUT)
+* Show all rules - `iptables -S`
+* Delete rule:
+    * `iptables -L --line-numbers` (pick a number, lets say №1)
+    * `iptables -D INPUT 1`
+    * Open in browser `http://YOUR_SERVER_IP:8000` (will work)
+    
+#### Useful commands
+* Black all connections to port 8000:
+    * `iptables -A INPUT -p tcp --dport 8000 -j DROP`
+* Show all rules:
+    * `iptables -S`
+* Delete rule:
+    * `iptables -L --line-numbers` (pick a number, lets say №1)
+    * `iptables -D INPUT 1`
+* Clear all currently configured rules:
+    * `iptables -F`
+* Allow access to ports 22, 80, 443. Drop everything else
+    * `iptables -t filter -I INPUT -p tcp -m multiport --dports 22,80,443 -j ACCEPT`
+    * `iptables -t filter -A INPUT -p tcp -j DROP`
+* Allow access only for one IP address (e.g. only access from Proxy or VPN)
+    * `iptables -A INPUT -s 174.123.44.85 -j ACCEPT`
+    * `iptables -P INPUT DROP`
+* Block traffic to facebook (e.g. when server used as proxy)
+    * Get ip address: `host facebook.com`
+    * Get subnet: `whois 66.220.156.68 | grep CIDR`
+    * Block subnet: `iptables -A OUTPUT -p tcp -d 66.220.144.0/20 -j DROP`
