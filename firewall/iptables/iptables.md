@@ -10,13 +10,13 @@
 * Run http server:
     * `cd /opt/hello-world`
     * `nohup python3 -m http.server 8000 &`
-    * Open in browser `http://YOUR_SERVER_IP:8000` (will work)
+    * Open in browser `http://YOUR_SERVER_IP:8000` (will work, by default everything is allowed)
 * Black all connections to port 8000:
     * `iptables -A INPUT -p tcp --dport 8000 -j DROP`
     * Open in browser `http://YOUR_SERVER_IP:8000` (won't work, ERR_CONNECTION_TIMED_OUT)
 * Show all rules - `iptables -S`
 * Delete rule:
-    * `iptables -L --line-numbers` (pick a number, lets say №1)
+    * `iptables -L --line-numbers` (pick a number and category, lets say INPUT №1)
     * `iptables -D INPUT 1`
     * Open in browser `http://YOUR_SERVER_IP:8000` (will work)
     
@@ -26,7 +26,7 @@
 * Show all rules:
     * `iptables -S`
 * Delete rule:
-    * `iptables -L --line-numbers` (pick a number, lets say №1)
+    * `iptables -L --line-numbers` (pick a number and category, lets say INPUT №1)
     * `iptables -D INPUT 1`
 * Clear all currently configured rules:
     * `iptables -F`
@@ -36,7 +36,3 @@
 * Allow access only for one IP address (e.g. only access from Proxy or VPN)
     * `iptables -A INPUT -s 174.123.44.85 -j ACCEPT`
     * `iptables -P INPUT DROP`
-* Block traffic to facebook (e.g. when server used as proxy)
-    * Get ip address: `host facebook.com`
-    * Get subnet: `whois 66.220.156.68 | grep CIDR`
-    * Block subnet: `iptables -A OUTPUT -p tcp -d 66.220.144.0/20 -j DROP`
