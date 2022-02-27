@@ -3,8 +3,12 @@
     * Then server can deploy artifacts to dev/test/prod server (via e.g. `scp`)
 * OS - CentOS 7
 * Programming language - Java 15
-* Build system - Maven
-    * Local Maven repository (Cache) located at `/root/.m2/repository`
+* Build system - Maven, local repository path^
+    * Usually located at `/root/.m2/repository`
+    * If building with runner - `/home/gitlab-runner/.m2/repository/`
+* If you build with gradle, local repository path:
+    * Usually located at `/root/.gradle/caches/modules-2/files-2.1`
+    * If building with runner - `/home/gitlab-runner/.gradle/caches/modules-2/files-2.1`
 
 ### Installation, configuration
 #### [Install Java](https://jdk.java.net/15/)
