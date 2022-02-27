@@ -1,4 +1,4 @@
-#### On ubuntu server
+#### On ubuntu
 * Make sure there is no access without VPN:
     * `curl http://INSERT_URL_HERE`
     * Should return `Could not resolve host`
