@@ -246,9 +246,3 @@
         * `sudo su`
         * `ls -la /root`
 
-## File system hierarchy
-* `etc` - configurations
-* `opt` - optional, 3rd party software
-* `tmp` - temporary files
-* `var` - variable data
-    * `/var/log` - logs
