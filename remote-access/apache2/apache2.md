@@ -42,3 +42,17 @@ If that's not the case - just make your only app listen on http port (80).
     * `curl localhost/files`
     * Open in browser http://YOUR_SERVER_IP/external
     * Open in browser http://YOUR_SERVER_IP/files
+
+## Etc
+* Send all traffic trough http proxy:
+    *
+    ```
+    <VirtualHost *:80>
+        ProxyRemote * http://11.231.4.145:3128
+        <Location /external>
+            ProxyPass http://example.com
+            ProxyPassReverse http://example.com
+        </Location>
+    </VirtualHost>
+    ```
+    * `localhost/external` will get example.com, via proxy 11.231.4.145
