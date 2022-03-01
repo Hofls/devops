@@ -7,9 +7,8 @@
 
 ## Package manager problems
 ##### Package manager installs old version of package
-* `Ubuntu` (pick 1):
-    * TODO
-* `OpenSUSE 42.3` (pick 1):
+* Example: after `zypper refresh`, zypper still installs ancient version of openvpn
+* `OpenSUSE 42.3` fixes (pick 1):
     * Via repository:
         * Find [repository]([Download .rpm package](https://software.opensuse.org/download/package?package=openvpn&project=network%3Avpn))
         * ```
