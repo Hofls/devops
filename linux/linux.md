@@ -149,7 +149,9 @@
     ```
 * Local DNS:
     * In file `etc/hosts` insert `231.23.143.25 camel.keras.com`
-* Show path of an IP packet
+* Check reachability of a host
+    * `ping google.com`
+* Show path of an IP packet (to find where problem occurs)
     * `traceroute google.com`
 * SSH, SCP
     * Commands moved to `devops` repository
