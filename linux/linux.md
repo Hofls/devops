@@ -33,6 +33,8 @@
 * Skip one word
     * Backward - `alt+b`
     * Forward - `alt+f`
+* Create alias for frequently used command:
+    * `alias aws='aws --endpoint-url=http://localhost:4566'`
     
 #### Commands combo
 * Execute commands in parallel:
