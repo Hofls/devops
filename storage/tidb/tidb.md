@@ -1,5 +1,5 @@
 #### Info
-* CockroachDB - newSQL database
+* TiDB - newSQL database
 
 #### Getting started
 * Install:
