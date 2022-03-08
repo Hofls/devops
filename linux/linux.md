@@ -1,5 +1,5 @@
 # Linux
-* `snapd` - universal package manager
+* `snapd` - universal package manager (apps packaged with all their dependencies)
 
 ## Commands
 
