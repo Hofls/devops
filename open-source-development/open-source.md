@@ -9,7 +9,10 @@
     * Practically unlimited resources (on the cloud)
     * Possible pitfalls:
         * Use LF instead of CRLF on Windows
-            * `git config --global core.autocrlf false`
+            * Global -`git config --global core.autocrlf false`
+                * If you want to run everything on linux
+            * Only specific file - `sed -i -e 's/\r$//' start_local_env.sh`
+                * If you want to run main project on windows, with environment (e.g. kafka container) on linux
         * Path shouldn't have spaces or weird characters (e.g. cyrillic)
     
 ##### Develop locally. Host-Guest
@@ -73,3 +76,6 @@
     * https://stackoverflow.com/questions/423362/best-way-to-instantly-mirror-sync-files-from-windows-to-linux-server
 * `Rsync`:
     * https://stackoverflow.com/questions/423362/best-way-to-instantly-mirror-sync-files-from-windows-to-linux-server
+
+##### Develop locally. WSL 
+* TODO
