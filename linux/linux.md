@@ -165,7 +165,7 @@
     * `telnet 84.154.131.23 9200`
 * Get you IP address (useful):
     * Standard - `curl ifconfig.co`
-    * On local VMs - `ip addr | grep inet`
+    * On local VMs - `ip addr | grep inet` (look for something like `inet 192.168.183.122/24 brd`)
 * Redirect traffic (Port-forwarding)
     * `socat tcp-listen:9090,reuseaddr,fork tcp:localhost:8000`
     * For more info look at `devops` repository
