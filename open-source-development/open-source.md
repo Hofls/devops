@@ -37,6 +37,7 @@
             * `vmhgfs-fuse .host:/ /mnt/hgfs/ -o allow_other -o uid=1000`
             * `cd /mnt/hgfs/shared-folder`
             * `python3 hello.py`
+        * PS in some cases you have to execute command `vmhgfs-fuse` after each reboot
     * Access guest web-service (from the host)  
         * Get address: `ip addr | grep inet` (look for something like `inet 192.168.183.122/24 brd`)
         * Run web-service: `python3 -m http.server`
