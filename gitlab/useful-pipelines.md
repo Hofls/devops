@@ -29,3 +29,15 @@ notify-about-changes:
     - docker
 
 ```
+
+* Reduce duplication (reuse build-and-push.yml)
+```
+include:
+  - project: somgan-tm/cd-templates
+    ref: master
+    file: build-and-push.yml
+main.build-push-develop:
+  extends: .build-push
+  variables:
+    IMAGE_PROJECT: develop
+```
