@@ -4,7 +4,7 @@
     * All changes are temporary (work until reboot)
     * To make them permanent, execute `/sbin/iptables-save`
 * Disclaimer №2:
-    * Kernel checks rules in order, until finds rule that allows/disallows packet/connection
+    * Kernel checks rules in order, until it finds rule that allows/disallows packet/connection
 
 #### Getting started
 * Run http server:

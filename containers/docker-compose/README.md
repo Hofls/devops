@@ -1,5 +1,6 @@
 # docker-compose-example
-Simple example of docker-compose usage (MySQL + Wordpress + nginx)
+* Simple example of docker-compose usage (MySQL + Wordpress + nginx)
+* Disclaimer: usability of docker-compose is very limited (e.g. only good for running environment on dev PC)
 
 ## Docker-compose. Ubuntu
 #### Install docker and docker-compose:

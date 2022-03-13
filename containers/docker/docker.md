@@ -2,9 +2,9 @@
 * `sudo su`
 * `apt update`
 * `apt install docker.io`
-    * to test installation:
-        * `docker pull hello-world`
-        * `docker run hello-world`
+* Test installation:
+    * `docker pull hello-world`
+    * `docker run hello-world`
         
 #### From Dockerfile to running container
 * Lets say you have `Dockerfile`, `environment.list` and `rest-backend.jar` in same folder

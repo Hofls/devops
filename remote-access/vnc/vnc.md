@@ -4,4 +4,4 @@
     * noVNC (VNC client web application)
     * Standalone VNC viewer (from Realvnc)
         * https://www.realvnc.com/en/connect/download/viewer/
-* Look at `images-list.md` in `docker` folder
+* Look at `images-list.md` in `containers/docker` folder
