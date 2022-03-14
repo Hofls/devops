@@ -217,6 +217,8 @@
 * `\` - Escape next character
 
 #### Others
+* Set date/time:
+    * `timedatectl set-time '2022-03-14 12:34:40'`
 * Install Docker
     * `apt update`
     * `apt install docker.io`
