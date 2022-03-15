@@ -1,5 +1,6 @@
 #### Info
 * PostgreSQL - relational database
+* Persistence: `--volume /opt/postgressql:/var/lib/postgresql/data`
 
 #### Getting started. GUI
 * Run PostgreSQL on server:
