@@ -16,3 +16,12 @@
     * `systemctl start openvpn@dt-config`
     * Test - `curl http://INSERT_URL_HERE`
     * Logs - `journalctl -f`
+
+#### Etc
+* To run two VPNs at the same time
+* Run `addtap.bat` as admin:
+    * C:\Program Files\TAP-Windows\bin
+    * C:\ProgramData\Microsoft\Windows\Start Menu\Programs\OpenVPN\Utilities
+* Edit `hosts`:
+    * C:\Windows\System32\drivers\etc
+    * 14.12.44.122 wiki.som.asoc jira.som.asoc
