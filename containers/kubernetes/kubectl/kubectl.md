@@ -83,6 +83,9 @@
     * Send request - `curl 192.168.49.2:31911`
 * Send http request from pod to service in same namespace:
     * `curl http://hello-world-service:8081`
+* Why pod keeps on restarting/getting killed?
+    * `kubectl describe pods/pod-name-here`
+    * Look for something like `Last State: Terminated; Reason: Rrror; Exit code: 137;`
 * Forward port 9876 (localhost) to 8086 (kubernetes cluster)
     * `kubectl port-forward service/influxdb 9876:8086`
 * Check if load balancing is working:
