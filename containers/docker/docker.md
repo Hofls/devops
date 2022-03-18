@@ -57,8 +57,11 @@
 * Each change adds new layer (`FROM`, `RUN`, `COPY`...), docker downloads all layers that come after changed one
     * Retrieves layers before changed one - from cache 
 
-#### Connect to private image storage:
-* Login to storage - `docker login https://docker.artifactory.kera.ru`
+#### Use private image storage:
+* Login to storage - `docker login -u hofls -p qwerty docker.artifactory.kera.com`
+* Build & push image:
+    * `docker build --tag your-company.com/project-name:build-image .`
+    * `docker push your-company.com/project-name:build-image`
 * Pull image:
     * Manually `docker pull docker.artifactory.kera.ru/oraclejdk:8_211`
     * Or by adding line to Dockerfile `FROM docker.artifactory.kera.ru/oraclejdk:8_211`
