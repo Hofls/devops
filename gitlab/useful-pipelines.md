@@ -1,3 +1,15 @@
+* Deploy to stage only from branches like release-1.3.0 and hotfix-2.4.7
+```
+deploy.stage:
+  stage: deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^release-.*$/ || $CI_COMMIT_BRANCH =~ /^hotfix-.*$/'
+      when: always
+    - when: never
+  script:
+    - echo "hello world!"
+```
+
 * Make sure each commit has jira link:
 ```
 check-commit-name:
