@@ -1,5 +1,6 @@
 # Linux
 * `snapd` - universal package manager (apps packaged with all their dependencies)
+    * To run installed package - either just `openfortivpn` or `snap run openfortivpn`
 
 ## Commands
 

@@ -6,6 +6,6 @@
 * Conver .pfx to .pem:
     * `openssl pkcs12 -in semynga.pfx -out semynga.pem -nodes`
 * Run:
-    * `openfortivpn 32.213.143.16:10443 -u semynga -p qwerty --user-cert=semynga.pem`
+    * `openfortivpn 32.213.143.16:10443 -u semynga -p qwerty --user-cert=semynga.pem -v`
     * After first run - error appears, copy `--trusted-cert` from error
-    * `openfortivpn 32.213.143.16:10443 -u semynga -p qwerty --user-cert=semynga.pem --trusted-cert dsi23no8dkns55qa3c7djoi3df`
+    * `openfortivpn 32.213.143.16:10443 -u semynga -p qwerty --user-cert=semynga.pem -v --trusted-cert dsi23no8dkns55qa3c7djoi3df`
