@@ -1,6 +1,5 @@
 # Linux
-* `snapd` - universal package manager (apps packaged with all their dependencies)
-    * To run installed package - either just `openfortivpn` or `snap run openfortivpn`
+
 
 ## Commands
 
@@ -217,12 +216,19 @@
 * `#` - Comment
 * `\` - Escape next character
 
+#### Packages
+* `snapd` - universal package manager (apps packaged with all their dependencies)
+    * To run installed package - either just `openfortivpn` or `snap run openfortivpn`
+* Install Docker with apt
+    * `apt update && apt install docker.io`
+* Download & install package manually (.deb):
+    * `wget http://ftp.cz.debian.org/debian/pool/main/o/openfortivpn/openfortivpn_1.15.0-1_amd64.deb`
+    * `dpkg -i openfortivpn_1.15.0-1_amd64.deb`
+    * `openfortivpn --version`
+
 #### Others
 * Set date/time:
     * `timedatectl set-time '2022-03-14 12:34:40'`
-* Install Docker
-    * `apt update`
-    * `apt install docker.io`
 * Show info about linux distributive (version)
     * `cat /etc/*-release`
 * Run docker-compose on OS start
