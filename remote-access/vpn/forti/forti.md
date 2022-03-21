@@ -16,6 +16,14 @@
     * `./setup.linux.sh`, agree with license terms
     * `./connect.sh`  
 
+### Docker
+* Prerequisites: everything from CentOS / Ubuntu
+* `docker run -dit --volume /opt:/opt ubuntu`
+* `docker exec -it 01285e bash`
+* `apt update && apt install pptp-linux && apt install expect`
+* `cd /opt/forticlientsslvpn/64bit/helper`
+* `./connect.sh`
+
 ### Ubuntu. Second way
 * Disclaimer: this instruction isn't fully working, leads to an error
     * `Could not authenticate to gateway. Please check the password, client certificate, etc.s`

@@ -51,6 +51,8 @@
     * `docker images`
     * `docker history dahuss/a-dark-room`
         * To output full text` --no-trunc`
+* Docker container exits immediately? add `-dit`:
+    * `docker run -dit ubuntu`
         
 #### Dockerfile
 * `RUN` vs `CMD` - build step vs execution step
