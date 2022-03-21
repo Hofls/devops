@@ -258,3 +258,5 @@
         * `groups`
         * `sudo su`
         * `ls -la /root`
+* Automate interaction with CLI programs - `Expect`
+    * .e.g. wait for text `password:`, write `qwerty`
