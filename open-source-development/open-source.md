@@ -17,6 +17,7 @@
     
 ##### Develop locally. Host-Guest
 * Disclaimer: this method has limitations (e.g. no symlinks)
+    * Usable to run infrastructure (e.g. redis + kafka on docker), while main app runs on host
 * `VMware Player`:
     * Install `VMware Player`
     * Download & install `Ubuntu` server image 
@@ -45,7 +46,7 @@
 * `Docker`:
     * TODO (Using volumes)
 
-##### Develop locally. Client-Server
+##### Develop locally. Client-Server / Host-Guest
 * `IntelliJ IDEA`:
     * Configure SSH:
         * File -> Settings -> Tools -> SSH Configurations -> Add 
@@ -60,7 +61,7 @@
         * `sudo su`
         * `cd /opt; mkdir remote; chmod 777 remote`
     * Configure SFTP:
-        * File -> Settings -> Build, Execution, Deployment
+        * File -> Settings -> Build, Execution, Deployment -> Deployment
         * Add -> SFTP
             * Name -> nodejs-sftp
             * SSH configuration -> nodejs-ssh

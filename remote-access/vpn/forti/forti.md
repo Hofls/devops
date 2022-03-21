@@ -3,7 +3,7 @@
 * Install:
     * `apt update && apt install network-manager-fortisslvpn`
     * `openfortivpn --version`
-* Conver .pfx to .pem:
+* Convert .pfx to .pem:
     * `openssl pkcs12 -in semynga.pfx -out semynga.pem -nodes`
 * Run:
     * `openfortivpn 32.213.143.16:10443 -u semynga -p qwerty --user-cert=semynga.pem -v`
