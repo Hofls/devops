@@ -258,4 +258,3 @@
         * `groups`
         * `sudo su`
         * `ls -la /root`
-
