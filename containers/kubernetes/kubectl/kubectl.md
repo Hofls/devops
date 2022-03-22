@@ -77,19 +77,20 @@
     * `curl http://localhost:8001/api/v1/namespaces/default/pods/hello-minikube-6ddfcc9757-xzs9w`
 
 #### Recipes
+* Forward port 9876 (localhost) to 8086 (kubernetes cluster)
+    * `kubectl port-forward service/influxdb 9876:8086`
+    * `curl localhost:9876`
+* Send http request from pod to service in same namespace:
+    * `curl http://hello-world-service:8081`
 * Find exposed service IP/Port:
     * Get IP - `kubectl config view | grep server`
     * Get Port - `kubectl get services | grep hello-minikube`
     * Send request - `curl 192.168.49.2:31911`
-* Send http request from pod to service in same namespace:
-    * `curl http://hello-world-service:8081`
 * Why pod keeps on restarting/getting killed?
     * `kubectl describe pods/pod-name-here`
     * Look for something like `Last State: Terminated; Reason: Rrror; Exit code: 137;`
 * Pod is starting very slow (e.g. low cpu), k8s kills it without waiting long enough
     * Set `initialDelaySeconds: 180` to `livnessProbe:`
-* Forward port 9876 (localhost) to 8086 (kubernetes cluster)
-    * `kubectl port-forward service/influxdb 9876:8086`
 * Check if load balancing is working:
     * Find exposed service IP/Port
     * Send multiple requests
