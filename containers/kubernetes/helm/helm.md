@@ -36,3 +36,8 @@
     * `helm package deis-workflow` - package chart for distribution (creates .tgz file)
     * `helm install deis-workflow ./deis-workflow-0.1.0.tgz` - install chart
     * `helm get manifest deis-workflow` - show generated yaml file for k8s
+
+#### Etc
+* Error `UPGRADE FAILED: "hello-world-service" has no deployed releases`
+    * Fix - Remove value `sh.helm.release.v1.hello-world-service.v1` from kubernetes secrets
+* 
