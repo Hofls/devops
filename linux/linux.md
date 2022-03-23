@@ -231,7 +231,6 @@
     * https://explainshell.com/
 * Typical usage (examples):
     * https://tldr.ostera.io or `tldr wget`
-    * 
 * Docs:
     * `ping --help`
     * `man wget`

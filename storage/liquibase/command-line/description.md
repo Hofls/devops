@@ -1,3 +1,6 @@
+## Info
+* Liquibase - version control for database
+
 ## Weird stuff
 * If path to scripts changes - liquibase won't recognize them anymore and will try to execute them again
     * Why is it a problem? Because different machines have different paths (e.g. dev machines, servers) 
