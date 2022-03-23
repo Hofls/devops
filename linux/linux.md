@@ -226,6 +226,17 @@
     * `dpkg -i openfortivpn_1.15.0-1_amd64.deb`
     * `openfortivpn --version`
 
+#### Docs
+* Explain command, e.g. `netstat -tuplen`
+    * https://explainshell.com/
+* Typical usage (examples):
+    * https://tldr.ostera.io or `tldr wget`
+    * 
+* Docs:
+    * `ping --help`
+    * `man wget`
+    * `info wget` 
+
 #### Others
 * Set date/time:
     * `timedatectl set-time '2022-03-14 12:34:40'`
