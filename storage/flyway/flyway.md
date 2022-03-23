@@ -1,5 +1,6 @@
 #### Info
 * Flyway - version control for database
+* Info about migrations stored in table `flyway_schema_history`
 
 #### Getting started
 * [Prerequisites](../postgresql/postgresql.md)
