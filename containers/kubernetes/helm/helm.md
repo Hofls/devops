@@ -39,5 +39,5 @@
 
 #### Etc
 * Error `UPGRADE FAILED: "hello-world-service" has no deployed releases`
-    * Fix - Remove value `sh.helm.release.v1.hello-world-service.v1` from kubernetes secrets
+    * Fix - Remove value `sh.helm.release.v1.hello-world-service.v1` from kubernetes secrets (or remove apps/release/hello-world)
 * 
