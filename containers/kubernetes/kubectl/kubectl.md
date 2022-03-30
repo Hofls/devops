@@ -88,7 +88,7 @@
     * Send request - `curl 192.168.49.2:31911`
 * Why pod keeps on restarting/getting killed?
     * `kubectl describe pods/pod-name-here`
-    * Look for something like `Last State: Terminated; Reason: Rrror; Exit code: 137;`
+    * Look for something like `Last State: Terminated; Reason: Error; Exit code: 137;`
 * Pod is starting very slow (e.g. low cpu), k8s kills it without waiting long enough
     * Set `initialDelaySeconds: 180` to `livnessProbe:`
 * Check if load balancing is working:
