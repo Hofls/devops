@@ -53,3 +53,15 @@ main.build-push-develop:
   variables:
     IMAGE_PROJECT: develop
 ```
+
+* Reduce duplication (reuse .deploy)
+```
+.deploy: &deploy
+  stage: deploy
+  script:
+    - echo $MESSAGE
+deploy-test:
+  variables:
+    MESSAGE: 'Deploying to test!'
+  <<: *deploy
+```
