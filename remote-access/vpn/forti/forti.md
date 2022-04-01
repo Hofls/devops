@@ -1,20 +1,24 @@
 ### CentOS / Ubuntu
 * Install dependencies:
     * CentOS - `yum check-update && yum install ppp && yum install expect`
-    * Ubuntu - `apt update && apt install pptp-linux && apt install expect`
+    * Ubuntu - `apt update && apt install ppp && apt install expect`
+* Check dependencies:
+    * `pppd --version`
+    * `expect -v`
 * Copy files to server:
-    * `chmod 777 opt`
+    * `chmod 777 /opt`
     * Copy folder `forticlientsslvpn` to server folder `opt`
          * `chmod 777 /opt/forticlientsslvpn/64bit/forticlientsslvpn_cli`
          * `chmod 777 /opt/forticlientsslvpn/64bit/helper/setup.linux.sh`
     * Copy [connect.sh](connect.sh) to server folder `opt`
         * `chmod 777 /opt/connect.sh`
-    * `cp /opt/symiga.fpx /opt/forticlientsslvpn/64bit/helper`
+    * `cp /opt/symiga.pfx /opt/forticlientsslvpn/64bit/helper`
     * `cp /opt/connect.sh /opt/forticlientsslvpn/64bit/helper`
 * Setup & run forti:
     * `cd /opt/forticlientsslvpn/64bit/helper`
-    * `./setup.linux.sh`, agree with license terms
-    * `./connect.sh`  
+    * `./setup.linux.sh`, agree with license terms (scroll with `z`)
+    * `./connect.sh`
+    * Wait for `STATUS::Tunnel running`
 
 ### Docker
 * Prerequisites: everything from CentOS / Ubuntu
