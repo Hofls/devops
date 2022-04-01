@@ -193,6 +193,7 @@
 #### Text processing
 * Replace every occurrence of `Sam` with `Mike` in `report.txt`
     * `sed 's/Sam/Mike/g' report.txt > report_new.txt`
+    * `sed -i 's/Sam/Mike/g' report.txt`
 * `awk` is outdated, better use `python`
     * Extract a 3rd column of text:
         * `ls -l | awk '{print $3}`
