@@ -163,7 +163,7 @@
     * `curl https://example.com`
 * Send anything to IP:PORT
     * `telnet 84.154.131.23 9200`
-* Get you IP address (useful):
+* Get you IP address:
     * Standard - `curl ifconfig.co`
     * On local VMs - `ip addr | grep inet` (look for something like `inet 192.168.183.122/24 brd`)
 * Redirect traffic (Port-forwarding)
@@ -186,6 +186,9 @@
     --data '{"text":"Hello world!"}' \
     https://integram.org/webhook/dD3fFkdS2KL
     ```
+* List current routes:
+    * `route`, `netstat -r`, `ip route list` 
+    * Routes should change after connecting to a vpn
     
 #### Text processing
 * Replace every occurrence of `Sam` with `Mike` in `report.txt`
