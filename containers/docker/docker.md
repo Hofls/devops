@@ -53,6 +53,9 @@
         * To output full text` --no-trunc`
 * Docker container exits immediately? add `-dit`:
     * `docker run -dit ubuntu`
+* Save current container state as new image
+    * `docker commit 2a2s23fdwq ubuntu:kek`
+    * e.g. - ssh to container, install/configure dependencies, save everything as new image
         
 #### Dockerfile
 * `RUN` vs `CMD` - build step vs execution step
