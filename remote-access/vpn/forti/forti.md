@@ -12,21 +12,42 @@
          * `chmod 777 /opt/forticlientsslvpn/64bit/helper/setup.linux.sh`
     * Copy [connect.sh](connect.sh) to server folder `opt`
         * `chmod 777 /opt/connect.sh`
-    * `cp /opt/symiga.pfx /opt/forticlientsslvpn/64bit/helper`
-    * `cp /opt/connect.sh /opt/forticlientsslvpn/64bit/helper`
+    * `mv /opt/symiga.pfx /opt/forticlientsslvpn/64bit/helper`
+    * `mv /opt/connect.sh /opt/forticlientsslvpn/64bit/helper`
 * Setup & run forti:
     * `cd /opt/forticlientsslvpn/64bit/helper`
     * `./setup.linux.sh`, agree with license terms (scroll with `z`)
+        * May also show error message, if not all dependencies installed
     * `./connect.sh`
     * Wait for `STATUS::Tunnel running`
 
 ### Docker
-* Prerequisites: everything from CentOS / Ubuntu
-* `docker run -dit --volume /opt:/opt ubuntu`
-* `docker exec -it 01285e bash`
-* `apt update && apt install pptp-linux && apt install expect`
-* `cd /opt/forticlientsslvpn/64bit/helper`
-* `./connect.sh`
+* Prerequisites 
+    * Copy files to server (look at "CentOS / Ubuntu")
+* Install & run:
+    * `docker run -dit --volume /opt/forticlientsslvpn:/opt/forticlientsslvpn --privileged --name fortivpn ubuntu`
+    * `docker exec -it 01285e bash`
+    * `apt update && apt install ppp expect iproute2`
+    * `cd /opt/forticlientsslvpn/64bit/helper`
+    * `./setup.linux.sh`
+    * `./connect.sh`
+    * Wait for `STATUS::Tunnel running`
+* Save your work:
+    * `docker commit 01285e ubuntu:forti`
+* Use vpn from another container:
+    * `docker run -dit --privileged --net=container:fortivpn ubuntu`
+    * `docker exec -it s3kd8 bash`
+    * `curl https://IP_AVAILABLE_WITH_VPN/`
+* If VPN is working:
+    * Remove containers (kill && rm)
+    * Create Dockerfile:
+        ```
+        FROM ubuntu:forti
+        CMD cd /opt/forticlientsslvpn/64bit/helper && ./connect.sh
+        ```
+    * `docker build --tag forti-dockerfile .`
+    * `docker run --volume /opt/forticlientsslvpn:/opt/forticlientsslvpn --privileged -dit --name fortivpn forti-dock`
+* Use vpn from another container (again)
 
 ### Ubuntu. Second way
 * Disclaimer: this instruction isn't fully working, leads to an error
