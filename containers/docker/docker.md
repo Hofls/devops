@@ -58,6 +58,8 @@
     * e.g. - ssh to container, install/configure dependencies, save everything as new image
 * Share network with another container (.e.g. share VPN, share localhost)
     * `docker run -dit --privileged --net=container:fortivpn ubuntu` (for details look at forti.md)
+* Automatically restart on failure:
+    * `docker run --restart on-failure mydockerimage`
         
 #### Dockerfile
 * `RUN` vs `CMD` - build step vs execution step
