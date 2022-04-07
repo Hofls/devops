@@ -189,12 +189,7 @@
 * List current routes:
     * `route`, `netstat -r`, `ip route list` 
     * Routes should change after connecting to a vpn
-* All traffic goes through VPN, but you need to access 133.211.7.232 without VPN (directly):
-    * Find non-vpn gateway - `ip route list`
-        * Look for something like `default via 172.18.0.1 dev eth0`
-    * Add new route (avoiding VPN)
-        * `ip route add 133.211.7.232 via 172.18.0.1`
-    * If made a mistake - `ip route del 133.211.7.232`
+* For more info about routes look at `vpn.md`
     
 #### Text processing
 * Replace every occurrence of `Sam` with `Mike` in `report.txt`
