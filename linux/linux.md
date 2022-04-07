@@ -190,6 +190,8 @@
     * `route`, `netstat -r`, `ip route list` 
     * Routes should change after connecting to a vpn
 * For more info about routes look at `vpn.md`
+* CIDR - ip addressing scheme
+    * `198.51.100.0/24` means all IP addresses from 198.51.100.0 to 198.51.100.255
     
 #### Text processing
 * Replace every occurrence of `Sam` with `Mike` in `report.txt`
