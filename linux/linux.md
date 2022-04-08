@@ -161,7 +161,7 @@
     * `wget "https://apache-mirror.com/file.tar.gz"`
 * Send get request
     * `curl https://example.com`
-* Send anything to IP:PORT
+* Send anything to IP:PORT (often used to check availability)
     * `telnet 84.154.131.23 9200`
 * Get you IP address:
     * Standard - `curl ifconfig.co`
