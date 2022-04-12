@@ -34,10 +34,12 @@
 * Super bloated. Better use `Tinyproxy`
 ##### Problems
 * If you have server with VPN and proxy. Resources are available directly from server, but unavailable via proxy
-    * Try restarting proxy (possibly cached wrong IP addresses)
-    * Try pinging resource with VPN and without VPN - results in 2 different IP addresses
-    * Check logs - `/var/log/squid/access.log`, possibly IP on the right side is wrong
-    * Edit `/etc/hosts`, add correct IP, restart VPN (otherwise VPN will ignore changes)
+    * Solution 1:
+        * Try restarting proxy (possibly cached wrong IP addresses)
+    * Solution 2:
+        * Try pinging resource with VPN and without VPN - results in 2 different IP addresses
+        * Check logs - `/var/log/squid/access.log`, possibly IP on the right side is wrong
+        * Edit `/etc/hosts`, add correct IP, restart VPN (otherwise VPN will ignore changes)
 
 ## Client side
 * Dockerfile:
