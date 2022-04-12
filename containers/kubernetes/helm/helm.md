@@ -40,4 +40,6 @@
 #### Etc
 * Error `UPGRADE FAILED: "hello-world-service" has no deployed releases`
     * Fix - Remove value `sh.helm.release.v1.hello-world-service.v1` from kubernetes secrets (or remove apps/release/hello-world)
-* 
+* Deploy with helm to different k8s:
+    * Set environment variable $KUBECONFIG
+    * Value - content of a file, [example](../kubectl/extras/example.conf)
