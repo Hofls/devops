@@ -35,7 +35,8 @@
 ##### Problems
 * If you have server with VPN and proxy. Resources are available directly from server, but unavailable via proxy
     * Solution 1:
-        * Try restarting proxy (possibly cached wrong IP addresses)
+        * IP addresses/routes depend on if VPN was ON/OFF while you started proxy
+        * Try restarting proxy (with VPN turned ON/OFF)
     * Solution 2:
         * Try pinging resource with VPN and without VPN - results in 2 different IP addresses
         * Check logs - `/var/log/squid/access.log`, possibly IP on the right side is wrong
