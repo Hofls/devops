@@ -11,8 +11,8 @@
 
 ### Problems/Solutions
 * If after connecting to vpn - you lose access to previously available resource (e.g. timeout):
-    * Turn off vpn
-    * `ping registry.someit.com`, get ip (e.g. 17.211.56.173)
+    * IP addresses with VPN and without VPN might be different
+    * Turn off vpn, `ping registry.someit.com`, get ip (e.g. 17.211.56.173)
     * `nano /etc/hosts`, insert: `17.211.56.173 registry.someit.com`
 * All traffic goes through VPN, but you need to access 133.211.7.232 without VPN (directly):
     * Find non-vpn gateway - `ip route list`
