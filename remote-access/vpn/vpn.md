@@ -20,3 +20,5 @@
     * Add new route (avoiding VPN)
         * `ip route add 133.211.7.232 via 172.18.0.1`
     * If made a mistake - `ip route del 133.211.7.232`
+* If you have server with VPN and proxy - look [here](../proxy/proxy.md) for problems
+    * Use case - install VPN once, everybody can use it (e.g. team members, microservices, ci/cd scripts)

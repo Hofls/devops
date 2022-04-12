@@ -32,6 +32,11 @@
     * [check your IP](https://api.ipify.org/?format=json)
 ##### Basic auth
 * Super bloated. Better use `Tinyproxy`
+##### Problems
+* If you have server with VPN and proxy. Resources are available directly from server, but unavailable via proxy
+    * Try pinging resource with VPN and without VPN - results in 2 different IP addresses
+    * Check logs - `/var/log/squid/access.log`, possibly IP on the right side is wrong
+    * Edit `/etc/hosts`, add correct IP, restart VPN (otherwise VPN will ignore changes)
 
 ## Client side
 * Dockerfile:
