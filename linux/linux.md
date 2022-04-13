@@ -163,6 +163,10 @@
     * `curl https://example.com`
 * Send anything to IP:PORT (often used to check availability)
     * `telnet 84.154.131.23 9200`
+    * Possible errors:
+        * `Connection refused` - nothing listens on the port
+        * `No route to host` - port blocked by firewall
+        * `Network is unreachable` - IP actually unreachable
 * Get you IP address:
     * Standard - `curl ifconfig.co`
     * On local VMs - `ip addr | grep inet` (look for something like `inet 192.168.183.122/24 brd`)
