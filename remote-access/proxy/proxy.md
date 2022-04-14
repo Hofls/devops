@@ -33,6 +33,12 @@
 ##### Basic auth
 * Super bloated. Better use `Tinyproxy`
 ##### Problems
+* Proxy is slow
+    * Problem:
+        * After connecting to VPN - proxy is very slow
+        *`journalctl -f` has errors "Could not determine this machines public hostname" 'powos-web-t' rDNS test failed
+    * Solution:
+        * Add in `/etc/hosts` IP of this server, e.g. `10.154.34.222 powos-web-t`
 * If you have server with VPN and proxy. Resources are available directly from server, but unavailable via proxy
     * Solution 1:
         * IP addresses/routes depend on if VPN was ON/OFF while you started proxy
