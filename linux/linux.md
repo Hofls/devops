@@ -276,10 +276,11 @@
 * Add new root user:
     * Add user:
         * `adduser hofls`
-        * `usermod -aG root hofls`
+    * Add user to group:
+        * `cat /etc/sudoers`
+        * `usermod -aG root hofls` or `usermod -aG sudo hofls`
     * Test:
-        * `groups`
-        * `sudo su`
-        * `ls -la /root`
+        * `groups` /  `sudo su` / `ls -la /root`
+        * Reboot may be required
 * Automate interaction with CLI programs - `Expect`
     * .e.g. wait for text `password:`, write `qwerty`
