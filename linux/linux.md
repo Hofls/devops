@@ -282,5 +282,8 @@
     * Test:
         * `groups` /  `sudo su` / `ls -la /root`
         * Reboot may be required
+* Change password:
+    * To current user: `passwd`
+    * To user jellyfish: `passwd jellyfish`
 * Automate interaction with CLI programs - `Expect`
     * .e.g. wait for text `password:`, write `qwerty`
