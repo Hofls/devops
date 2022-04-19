@@ -1,3 +1,8 @@
+### CentOS 7. Network manager VPN (not really working)
+* Prerequisites - install [centos + rdp](../../rdp/rdp.md)
+* Install network manager:
+    * `yum install NetworkManager-l2tp-gnome`
+
 ### Ubuntu. Network manager VPN (not really working)
 * Prerequisites - install [ubuntu + rdp](../../rdp/rdp.md)
 * Install network manager:
@@ -12,7 +17,7 @@
     * `ping` / `telnet` previously unavailable server 
     * `journalctl -f -u NetworkManager.service`
 
-### State "Unmanaged" -> State "connected"
+### Ubuntu. State "Unmanaged" -> State "connected"
 * Disclaimer - Centos 7 doesnt have this problem (network manager used by default)
 * `apt install network-manager`
 * `journalctl -f -u NetworkManager.service`
@@ -31,3 +36,4 @@
         ```
     * `systemctl restart NetworkManager.service`
 * Check state again `nmcli device status`
+* Weird stuff - left click on network-adapter may be [necessary](https://github.com/Chadsr/NordVPN-NetworkManager/issues/62)
