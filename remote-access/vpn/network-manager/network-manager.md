@@ -1,4 +1,4 @@
-### Ubuntu. Network manager VPN
+### Ubuntu. Network manager VPN (not really working)
 * Prerequisites - install [ubuntu + rdp](../../rdp/rdp.md)
 * Install network manager:
     * `apt update && apt install -y network-manager-l2tp network-manager-l2tp-gnome`
@@ -11,3 +11,23 @@
     * `curl ifconfig.me`
     * `ping` / `telnet` previously unavailable server 
     * `journalctl -f -u NetworkManager.service`
+
+### State "Unmanaged" -> State "connected"
+* Disclaimer - Centos 7 doesnt have this problem (network manager used by default)
+* `apt install network-manager`
+* `journalctl -f -u NetworkManager.service`
+    * Has errors `Error: failed to open /run/network/ifstate`
+    * Look at hint `cat /etc/network/interfaces`
+    * Fix - `apt install ifupdown`
+* `nmcli device status`
+    * Looks bad - everything is unmanaged
+    * `nano /etc/NetworkManager/NetworkManager.conf`, replace text
+        ```
+        [ifupdown]
+        managed=true
+      
+        [keyfile]
+        unmanaged-devices=none
+        ```
+    * `systemctl restart NetworkManager.service`
+* Check state again `nmcli device status`
