@@ -1,3 +1,19 @@
+### Common checks:
+* `journalctl -f -u ipsec`, then run VPN
+    * May show errors:
+        * Wrong IP address - "Connection refused"
+        * Wrong encryption algorithm - "ike string error: IKE DH algorithm 'modp1024Z' is not recognized"
+        * Wrong shared key - "received 1 malformed payload notifies"
+        * You need to disable PFS - "ignoring informational payload INVALID_KEY_INFORMATION"
+        * Everything is OK (ignore it) - "warning: could not open include filename: '/etc/ipsec.d/*.conf'"
+* `nmcli device status`
+    * At least couple of connections should be managed
+* `journalctl -f -u NetworkManager.service`, then run VPN
+    * Look at "Ubuntu" section
+* After connecting to VPN:
+    * `curl ifconfig.me` (ip should change)
+    * `ping` / `telnet` previously unavailable server 
+
 ### CentOS 7. Network manager VPN (not really working)
 * Prerequisites - install [centos + rdp](../../rdp/rdp.md)
 * Install network manager:
@@ -11,12 +27,9 @@
 * Configure VPN:
     * Activities -> Settings -> Network > VPN -> Add -> L2TP
     * Main - Fill gateway, username, password
-    * PPP Options - PAP, All in compression, Send PPP echo packets
-    * IPsec Options - Shared key, phase1 algorithm (aes128-sha1-modp1024), phase2 algorithm (aes128-sha1)
-* Check:
-    * `curl ifconfig.me`
-    * `ping` / `telnet` previously unavailable server 
-    * `journalctl -f -u NetworkManager.service`
+    * PPP Options - PAP, Check all in compression, Send PPP echo packets
+    * IPsec Options - Pre-Shared key, phase1 algorithm (aes128-sha1-modp1024), phase2 algorithm (aes128-sha1)
+        * Also may be necessary to disable PFS
 
 ### Ubuntu. State "Unmanaged" -> State "connected"
 * Disclaimer - Centos 7 doesnt have this problem (network manager used by default)
