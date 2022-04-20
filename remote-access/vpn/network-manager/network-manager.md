@@ -2,6 +2,7 @@
 * Prerequisites - install [centos + rdp](../../rdp/rdp.md)
 * Install network manager:
     * `yum install NetworkManager-l2tp-gnome`
+* Configure VPN (look at Ubuntu configuration)
 
 ### Ubuntu. Network manager VPN (not really working)
 * Prerequisites - install [ubuntu + rdp](../../rdp/rdp.md)

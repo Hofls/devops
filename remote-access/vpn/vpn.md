@@ -22,3 +22,5 @@
     * If made a mistake - `ip route del 133.211.7.232`
 * If you have server with VPN and proxy - look [here](../proxy/proxy.md) for problems
     * Use case - install VPN once, everybody can use it (e.g. team members, microservices, ci/cd scripts)
+* Don't know which encryption algorithm to use?
+    * Gather info about server-side VPN - `ike-scan 148.238.155.44`
