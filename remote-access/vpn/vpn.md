@@ -23,4 +23,10 @@
 * If you have server with VPN and proxy - look [here](../proxy/proxy.md) for problems
     * Use case - install VPN once, everybody can use it (e.g. team members, microservices, ci/cd scripts)
 * Don't know which encryption algorithm to use?
-    * Gather info about server-side VPN - `ike-scan 148.238.155.44`
+    * Easy way:
+        * Gather info about server-side VPN
+        * `systemctl stop ipsec`
+        * `ike-scan 148.238.155.44`
+        * `systemctl start ipsec`
+    Hard way:
+        * [Execute script](https://github.com/nm-l2tp/NetworkManager-l2tp/wiki/Known-Issues#querying-vpn-server-for-its-ikev1-algorithm-proposals)
