@@ -11,6 +11,7 @@
 * `journalctl -f -u NetworkManager.service`, then run VPN
     * Look at "Ubuntu" section
 * After connecting to VPN:
+    * `nmcli connection` (connection with type-vpn should appear)
     * `curl ifconfig.me` (ip should change)
     * `ping` / `telnet` previously unavailable server 
 
