@@ -257,7 +257,7 @@
 * Run docker-compose on OS start
     * `crontab -e`
     * Add line `@reboot cd /opt/highload && docker-compose up -d`
-    * `:wq`
+    * Logs - `grep CRON /var/log/syslog`
 * Boot up file manager
     * `mc`
     * `ranger`

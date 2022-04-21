@@ -30,6 +30,7 @@
     * `docker exec -it SK284KD2J bash`
     * `docker exec -it SK284KD2J /bin/sh`
 * Execute command inside container`SK284KD2J`
+    * `docker exec SK284KD2J ls /etc`
     * `docker exec -it SK284KD2J ls /etc`
 * Show last 1k logs from container `SAK2D83JK`
     * `docker logs SAK2D83JK --tail 1000`
