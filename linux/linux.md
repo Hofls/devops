@@ -103,6 +103,9 @@
      * Try to delete folder: `rm -r docker`
          * Errors will show full path to problematic files/folders
      * Umount each of them: `umount docker/containers/82JDSAJDK2/shm`
+* `.` means current folder, e.g.:
+    * `docker build .`
+    * `helm install kafka-connect .`
 
 #### Resources (RAM/CPU/Disk)
 * Display amount of available disk space
