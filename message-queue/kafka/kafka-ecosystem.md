@@ -10,6 +10,7 @@
     * http://localhost:56016/
     * http://localhost:56016/connectors/
         * To create:
+            * "Copy request as Node.js fetch" OR "Edit and resend if Firefox"
             * Add "name" and "config" to body
             * Add "content-type": "application/json" to headers
             * Replace `GET` with `POST` 
