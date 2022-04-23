@@ -9,9 +9,14 @@
 * Links:
     * http://localhost:56016/
     * http://localhost:56016/connectors/
+        * To create:
+            * Add "name" and "config" to body
+            * Add "content-type": "application/json" to headers
+            * Replace `GET` with `POST` 
     * http://localhost:56016/connectors/your_connector_name_here
-        * To delete - "Copy request as Node.js fetch" OR "Edit and resend if Firefox"
-        * Replace `GET` with `DELETE`
+        * To delete:
+            * "Copy request as Node.js fetch" OR "Edit and resend if Firefox"
+            * Replace `GET` with `DELETE`
 
 #### KSQL server
 * [Rest API](https://docs.confluent.io/4.1.0/ksql/docs/api.html)
