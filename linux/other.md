@@ -2,6 +2,8 @@
 * `etc` - configurations
 * `opt` - optional, 3rd party software
 * `tmp` - temporary files
+* `usr` - user data
+    * `/usr/bin` - executables
 * `var` - variable data
     * `/var/log` - logs
 
