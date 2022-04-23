@@ -1,5 +1,6 @@
 #### Info
 * `Docker registry` - docker image storage
+* Registry as [pull-through cache](https://docs.docker.com/registry/recipes/mirror/)
 
 #### Getting started
 * Install & run:
