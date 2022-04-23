@@ -1,5 +1,6 @@
 #### Info
 * `Nexus` - Artifacts storage/proxy (e.g. for java dependencies, npm packages)
+* Persistence - `--volume /opt/nexus-data:/nexus-data`
 
 #### Getting started
 * Prerequisite: at least 3GB RAM
