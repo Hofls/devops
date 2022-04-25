@@ -1,3 +1,6 @@
+### Info
+* Network manager - alternative to custom VPN clients (e.g. checkpoint)
+
 ### Common checks:
 * `journalctl -f -u ipsec`, then run VPN
     * May show errors:
