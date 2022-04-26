@@ -1,0 +1,5 @@
+name: "multiple"
+env:
+  TZ: 'Europe/Paris'
+  LOGGING_ROOT_LEVEL: 'INFO'
+  LOGGING_APP_LEVEL: 'DEBUG'

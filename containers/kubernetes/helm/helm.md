@@ -24,6 +24,14 @@
     * Look at charts in repository - `helm search repo ealenn`
     * Install chart - `helm install ealenn/echo-server --generate-name`
     * Check status - `helm list` or `kubectl get pods`
+* Render template:
+    * Copy [hello-world](charts/hello-world) to the server
+    * `helm template hello-world`
+    
+#### Examples
+* Render template with multiple values (e.g. common & test, common & stage)
+    * Copy [hello-world](charts/multiple-values) to the server
+    * `helm template multiple-values -f multiple-values/values-common.yaml -f multiple-values/values-test.yaml`
     
 #### Helm. Commands
 * `helm list` - list of deployed releases
@@ -36,6 +44,8 @@
     * `helm package deis-workflow` - package chart for distribution (creates .tgz file)
     * `helm install deis-workflow ./deis-workflow-0.1.0.tgz` - install chart
     * `helm get manifest deis-workflow` - show generated yaml file for k8s
+* Templates:
+    * `helm template hello-world` - render template (replace placeholders with values)
 
 #### Etc
 * Error `UPGRADE FAILED: "hello-world-service" has no deployed releases`
