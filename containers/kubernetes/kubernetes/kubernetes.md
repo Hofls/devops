@@ -40,7 +40,8 @@
         * e.g. http://hello-world.k8s.someit.ru/
         * Ingress works for all nodes in a cluster (no way to make unique config for a single deployment)
     * `kind: ConfigMap` - sets environment variables
-    * `kind: CronJob` - creates `Job` on repeating schedule (e.g. backup DB every day)
+    * `kind: CronJob` - run `Job` on repeating schedule (e.g. backup DB every day)
+        * Job is a pod that executes actions and stops
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
 ##### GUI Client (alternative to CLI)
