@@ -44,9 +44,8 @@
             * return to host, check if file appeared in `host_dir`
 * Check resources usage (RAM, CPU, MEM, NET):
     * `docker stats`
-* Remove containers and images:
-    * `docker container prune --force`
-    * `docker image prune --force`
+* Remove unused stuff (containers, images, networks):
+    * `docker system prune --all`
 * Get `Dockerfile` from image:
     * `docker images`
     * `docker history dahuss/a-dark-room`
