@@ -19,11 +19,20 @@
     * `ping` / `telnet` previously unavailable server 
     
 ### VPN Configuration
-* Activities -> Settings -> Network > VPN -> Add -> L2TP
-* Main - Fill gateway, username, password
-* PPP Options - PAP, Check all in compression, Send PPP echo packets
-* IPsec Options - Pre-Shared key, phase1 algorithm (aes128-sha1-modp1024), phase2 algorithm (aes128-sha1)
-    * Also may be necessary to disable PFS
+* In GUI:
+    * Activities -> Settings -> Network > VPN -> Add -> L2TP
+    * Main - Fill gateway, username, password
+    * PPP Options - PAP, Check all in compression, Send PPP echo packets
+    * IPsec Options - Pre-Shared key, phase1 algorithm (aes128-sha1-modp1024), phase2 algorithm (aes128-sha1)
+        * Also may be necessary to disable PFS
+* In CLI:
+    * Auto reconnect:
+        * Configure:
+            * `nmcli connection modify "VPN 1" connection.autoconnect-retries 0`
+            * `nmcli connection modify "VPN 1" vpn.persistent yes`
+        * Check parameters:
+            * `nmcli -f connection.autoconnect-retries con show "VPN 1"`
+            * `nmcli -f vpn.persistent con show "VPN 1"`
 
 ### CentOS 7. Network manager VPN (working!)
 * Prerequisites - install [centos + rdp](../../rdp/rdp.md)
