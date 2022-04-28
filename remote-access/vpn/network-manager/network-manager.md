@@ -26,13 +26,16 @@
     * IPsec Options - Pre-Shared key, phase1 algorithm (aes128-sha1-modp1024), phase2 algorithm (aes128-sha1)
         * Also may be necessary to disable PFS
 * In CLI:
-    * Auto reconnect:
+    * Auto reconnect (not really working):
         * Configure:
             * `nmcli connection modify "VPN 1" connection.autoconnect-retries 0`
             * `nmcli connection modify "VPN 1" vpn.persistent yes`
         * Check parameters:
             * `nmcli -f connection.autoconnect-retries con show "VPN 1"`
             * `nmcli -f vpn.persistent con show "VPN 1"`
+        * Other ways:
+            * 1 - `nmcli connection modify "VPN 1" connection.autoconnect yes`
+            * 2 - `nm-connection-editor` -> select main network connection -> `General` -> `Automatically connect to VPN when using this connection`
 
 ### CentOS 7. Network manager VPN (working!)
 * Prerequisites - install [centos + rdp](../../rdp/rdp.md)
