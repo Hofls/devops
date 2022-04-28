@@ -33,15 +33,17 @@
 
 * Workload resources
     * `kind: Deployment` - declarative updates for Pods 
-        * You describe a desired state, controller changes the actual state to the desired state 
-    * `kind: Service` - exposes application as a network service
-        * e.g. http://10.123.12.143:30663/
+        * You describe a desired state, controller changes the actual state to the desired state
+        * Consists of `ReplicaSet`, `Pod`, `Container`
+    * `kind: Service` - exposes application as a network service (available from other k8s pods)
+        * e.g. `http://10.123.12.143:30663/` or `kafka-connect:8083`
+        * Consists of `Endpoints`
     * `kind: Ingress` - manages external access to the services in a cluster, typically HTTP (also load balancing)
         * e.g. http://hello-world.k8s.someit.ru/
         * Ingress works for all nodes in a cluster (no way to make unique config for a single deployment)
     * `kind: ConfigMap` - sets environment variables
     * `kind: CronJob` - run `Job` on repeating schedule (e.g. backup DB every day)
-        * Job is a pod that executes actions and stops
+        * Job is a pod that executes actions, then stops
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
 ##### GUI Client (alternative to CLI)
