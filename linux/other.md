@@ -21,3 +21,14 @@
     * Manually:
         * [Download .rpm package](https://software.opensuse.org/download/package?package=openvpn&project=network%3Avpn)
         * Install - `zypper install openvpn-2.4.8-173.1.x86_64.rpm`
+
+##### Package manager cannot verify signature of a package
+* Example: `zypper -n install nginx-1.20.1-1.sles15.ngx.x86_64.rpm` fails with error `Signature verification failed`
+* `OpenSUSE 15.3` fix:
+    ```
+    zypper refresh
+    zypper -n install curl ca-certificates gpg2
+    curl -o /tmp/nginx_signing.key https://nginx.org/keys/nginx_signing.key
+    rpmkeys --import /tmp/nginx_signing.key
+    ```
+  * Then try to install nginx again

@@ -36,3 +36,4 @@
         * Fix - restart Ksql server
     * Could not clean up the schema registry for topic
         * Fix - restart schema registry
+* Also manages [migrations](https://docs.ksqldb.io/en/latest/operate-and-deploy/migrations-tool/)

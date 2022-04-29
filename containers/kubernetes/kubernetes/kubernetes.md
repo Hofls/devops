@@ -44,6 +44,7 @@
     * `kind: ConfigMap` - sets environment variables
     * `kind: CronJob` - run `Job` on repeating schedule (e.g. backup DB every day)
         * Job is a pod that executes actions, then stops
+        * Job stops with error without logs? Add `backofflimit: 10`, logs will be available while its trying again and again
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
 ##### GUI Client (alternative to CLI)
