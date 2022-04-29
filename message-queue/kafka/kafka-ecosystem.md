@@ -37,3 +37,9 @@
     * Could not clean up the schema registry for topic
         * Fix - restart schema registry
 * Also manages [migrations](https://docs.ksqldb.io/en/latest/operate-and-deploy/migrations-tool/)
+* Migrations changed, checksum is different?
+    * Destroy migrations metadata:
+        * `ksql-migrations --config-file /home/user/init/ksql-migrations.properties destroy-metadata`
+    * Apply changed migrations:
+        * `ksql-migrations --config-file /home/appuser/init/ksql-migrations.properties initialize-metadata`
+        * `ksql-migrations --config-file /home/appuser/init/ksql-migrations.properties apply --all`
