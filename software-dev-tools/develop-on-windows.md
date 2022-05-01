@@ -1,6 +1,6 @@
-## Open source
+## Develop on Windows, run on Linux
 
-##### Develop locally
+##### Develop locally. Overview
 * If all you want to do is edit code and run tests, Windows is enough
     * Linux is must have to build and run code
 * Use IDE on windows, sync files with Linux, run/build/test on Linux
