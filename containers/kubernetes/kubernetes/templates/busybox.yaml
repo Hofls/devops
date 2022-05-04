@@ -9,4 +9,3 @@ spec:
       command:
         - sleep
         - "86400"
-    restartPolicy: Always
