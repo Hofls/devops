@@ -47,9 +47,11 @@
         * Job stops with error without logs? Add `backofflimit: 10`, logs will be available while its trying again and again
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
-##### GUI Client (alternative to CLI)
-* Lens:
+##### Etc
+* Lens (GUI):
     * `File -> Add Cluster -> Copy text from example.conf`
-* Default:
+* To debug k8s network - use [busybox pod](templates/busybox.yaml)
+    * Has ping, wget, traceroute
+* Proxy port:
     * `kubectl --kubeconfig=example.conf proxy`
     * Open `http://127.0.0.1:8001`
