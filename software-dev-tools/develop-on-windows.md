@@ -14,7 +14,21 @@
             * Only specific file - `sed -i -e 's/\r$//' start_local_env.sh`
                 * If you want to run main project on windows, with environment (e.g. kafka container) on linux
         * Path shouldn't have spaces or weird characters (e.g. cyrillic)
-    
+
+##### Develop locally. Visual Studio code server
+* Run VS code:
+    ```
+    docker run -d \
+      -e PUID=1000 -e PGID=1001 \
+      -p 8443:8443 \
+      -v /opt/vscode:/config \
+      lscr.io/linuxserver/code-server
+    ```
+* Open in browser `http://YOUR_SERVER_IP:8443`
+* Clone a project from github:
+    * `cd /opt/vscode/workspace && mkdir fire && chmod 777 fire`
+    * `Get Started` -> `Clone Git Repository` -> `https://github.com/firebase/codelab-friendlychat-web` -> `/config/workspace/fire`
+
 ##### Develop locally. Host-Guest
 * Disclaimer: this method has limitations (e.g. no symlinks)
     * Usable to run infrastructure (e.g. redis + kafka on docker), while main app runs on host
