@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: some-rawler
+  labels:
+    app: some-rawler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: some-rawler
+  template:
+    metadata:
+      labels:
+        name: some-rawler
+        app: some-rawler
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: NotIn
+                    values:
+                      - swops-dev-01
+                      - swops-test-01
+      containers:
+        - name: some-rawler
+          image: registry.someit.com/swops/some-rawler:IMAGE_TAG
+          imagePullPolicy: Always
+      restartPolicy: Always
