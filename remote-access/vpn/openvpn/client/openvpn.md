@@ -3,14 +3,22 @@
     * `curl http://INSERT_URL_HERE`
     * Should return `Could not resolve host`
 * Install dependencies:
-    * `apt update`
-    * `apt install openvpn`
-        * `openvpn --version`
-    * `apt install resolvconf` (optional)
+    * On Ubuntu:
+        * `apt update`
+        * `apt install openvpn`
+            * `openvpn --version`
+        * `apt install resolvconf` (optional)
+    * On OpenSUSE:
+        * `zypper refresh`
+        * `zypper in openvpn`
+    * On CentOS:
+        * `yum check-update`
+        * `yum install epel-release -y`
+        * `yum install openvpn`
 * Configure OpenVPN:
     * Copy [config](files/dt-config.conf) to `/etc/openvpn`
         * Replace IP address and certificates
-    * Copy [password](files/passwd.conf) to `/etc/openvpn`  (optional)
+    * Copy [password](files/passwd.conf) to `/etc/openvpn`
         * Replace login and password
 * Run
     * `systemctl start openvpn@dt-config`
