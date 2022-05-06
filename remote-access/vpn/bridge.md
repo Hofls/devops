@@ -3,7 +3,7 @@
     * Your company "Jarezo" has VPN, another company "Spiquo" has its own VPN too
     * You have to deploy product, push images/dependencies, work with app on Spiquo resources
     * In order to do that - you have to use vpn. Possible with vpn+proxy on server, but better use bridge.
-* Bridge - connect two networks (Spiquo resources would by available with Jarezo VPN)
+* Bridge - connect two networks (Spiquo resources would be available with Jarezo VPN)
 
 #### Implementation (Not complete)
 * Install VPN on "Jarezo" server, make sure "Spiquo" resources are available (ping, telnet)
@@ -21,5 +21,12 @@
     systemctl restart firewalld
     ```
 * Check everything again - `ip route`, `ifconfig`
+* Test from another server in the same network:
+    * Resource not available:
+        * `curl https://hidden-behind-vpn.com` - Failed to connect to port 443: No route to host
+    * `ip route add 13.12.233.222 via 16.154.33.122`
+    * Now all requests to `13.12.233.222` will go through server with vpn (`16.154.33.122`)
+        * `curl https://hidden-behind-vpn.com` - Success!
+    * `ip route del 13.12.233.222`
 * Ask admins to add route to this server
     * Prepare list of IPS that should use this route (e.g. ip of k8s, artifactory, jira)
