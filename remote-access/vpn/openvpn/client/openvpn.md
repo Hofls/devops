@@ -24,6 +24,7 @@
     * `systemctl start openvpn@dt-config`
     * Test - `curl http://INSERT_URL_HERE`
     * Logs - `journalctl -f`
+* If VPN should always be running - look at `linux/other.md -> Systemd`
 
 #### Etc
 * To run two VPNs at the same time

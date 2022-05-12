@@ -6,6 +6,14 @@
     * `/usr/bin` - executables
 * `var` - variable data
     * `/var/log` - logs
+    
+## Systemd
+* Automatically restart service (e.g. VPN should always be ON):
+    * `systemctl status openvpn`
+        * Copy path to service
+    * `nano /usr/lib/systemd/system/openvpn@.service`
+        * Add `Restart=always` to `[Service]` section
+    * Run service `systemctl start openvpn`
 
 ## Package manager problems
 ##### Package manager installs old version of package
