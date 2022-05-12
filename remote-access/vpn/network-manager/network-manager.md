@@ -9,6 +9,9 @@
         * Wrong shared key - "received 1 malformed payload notifies"
         * You need to disable PFS - "ignoring informational payload INVALID_KEY_INFORMATION"
         * Everything is OK (ignore it) - "warning: could not open include filename: '/etc/ipsec.d/*.conf'"
+    * Other problems:
+        * If VPN not connecting for no apparent reason, check `/etc/selinux/config`
+            * Should have `SELINUX=enforcing`
 * `nmcli device status`
     * At least couple of connections should be managed
 * `journalctl -f -u NetworkManager.service`, then run VPN
@@ -26,20 +29,23 @@
     * IPsec Options - Pre-Shared key, phase1 algorithm (aes128-sha1-modp1024), phase2 algorithm (aes128-sha1)
         * Also may be necessary to disable PFS
 * In CLI:
-    * Auto reconnect (not really working):
-        * Configure:
-            * `nmcli connection modify "VPN 1" connection.autoconnect-retries 0`
-            * `nmcli connection modify "VPN 1" vpn.persistent yes`
-        * Check parameters:
-            * `nmcli -f connection.autoconnect-retries con show "VPN 1"`
-            * `nmcli -f vpn.persistent con show "VPN 1"`
-        * Other ways:
+    * Auto reconnect:
+        * Main way (todo - figure out if its working)
+            * Configure:
+                * `nmcli connection modify "VPN 1" connection.autoconnect-retries 0`
+                * `nmcli connection modify "VPN 1" vpn.persistent yes`
+            * Check parameters:
+                * `nmcli -f connection.autoconnect-retries con show "VPN 1"`
+                * `nmcli -f vpn.persistent con show "VPN 1"`
+        * Other ways (not really working):
             * 1 - `nmcli connection modify "VPN 1" connection.autoconnect yes`
             * 2 - `nm-connection-editor` -> select main network connection -> `General` -> `Automatically connect to VPN when using this connection`
 
 ### CentOS 7. Network manager VPN (working!)
 * Prerequisites - install [centos + rdp](../../rdp/rdp.md)
 * Install network manager:
+    * `yum install -y epel-release` 
+        * To avoid error "No package NetworkManager-l2tp-gnome available."
     * `yum install NetworkManager-l2tp-gnome`
 * Configure VPN (look at "VPN Configuration")
 
