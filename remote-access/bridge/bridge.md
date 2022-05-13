@@ -5,7 +5,7 @@
     * In order to do that - you have to use vpn. Possible with vpn+proxy on server, but better use bridge.
 * Bridge - connect two networks (Spiquo resources would be available with Jarezo VPN)
 
-#### Implementation (Not complete)
+#### Implementation
 * Install VPN on "Jarezo" server, make sure "Spiquo" resources are available (ping, telnet)
 * Check routes: `ip route`
 * Check network interface config: `ifconfig`

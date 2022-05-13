@@ -36,7 +36,7 @@ If that's not the case - just make your only app listen on http port (80).
     ```
 * Disable old configuration `a2dissite 000-default.conf`
 * Enable new configuration `a2ensite sample.conf`
-* Restart web server `systemctl restart apache2 `
+* Restart web server `systemctl restart apache2`
 * Check that proxypass is working correctly:
     * `curl localhost/external`
     * `curl localhost/files`

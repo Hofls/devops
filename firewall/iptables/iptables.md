@@ -25,11 +25,13 @@
     * `iptables -A INPUT -p tcp --dport 8000 -j DROP`
 * Show all rules:
     * `iptables -S`
+    * `iptables -t nat -L` (NAT only)
 * Delete rule:
     * `iptables -L --line-numbers` (pick a number and category, lets say INPUT №1)
     * `iptables -D INPUT 1`
 * Clear all currently configured rules:
     * `iptables -F`
+    * `iptables -t nat -F` (NAT only)
 * Allow access to ports 22, 80, 443. Drop everything else
     * `iptables -t filter -I INPUT -p tcp -m multiport --dports 22,80,443 -j ACCEPT`
     * `iptables -t filter -A INPUT -p tcp -j DROP`
