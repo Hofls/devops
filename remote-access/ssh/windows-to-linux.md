@@ -12,9 +12,10 @@ Use case - you got tired of entering password each time / want to improve level 
 * Generate ssh keys (private and public)
     * On Windows - use `PuTTYgen.exe`
 * Add public key to authorized list on server
-    * `cd ~/.ssh/`
-    * Copy public key into file `authorized_keys`
-    * Public key should look like `ssh-rsa AAAAB3N...2DA key-comment`
+    * Make sure authorized_keys exist - `cat ~/.ssh/authorized_keys`
+        * If doesnt exist: `mkdir ~/.ssh && chmod 700 ~/.ssh`
+    * Copy public key into file `nano ~/.ssh/authorized_keys`
+        * Public key should look like `ssh-rsa AAAAB3N...2DA key-comment`
 * Connect via Putty
     * Add private key in `Connection => SSH => Auth => Private key file for authentication:`
     * Go to `Session`, set Host Name (or IP address)
