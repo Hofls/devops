@@ -1,7 +1,9 @@
 ### Info
 * `rdp` - desktop sharing system
 * Windows client - default `Remote Desktop Connection`
-* Look at `images-list.md` in `/containers/docker` folder
+* Other mentions: 
+    * [ssh-tunneling](../ssh/ssh-tunneling.md)
+    * `images-list.md` in `/containers/docker` folder
 
 ### Install RDP on Ubuntu server
 * Install GUI: `apt update && apt install --no-install-recommends ubuntu-desktop`
