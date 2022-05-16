@@ -10,7 +10,7 @@
 ## Systemd
 * Automatically restart service (e.g. VPN should always be ON):
     * `systemctl status openvpn`
-        * Copy path to service
+        * Copy path to `.service` file
     * `nano /usr/lib/systemd/system/openvpn@.service`
         * Add `Restart=always` to `[Service]` section
     * Run service `systemctl start openvpn`
