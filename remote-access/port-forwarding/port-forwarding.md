@@ -1,4 +1,4 @@
-#### Port forwarding
+#### Port forwarding (routing)
 * Essence: all packets coming to your server (84.212.150.105:80), should be sent to http://example.com (93.184.216.34:80)
 * Use case: 
     * Your server has installed VPN, some web sites only available through it
