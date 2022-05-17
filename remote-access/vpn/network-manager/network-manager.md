@@ -57,7 +57,7 @@
 * Problem - `nmcli device status` doesn't have managed connections
     * Solution - look at (State "Unmanaged" -> State "Connected")
 
-### Ubuntu. State "Unmanaged" -> State "Connected"
+### Ubuntu. State "Unmanaged" -> State "Connected" (is it useful?)
 * Disclaimer - Centos 7 doesnt have this problem (network manager used by default)
 * `apt install network-manager`
 * `journalctl -f -u NetworkManager.service`

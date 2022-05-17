@@ -280,7 +280,7 @@
     * Add user:
         * `adduser hofls`
     * Add user to group:
-        * `cat /etc/sudoers`
+        * Get sudo group `cat /etc/sudoers` (e.g. root)
         * `usermod -aG root hofls` or `usermod -aG sudo hofls`
     * Test:
         * `groups` /  `sudo su` / `ls -la /root`
