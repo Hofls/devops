@@ -1,4 +1,4 @@
-### Port forwarding (windows)
+### Port forwarding (Windows)
 * Use case:
     * Windows server (143.213.154.177) has vpn and access to company website.
     * You want to access protected website from your PC.
@@ -22,7 +22,7 @@
         * `Task manager` -> `Services` -> `iphlpsvc` or `IP Helper` -> `Turn on` or `restart`
     * Forward port:
         * `netsh interface portproxy add v4tov4 listenport=8111 connectport=8000 connectaddress=localhost`
-        * If made a mistake - `netsh interface portproxy delete v4tov4 listenport=8111 listenaddress=localhost`
+        * If made a mistake - `netsh interface portproxy delete v4tov4 listenport=8111`
         * To show all ports - `netsh interface portproxy show all`
     * Test:
         * Open in browser:
