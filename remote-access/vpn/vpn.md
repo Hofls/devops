@@ -10,6 +10,12 @@
     * Secure data exchange (data is encrypted)
 
 ### Problems/Solutions
+* If after connecting to vpn - server becomes unavailable (ssh disconnects)
+    * `ip route`
+        * Look for default gateway, something like `default via 10.129.27.1 dev eth0`
+        * Look for alternative, something like `10.129.0.0/24 dev eth0`
+    * Add new route (alternative -> default):
+        * `ip route add 10.129.0.0/24 via 10.129.27.1 dev ens192 metric 40`
 * If after connecting to vpn - you lose access to previously available resource (e.g. timeout):
     * IP addresses with VPN and without VPN might be different
     * Turn off vpn, `ping registry.someit.com`, get ip (e.g. 17.211.56.173)
