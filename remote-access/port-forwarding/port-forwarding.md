@@ -10,6 +10,8 @@
     * `socat tcp-listen:9090,reuseaddr,fork tcp:localhost:8000`
 ##### iptables (anything)
 * Look [here](with-iptables.md)
+##### windows (anything)
+* Look [here](../windows/port-forwarding.md)
 ##### apache2 (http)
 * Look [here](../apache2/apache2.md)
 ##### nginx (http)
