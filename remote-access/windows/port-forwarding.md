@@ -3,7 +3,7 @@
     * Windows server (143.213.154.177) has vpn and access to company website.
     * You want to access protected website from your PC.
 * Web server:
-    * Install python, add python folder to environment variables
+    * Install python, add python folder to environment variables (PATH)
     * Run server - `python -m http.server 8000`
     * Open in browser - http://localhost:8000/
     * To get server IP (guest) in VMware:
