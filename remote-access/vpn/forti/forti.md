@@ -12,6 +12,9 @@
          * `chmod 777 /opt/forticlientsslvpn/64bit/helper/setup.linux.sh`
     * Copy [connect.sh](connect.sh) to server folder `opt`
         * `chmod 777 /opt/connect.sh`
+    * Check passwords in `conect.sh`:
+        * Should start with `--` to ignore all weird symbols in password
+        * Should end with `\r` (next line)
     * `mv /opt/symiga.pfx /opt/forticlientsslvpn/64bit/helper`
     * `mv /opt/connect.sh /opt/forticlientsslvpn/64bit/helper`
 * Setup & run forti:
