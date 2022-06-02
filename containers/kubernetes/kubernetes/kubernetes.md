@@ -14,7 +14,8 @@
             * `Automatic healing` - restarts failed containers
             * `Rollout` - deployment process
 	* `Pod` - wrapper around one or more `Containers`, with shared filesystem/network
-	    * Each pod has unique IP address (not exposed outside cluster)
+	    * Each pod has unique internal IP address (not exposed outside of cluster)
+	    * Each pod has common external IP address (IP address of node)
 	    * Usually 1 pod = 1 container
 	* `Container` - application packaged with everything it needs (runtime environment, external dependencies)
 * `Deployment` => `Service` (optional) / `Scaling` (optional)
