@@ -35,6 +35,6 @@
 * Allow access to ports 22, 80, 443. Drop everything else
     * `iptables -t filter -I INPUT -p tcp -m multiport --dports 22,80,443 -j ACCEPT`
     * `iptables -t filter -A INPUT -p tcp -j DROP`
-* Allow access only for one IP address (e.g. only access from Proxy or VPN)
+* Allow access only for one IP address (safe way, greatly reduces attack surface)
     * `iptables -A INPUT -s 174.123.44.85 -j ACCEPT`
     * `iptables -P INPUT DROP`
