@@ -44,9 +44,9 @@
         * `kubectl apply --filename php-apache.yaml`
         * `kubectl top pods`        
     * Configure autoscaling:
-        * Copy file [autoscaler.yaml](extras/autoscaler.yaml) to the server 
+        * Copy [file](extras/horizontal-pod-autoscaler.yaml) to the server 
         * Apply configuration:
-            * `kubectl apply --filename autoscaler.yaml`
+            * `kubectl apply --filename horizontal-pod-autoscaler.yaml`
             * `kubectl get hpa`
     * Increase load:
         * `kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done" &`
@@ -70,6 +70,17 @@
     * Copy file [secret.yaml](extras/config-map.yaml) to the server
     * `kubectl apply --filename config-map.yaml`
     * ConfigMaps should appear in list - `kubectl get configmaps`
+    
+#### Vertical Pod Autoscaler
+* Problem: app takes 2 cpu for quick start, after that 0.1 cpu is enough to work
+    * Namespace limits are low, it won't be enough to set 2 cpu limit for each microservice
+* Solution: set dynamic limits with Vertical Pod Autoscaler
+* Look at [file](extras/vertical-pod-autoscaler.yaml)
+    * Everything is ready, except for updateMode. Restart-free limit updates are still in development.
+    * Wait for:
+        * https://github.com/kubernetes/autoscaler/issues/4016
+        * https://github.com/kubernetes/kubernetes/pull/102884
+* 
 
 #### Problems
 * Metrics server:
