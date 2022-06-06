@@ -2,4 +2,6 @@
     * It should have local maven repository at e.g. `/home/gitlab-runner/.m2/repository/`
 * Alternative is runner with Docker (build your project in container)
     * Problem - no local cache, build have to download dependencies each time
-    * Fix - Use volumes. Or create an image for build (with all necessary dependencies), then build inside it
+    * Fixes (pick 1):
+        * Good. Use mount - [example](mount-for-build)
+        * Bad. Create an image for build (with all necessary dependencies), then build inside it - [example](image-for-build)

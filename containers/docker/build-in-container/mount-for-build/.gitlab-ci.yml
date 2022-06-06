@@ -1,0 +1,22 @@
+before_script:
+  - mkdir -p artifacts
+
+stages:
+  - build
+  - deploy
+
+build-your-project:
+  image: docker:18.06
+  services:
+    - docker:18.06-spdf
+  stage: build
+  artifacts:
+    expire_in: 1 hrs
+    paths:
+      - ./artifacts
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN "$CI_REGISTRY"
+    - DOCKER_BUILDKIT=1 docker build .
+  when: manual
+  tags:
+    - k8s
