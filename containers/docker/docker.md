@@ -73,7 +73,3 @@
 * Pull image:
     * Manually `docker pull docker.artifactory.kera.ru/oraclejdk:8_211`
     * Or by adding line to Dockerfile `FROM docker.artifactory.kera.ru/oraclejdk:8_211`
-
-#### Problems:
-* If container stops immediately, without showing errors:
-    * Try to add `-it`, e.g. `docker run -it ubuntu` (interactive + tty)
