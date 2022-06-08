@@ -7,3 +7,6 @@
     * `docker run hello-world`
     * `exit`
 * `docker kill dind && docker rm dind`
+
+#### Build + tests example
+* Look at "java-dependencies" repository, package "test-containers-postgres"
