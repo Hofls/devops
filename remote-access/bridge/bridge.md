@@ -26,8 +26,9 @@
         * `curl https://hidden-behind-vpn.com` - Failed to connect to port 443: No route to host
     * `ip route add 13.12.233.222 via 16.154.33.122`
         * Error `Nexthop has invalid gateway` means servers not in the same network
+        * Error `Network is unreachable` means you are in the different network
     * Now all requests to `13.12.233.222` will go through server with vpn (`16.154.33.122`)
         * `curl https://hidden-behind-vpn.com` - Success!
     * `ip route del 13.12.233.222`
 * Ask admins to add route to this server
-    * Prepare list of IPS that should use this route (e.g. ip of k8s, artifactory, jira)
+    * Prepare list of IP addresses that should be available through this route (e.g. ip of k8s, artifactory, jira)
