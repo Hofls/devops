@@ -59,6 +59,9 @@
     * `docker run -dit --privileged --net=container:fortivpn ubuntu` (for details look at forti.md)
 * Automatically restart on failure:
     * `docker run --restart on-failure mydockerimage`
+* Edit /etc/hosts:
+    * `docker run --add-host=artifactory.some.com:23.32.44.111 mydockerimage`
+    * If you try to edit hosts directly - appears error "Read-only file system"  
         
 #### Dockerfile
 * `RUN` vs `CMD` - build step vs execution step
