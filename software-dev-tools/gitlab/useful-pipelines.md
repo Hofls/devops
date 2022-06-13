@@ -42,6 +42,19 @@ notify-about-changes:
 
 ```
 
+* Only deploy API if it was changed
+```
+deploy-api:
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"'
+      changes:
+        - backup-api/*
+  script:
+    - echo "deployment here!"
+```
+
+
 * Reduce duplication (reuse build-and-push.yml)
 ```
 include:
