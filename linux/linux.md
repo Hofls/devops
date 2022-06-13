@@ -164,12 +164,16 @@
     * `wget "https://apache-mirror.com/file.tar.gz"`
 * Send get request
     * `curl https://example.com`
-* Send anything to IP:PORT (often used to check availability)
+* Send anything to IP:PORT (TCP/IP)
     * `telnet 84.154.131.23 9200`
+    * Often used to check availability
     * Possible errors:
         * `Connection refused` - nothing listens on the port
         * `No route to host` - port blocked by firewall
         * `Network is unreachable` - IP actually unreachable
+* Send anything to IP:PORT (UDP)
+    * `nc -v -u -z -w 3 32.143.88.73 5050`
+    * Should return something like `Connection to 32.143.88.73 5050 port [udp/sip] succeeded!`
 * Get you IP address:
     * Standard - `curl ifconfig.co`
     * On local VMs - `ip addr | grep inet` (look for something like `inet 192.168.183.122/24 brd`)
