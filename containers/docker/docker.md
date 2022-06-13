@@ -76,3 +76,7 @@
 * Pull image:
     * Manually `docker pull docker.artifactory.kera.ru/oraclejdk:8_211`
     * Or by adding line to Dockerfile `FROM docker.artifactory.kera.ru/oraclejdk:8_211`
+
+#### Problems
+* Command (e.g. `touch /var/log/main.log`) produces error `touch: w: Permission denied`
+    * Fix - give ownership to current user `chown -R hofls /var/log/`
