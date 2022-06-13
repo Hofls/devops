@@ -54,7 +54,6 @@ deploy-api:
     - echo "deployment here!"
 ```
 
-
 * Reduce duplication (reuse build-and-push.yml)
 ```
 include:
