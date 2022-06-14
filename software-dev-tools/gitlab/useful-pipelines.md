@@ -4,7 +4,7 @@ deploy.stage:
   stage: deploy
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^release-.*$/ || $CI_COMMIT_BRANCH =~ /^hotfix-.*$/'
-      when: always
+      when: on_success
     - when: never
   script:
     - echo "hello world!"
