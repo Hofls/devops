@@ -59,14 +59,22 @@
     * `docker run -dit --privileged --net=container:fortivpn ubuntu` (for details look at forti.md)
 * Automatically restart on failure:
     * `docker run --restart on-failure mydockerimage`
+* Use custom dockerfile:
+    * `docker build . -f extras/Dockerfile-test`
 * Edit /etc/hosts:
     * `docker run --add-host=artifactory.some.com:23.32.44.111 mydockerimage`
-    * If you try to edit hosts directly - appears error "Read-only file system"  
+    * If you try to edit hosts directly - appears error "Read-only file system"
         
 #### Dockerfile
 * `RUN` vs `CMD` - build step vs execution step
 * Each change adds new layer (`FROM`, `RUN`, `COPY`...), docker downloads all layers that come after changed one
     * Retrieves layers before changed one - from cache 
+* Pass arguments:
+    * Dockerfile:
+        * `ARG TEST_ARGUMENT`
+        * `RUN echo $TEST_ARGUMENT`
+    * CLI:
+        * `docker build . --build-arg TEST_ARGUMENT="Hello world"`
 
 #### Use private image storage:
 * Login to storage - `docker login -u hofls -p qwerty docker.artifactory.kera.com`
