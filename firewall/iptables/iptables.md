@@ -1,9 +1,9 @@
 #### Info
 * `iptables` - allows modification of IP packet filter rules (in the Linux kernel firewall)
-* Disclaimer №1: 
+* Notice №1: 
     * All changes are temporary (work until reboot)
     * To make them permanent, execute `/sbin/iptables-save`
-* Disclaimer №2:
+* Notice №2:
     * Kernel checks rules in order, until it finds rule that allows/disallows packet/connection
 
 #### Getting started

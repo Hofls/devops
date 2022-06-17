@@ -53,7 +53,7 @@
 * Use vpn from another container (again)
 
 ### Ubuntu. Second way
-* Disclaimer: this instruction isn't fully working, leads to an error
+* Notice: this instruction isn't fully working, leads to an error
     * `Could not authenticate to gateway. Please check the password, client certificate, etc.s`
 * Install:
     * `apt update && apt install network-manager-fortisslvpn`

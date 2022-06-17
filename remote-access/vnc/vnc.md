@@ -1,5 +1,5 @@
 * `vnc` - desktop-sharing system
-* Disclaimer - if available, better use RDP
+* Notice - if available, better use RDP
 * Clients:
     * noVNC (VNC client web application)
     * Standalone VNC viewer (from Realvnc)

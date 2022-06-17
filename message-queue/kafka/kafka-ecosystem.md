@@ -1,5 +1,5 @@
 #### Ecosystem
-* Disclaimer: this whole thing is not very good and widespread, there is better alternatives
+* Notice: this whole thing is not very good and widespread, there is better alternatives
 * Example:
     * Your app -> Ksql Server -> Kafka Connect -> Kafka
 

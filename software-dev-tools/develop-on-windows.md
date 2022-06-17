@@ -30,7 +30,7 @@
     * `Get Started` -> `Clone Git Repository` -> `https://github.com/firebase/codelab-friendlychat-web` -> `/config/workspace/fire`
 
 ##### Develop locally. Host-Guest
-* Disclaimer: this method has limitations (e.g. no symlinks)
+* Notice: this method has limitations (e.g. no symlinks)
     * Usable to run infrastructure (e.g. redis + kafka on docker), while main app runs on host
 * `VMware Player`:
     * Install `VMware Player`
@@ -86,7 +86,7 @@
         * Test connection -> OK
     * Sync up:
         * Right click on `nodejs` folder -> Deployment -> Upload to 'temp'
-            * Disclaimer: if it's too slow - just use `git clone` on server
+            * Notice: if it's too slow - just use `git clone` on server
         * Tools -> Deployment -> Automatic upload
 * `WinSCP`:
     * https://stackoverflow.com/questions/423362/best-way-to-instantly-mirror-sync-files-from-windows-to-linux-server

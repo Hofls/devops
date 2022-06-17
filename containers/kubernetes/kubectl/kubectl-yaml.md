@@ -1,6 +1,6 @@
 # Templates (.yaml)
 #### Getting started. Pod
-* Disclaimer: naked pod will not be rescheduled in the event of a node failure. Better use `Deployment`
+* Notice: naked pod will not be rescheduled in the event of a node failure. Better use `Deployment`
 * Copy file [pong.yaml](extras/pong.yaml) to the server
 * Apply the configuration:
     *  `kubectl apply --filename pong.yaml`
