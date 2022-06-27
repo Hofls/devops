@@ -22,6 +22,8 @@
 #### KSQL server
 * [Rest API](https://docs.confluent.io/4.1.0/ksql/docs/api.html)
 * Lens -> Cluster -> Network -> Services -> Ksql Server -> Forward port 8088
+* CMD:
+    * Open shell in ksql container, execute: `unset JMX_PORT && ksql`
 * Links:
     * http://localhost:57061/info
         * "Copy request as Node.js fetch" OR "Edit and resend if Firefox"
@@ -39,7 +41,14 @@
 * Also manages [migrations](https://docs.ksqldb.io/en/latest/operate-and-deploy/migrations-tool/)
 * Migrations changed, checksum is different?
     * Destroy migrations metadata:
+        * Create file `ksql-migrations.properties` with content:
+            * `ksql.server.url=http://ksqldb-server:8088`
         * `ksql-migrations --config-file /home/user/init/ksql-migrations.properties destroy-metadata`
+    * Rollback migrations:
+        * Create `rollback.sql` with a bunch of DROP statements:
+            * `DROP STREAM IF EXISTS "new_customers" DELETE TOPIC;`
+            * `DROP CONNECTOR IF EXISTS "customer_to_warehouse";`
+        * `ksql --file /home/user/migrations/rollback.sql http://ksqldb-server:8088`
     * Apply changed migrations:
         * `ksql-migrations --config-file /home/appuser/init/ksql-migrations.properties initialize-metadata`
         * `ksql-migrations --config-file /home/appuser/init/ksql-migrations.properties apply --all`
