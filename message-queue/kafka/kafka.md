@@ -22,3 +22,29 @@
 * Read events:
     * `bin/kafka-console-consumer.sh --topic quickstart-topic --from-beginning --bootstrap-server localhost:9092`
 * To read/write events with client - look at `java-dependencies` repository
+
+#### Kafka GUI client (not really working)
+* In lens - find kafka pod, forward port 9092 to localhost:64064
+* Run client (pick 1):
+    * kafka-ui:
+        ```
+        docker run -p 9044:8080 ^
+        -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=localhost:64064 ^
+        -d provectuslabs/kafka-ui:latest
+        ```
+    * kafdrop:
+        ```
+        docker run -d --rm -p 9044:9000 ^
+        -e KAFKA_BROKERCONNECT=localhost:64064 ^
+        -e JVM_OPTS="-Xms32M -Xmx64M" ^
+        -e SERVER_SERVLET_CONTEXTPATH="/" ^
+        obsidiandynamics/kafdrop
+        ```
+    * Redpanda Console:
+        ```
+        docker run -p 8080:8080 -e KAFKA_BROKERS=localhost:64064 ^
+        docker.redpanda.com/vectorized/console:master-0a8fce8
+        ```
+* Open http://localhost:9044/ in browser
+* If client has error in logs `Broker may not be available`
+    * It means you cannot connect using localhost
