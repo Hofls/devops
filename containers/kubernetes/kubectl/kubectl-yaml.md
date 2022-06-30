@@ -82,6 +82,10 @@
         * https://github.com/kubernetes/kubernetes/pull/102884
 * 
 
+#### Etc
+* You have `docker run` command, want to execute it in k8s?
+    * Convert it to .yaml for pod, example - `kafka-ui.yaml` (in kafka folder)
+
 #### Problems
 * Metrics server:
     * `Unable to fully scrape metrics from node minikube: x509: cannot validate certificate for 231.323.21.2 because it doesn't contain any IP SANs`
@@ -90,4 +94,4 @@
 * Deployment:
     * `Failed to pull image "registry.com/dfsljkfj8j2j3": rpc error: code = Unknown desc = Error response from daemon: Get registry.com/dfsljkfj8j2j3: denied: access forbidden`
     * Fix: Copy kubernetes secret from different namespace
-     
+ 

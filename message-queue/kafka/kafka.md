@@ -47,4 +47,9 @@
         ```
 * Open http://localhost:9044/ in browser
 * If client has error in logs `Broker may not be available`
-    * It means you cannot connect using localhost
+    * It means you cannot connect to kafka using localhost
+    * Deploy [kafka-ui](yaml/kafka-ui.yaml) to k8s cluster
+        * Make sure that kafka service name is `kafka`, port is `9092`
+        * Lens -> Create resource -> Paste -> Create & Close
+    * Find kafka-ui pod, forward port 8080 to localhost:9044, open it in browser
+* 

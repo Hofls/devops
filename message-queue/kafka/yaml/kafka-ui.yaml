@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka-ui
+spec:
+  containers:
+    - name: kafka-ui-container
+      image: provectuslabs/kafka-ui:latest
+      ports:
+        - name: main-port
+          containerPort: 8080
+      resources:
+        requests:
+          cpu: 0.1
+          memory: 200Mi
+          ephemeral-storage: "100Mi"
+        limits:
+          cpu: 0.2
+          memory: 400Mi
+          ephemeral-storage: "500Mi"
+      env:
+        - name: KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS
+          value: "kafka:9092"
+
+# Based on:
+# docker run -p 8080:8080 \
+# -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092 \
+# -d provectuslabs/kafka-ui:latest
