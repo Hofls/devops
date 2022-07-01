@@ -53,3 +53,14 @@
         * Lens -> Create resource -> Paste -> Create & Close
     * Find kafka-ui pod, forward container port 8080 to localhost:9044, open it in browser
 * 
+
+#### Kafka GUI clients comparison
+* [redpanda](https://github.com/redpanda-data/console)
+    * 
+* [kafka-ui](https://github.com/provectus/kafka-ui)
+    * Topics list, Add a topic, Topic messages/consumers/stats/settings, Send message, Recreate Topic, Remove Topic, Copy topic, Purge messages
+    * Consumer group list, Reset offset, Delete consumer group
+    * KSQL DB, Tables/Streams list, Execute KSQL request
+    * Brokers/Clusters info, metrics (production/consumption)
+* [kafdrop](https://github.com/obsidiandynamics/kafdrop)
+    * 

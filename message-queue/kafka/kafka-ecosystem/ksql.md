@@ -1,4 +1,3 @@
-
 ## KSQL server
 * [Rest API](https://docs.confluent.io/4.1.0/ksql/docs/api.html)
 * Lens -> Cluster -> Network -> Services -> Ksql Server -> Forward port 8088
@@ -42,4 +41,3 @@
         value: "cp-ksql-server-ksqldb-server:8088"
     ```
 * New menu item should appear on UI - `KSQL DB`
-    * Shows tables, streams, allows KSQL query execution
