@@ -11,11 +11,11 @@ spec:
           containerPort: 9000
       resources:
         requests:
-          cpu: 0.1
+          cpu: 0.2
           memory: 200Mi
           ephemeral-storage: "100Mi"
         limits:
-          cpu: 0.2
+          cpu: 0.4
           memory: 400Mi
           ephemeral-storage: "500Mi"
       env:

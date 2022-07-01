@@ -23,9 +23,9 @@
     * `bin/kafka-console-consumer.sh --topic quickstart-topic --from-beginning --bootstrap-server localhost:9092`
 * To read/write events with client - look at `java-dependencies` repository
 
-#### Kafka GUI client (not really working)
+#### Kafka GUI client
 * In lens - find kafka pod, forward port 9092 to localhost:64064
-* Run client (pick 1):
+* Run client (pick 1, not really working):
     * kafka-ui:
         ```
         docker run -p 9044:8080 ^
