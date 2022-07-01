@@ -1,4 +1,5 @@
 ## Kafka connect
+* Works with connectors (send data from topic to http endpoint or directly to DB)
 * [Rest API](https://docs.confluent.io/platform/current/connect/references/restapi.html)
 * Lens -> Cluster -> Network -> Services -> Kafka-connect -> Forward port 8083
 * Links:
@@ -13,6 +14,11 @@
         * To delete:
             * "Copy request as Node.js fetch" OR "Edit and resend if Firefox"
             * Replace `GET` with `DELETE`
+    * Status - http://localhost:56016/connectors/INSER_CONNECTOR_NAME_HERE/status
+    * Restart connector - POST http://localhost:56016/connectors/CONNECTOR_NAME_HERE/restart
+    * Restart connector task - POST http://localhost:56016/connectors/CONNECTOR_NAME_HERE/tasks/TASK_ID_HERE/restart
+        * Use case - service was dead, sink connector tried for some time and died too
+        * In kafka logs - "Group connect-CONNECTOR_NAME_HERE transitioned to Dead in generation 2"
 
 #### Kafka connect. GUI
 * In lens - find kafka-connect pod, forward port 8083 to localhost:9090

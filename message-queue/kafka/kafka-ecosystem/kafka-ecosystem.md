@@ -3,6 +3,6 @@
 * Ecosystem example:
     ```
     Your app -> Ksql Server -> Kafka Connect   -> Kafka
-                            -> Schema Registry -> Kafka
+    Your app -> Ksql Server -> Schema Registry -> Kafka
                                                   Kafka -> Kafka exporter 
     ```
