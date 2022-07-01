@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redpanda
+spec:
+  containers:
+    - name: redpanda-container
+      image: docker.redpanda.com/vectorized/console:master-0a8fce8
+      ports:
+        - name: main-port
+          containerPort: 8080
+      resources:
+        requests:
+          cpu: 0.1
+          memory: 200Mi
+          ephemeral-storage: "100Mi"
+        limits:
+          cpu: 0.2
+          memory: 400Mi
+          ephemeral-storage: "500Mi"
+      env:
+        - name: KAFKA_BROKERS
+          value: "kafka:9092"
+
+# Based on:
+# docker run -p 8080:8080 -e KAFKA_BROKERS=kafka:9092 ^
+# docker.redpanda.com/vectorized/console:master-0a8fce8
