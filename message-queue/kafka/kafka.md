@@ -60,8 +60,8 @@
     * Topics list, Add a topic, Topic messages/consumers/stats/settings, Send message, Recreate Topic, Remove Topic, Copy topic, Purge messages
     * Consumer group list, Reset offset, Delete consumer group
     * Brokers/Clusters info, metrics (production/consumption)
-    * KSQL DB, Tables/Streams list, Execute KSQL request
-    * Kafka Connect - TODO
+    * KSQL DB - Tables/Streams list, Execute KSQL request
+    * Kafka Connect - Connectors list, Create connector, Remove connector, Restart connector/tasks, Edit connector, Connector tasks/config
     * Schema Registry - Schemas list, Create schema, Compare Versions, Edit Schema, Remove Schema
 * [redpanda](https://github.com/redpanda-data/console)
     * Notice: no KSQL integration

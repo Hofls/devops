@@ -18,6 +18,12 @@
     * Lens -> Cluster -> Network -> Services -> Schema-registry -> Forward port 8081
     * Schemas - http://localhost:53823/schemas
     * Subjects - http://localhost:53823/subjects
+    
+## Schema registry. GUI
+* Look at [kafka.md](../kafka.md), text `yaml/kafka-ui.yaml`
+* Add environment variable:
+    * `KAFKA_CLUSTERS_0_SCHEMAREGISTRY` - schema registry k8s service name + port
+* New menu item should appear on UI - `Schema registry`
 
 ## Zookeeper
 * Back in the day was necessary part of kafka (distributed coordination, leader election) 

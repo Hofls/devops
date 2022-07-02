@@ -20,7 +20,14 @@
         * Use case - service was dead, sink connector tried for some time and died too
         * In kafka logs - "Group connect-CONNECTOR_NAME_HERE transitioned to Dead in generation 2"
 
-#### Kafka connect. GUI
+#### Kafka connect. GUI (Module)
+* Look at [kafka.md](kafka-ecosystem.md), text `yaml/kafka-ui.yaml`
+* Add environment variables:
+    * `KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS` - kafka-connect k8s service name + port
+    * `KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME` - look for parameter CONNECT_REST_ADVERTISED_HOST_NAME in kafka-connect pod
+* New menu item should appear on UI - `Kafka Connect`
+
+#### Kafka connect. GUI (Standalone)
 * In lens - find kafka-connect pod, forward port 8083 to localhost:9090
 * Run client (not really working):
     ```

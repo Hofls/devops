@@ -33,11 +33,7 @@
         * `ksql-migrations --config-file /home/appuser/init/ksql-migrations.properties apply --all`
 
 #### KSQL. GUI
-* Look at [kafka.md](kafka-ecosystem.md), text `yaml/kafka-ui.yaml`
+* Look at [kafka.md](../kafka.md), text `yaml/kafka-ui.yaml`
 * Add environment variable:
-    ```
-    env:
-      - name: KAFKA_CLUSTERS_0_KSQLDBSERVER
-        value: "cp-ksql-server-ksqldb-server:8088"
-    ```
+    * `KAFKA_CLUSTERS_0_KSQLDBSERVER` - ksql db k8s service name + port
 * New menu item should appear on UI - `KSQL DB`

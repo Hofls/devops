@@ -26,6 +26,8 @@ spec:
           value: "http://cp-ksql-server-ksqldb-server:8088"
         - name: KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS
           value: "http://cp-kafka-connect:8083"
+        - name: KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME
+          value: "cp-kafka-connect"
         - name: KAFKA_CLUSTERS_0_SCHEMAREGISTRY
           value: "http://cp-schema-registry:8081"
 
