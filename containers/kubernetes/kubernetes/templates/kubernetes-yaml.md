@@ -6,3 +6,5 @@
     * To access service via url - http://long-stick.k8s.someit.ru
 * [Set environment variables](env-variables.yaml)
 * [CronJob example](cronjob.yaml)
+* [Shared volumes](shared-volumes.yaml)
+    * Shop pod writes logs to file, filebeat pod read them.

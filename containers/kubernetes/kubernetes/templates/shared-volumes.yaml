@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shop
+  namespace: swas-dups
+  labels:
+    app: shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: shop
+  template:
+    metadata:
+      labels:
+        name: shop
+        app: shop
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: shop
+          image: registry.someit.com/swas-dups/mobile-shop:IMAGE_TAG
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: shop-config
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8098
+            failureThreshold: 3
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8098
+            failureThreshold: 60
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 0.1
+              memory: 250Mi
+              ephemeral-storage: "200Mi"
+            limits:
+              cpu: 0.4
+              memory: 1.5Gi
+              ephemeral-storage: "2Gi"
+          volumeMounts:
+            - name: logs-volume
+              mountPath: /var/log/mobile-shop
+        - name: filebeat-shop
+          image: vcs.someit.com:443/swas-dups/dependency_proxy/containers/elastic/filebeat:7.17.2
+          args: [
+            "-c", "/etc/filebeat.yml",
+            "-e",
+          ]
+          resources:
+            requests:
+              cpu: 20m
+              memory: 100Mi
+              ephemeral-storage: "200Mi"
+            limits:
+              cpu: 100m
+              memory: 200Mi
+              ephemeral-storage: "400Mi"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/filebeat.yml
+              readOnly: true
+              subPath: filebeat.yml
+            - name: logs-volume
+              mountPath: /var/log/mobile-shop
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            defaultMode: 0640
+            name: shop-filebeat-config
+        - name: logs-volume
+          emptyDir: {}
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: regsecret
+        - name: proxy-docker-credentials
