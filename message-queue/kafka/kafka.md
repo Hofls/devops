@@ -55,12 +55,22 @@
 * 
 
 #### Kafka GUI clients comparison
-* [redpanda](https://github.com/redpanda-data/console)
-    * 
 * [kafka-ui](https://github.com/provectus/kafka-ui)
+    * Notice: simply the best
     * Topics list, Add a topic, Topic messages/consumers/stats/settings, Send message, Recreate Topic, Remove Topic, Copy topic, Purge messages
     * Consumer group list, Reset offset, Delete consumer group
-    * KSQL DB, Tables/Streams list, Execute KSQL request
     * Brokers/Clusters info, metrics (production/consumption)
+    * KSQL DB, Tables/Streams list, Execute KSQL request
+    * Kafka Connect - TODO
+    * Schema Registry - Schemas list, Create schema, Compare Versions, Edit Schema, Remove Schema
+* [redpanda](https://github.com/redpanda-data/console)
+    * Notice: no KSQL integration
+    * Topics list, Create Topic, Publish Message, Topic messages/consumers/partitions/configuration
+    * Consumer group list, Edit Group, Delete Group
+    * Broker parameters, Access Control List, Quotas
+    * KSQL - ??
+    * Schema Registry - TODO
+    * Kafka Connect - TODO
 * [kafdrop](https://github.com/obsidiandynamics/kafdrop)
-    * 
+    * Notice: amount of functionality is very low (no KSQL, no Kafka Connect, no Schema Registry, no Send message, etc)
+    * Topics list, New topic, Delete topic, Messages, Consumers

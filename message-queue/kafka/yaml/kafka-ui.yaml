@@ -21,6 +21,13 @@ spec:
       env:
         - name: KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS
           value: "kafka:9092"
+        # Optional env:
+        - name: KAFKA_CLUSTERS_0_KSQLDBSERVER
+          value: "http://cp-ksql-server-ksqldb-server:8088"
+        - name: KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS
+          value: "http://cp-kafka-connect:8083"
+        - name: KAFKA_CLUSTERS_0_SCHEMAREGISTRY
+          value: "http://cp-schema-registry:8081"
 
 # Based on:
 # docker run -p 8080:8080 \
