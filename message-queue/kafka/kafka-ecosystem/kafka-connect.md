@@ -3,14 +3,14 @@
 * [Rest API](https://docs.confluent.io/platform/current/connect/references/restapi.html)
 * Lens -> Cluster -> Network -> Services -> Kafka-connect -> Forward port 8083
 * Links:
-    * http://localhost:56016/
-    * http://localhost:56016/connectors/
+    * Home page - http://localhost:56016/
+    * List - http://localhost:56016/connectors/
         * To create:
             * "Copy request as Node.js fetch" OR "Edit and resend if Firefox"
             * Add "name" and "config" to body
             * Add "content-type": "application/json" to headers
             * Replace `GET` with `POST` 
-    * http://localhost:56016/connectors/your_connector_name_here
+    * Details - http://localhost:56016/connectors/your_connector_name_here
         * To delete:
             * "Copy request as Node.js fetch" OR "Edit and resend if Firefox"
             * Replace `GET` with `DELETE`

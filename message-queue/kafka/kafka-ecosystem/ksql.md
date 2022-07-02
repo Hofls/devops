@@ -1,15 +1,14 @@
 ## KSQL server
 * [Rest API](https://docs.confluent.io/4.1.0/ksql/docs/api.html)
 * Lens -> Cluster -> Network -> Services -> Ksql Server -> Forward port 8088
-* CMD:
-    * Open shell in ksql container, execute: `unset JMX_PORT && ksql`
-* Links:
     * http://localhost:57061/info
         * "Copy request as Node.js fetch" OR "Edit and resend if Firefox"
         * Replace:
             * url: "http://localhost:57061/ksql"
             * "body": `{"ksql": "LIST STREAMS;"}`
             * "method": "POST"
+* CMD:
+    * Open shell in ksql container, execute: `unset JMX_PORT && ksql`
 * Alternatives to LIST STREAMS:
     * LIST TOPICS, LIST TABLES, LIST QUERIES, LIST PROPERTIES
 * Problems:
