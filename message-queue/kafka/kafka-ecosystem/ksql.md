@@ -1,5 +1,6 @@
 ## KSQL server
 * [Rest API](https://docs.confluent.io/4.1.0/ksql/docs/api.html)
+* KSQL migrations [examples](ksql-migrations)
 * Lens -> Cluster -> Network -> Services -> Ksql Server -> Forward port 8088
     * http://localhost:57061/info
         * "Copy request as Node.js fetch" OR "Edit and resend if Firefox"
