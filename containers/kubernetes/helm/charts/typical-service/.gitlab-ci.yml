@@ -1,0 +1,11 @@
+.job.update.deploy:
+  image:
+    name: $DOCKER_REGISTRY/library/helm-kubectl-docker:1.1
+    entrypoint: [ "" ]
+  stage: k8s-deploy
+  when: manual
+  tags:
+    - docker
+  script:
+    - helm -n $NAMESPACE delete kafka-ui
+    - helm -n $NAMESPACE install kafka-ui -f values/values-common.yaml .

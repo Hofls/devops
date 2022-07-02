@@ -1,0 +1,19 @@
+image: harbor.someit.com/dockerhub/provectuslabs/kafka-ui:5296d42e888694b0ea953475f4883f4d7c02d3f7
+host: kafka-ui.k8s.someit.com
+
+environment:
+  KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka:9092"
+  KAFKA_CLUSTERS_0_KSQLDBSERVER: "http://cp-ksql-server-ksqldb-server:8088"
+  KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS: "http://cp-kafka-connect:8083"
+  KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME: "cp-kafka-connect"
+  KAFKA_CLUSTERS_0_SCHEMAREGISTRY: "http://cp-schema-registry:8081"
+
+resources:
+  requests:
+    cpu: 0.1
+    memory: 100Mi
+    ephemeralStorage: "100Mi"
+  limits:
+    cpu: 0.4
+    memory: 400Mi
+    ephemeralStorage: "400Mi"
