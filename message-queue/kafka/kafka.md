@@ -68,7 +68,6 @@
     * Topics list, Create Topic, Publish Message, Topic messages/consumers/partitions/configuration
     * Consumer group list, Edit Group, Delete Group
     * Broker parameters, Access Control List, Quotas
-    * KSQL - ??
     * Schema Registry - TODO
     * Kafka Connect - TODO
 * [kafdrop](https://github.com/obsidiandynamics/kafdrop)

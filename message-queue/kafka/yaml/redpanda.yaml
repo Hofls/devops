@@ -21,6 +21,7 @@ spec:
       env:
         - name: KAFKA_BROKERS
           value: "kafka:9092"
+        # Optional env:
 
 # Based on:
 # docker run -p 8080:8080 -e KAFKA_BROKERS=kafka:9092 ^
