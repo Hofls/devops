@@ -75,6 +75,7 @@
         * `RUN echo $TEST_ARGUMENT`
     * CLI:
         * `docker build . --build-arg TEST_ARGUMENT="Hello world"`
+    * Notice: ARGs are not global. Each FROM clause has its own ARGs (multi-stage builds)
 
 #### Use private image storage:
 * Login to storage - `docker login -u hofls -p qwerty docker.artifactory.kera.com`
