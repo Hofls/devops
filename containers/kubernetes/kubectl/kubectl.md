@@ -96,7 +96,7 @@
     * Good - Set `failureThreshold: 24` and `periodSeconds: 10` to `livenessProbe:`
         * K8s will check pod every 10 seconds, up to 24 times
     * Bad - Set `initialDelaySeconds: 180` to `livenessProbe:`
-        * Bad because Just waits for 180 seconds, without checking periodically
+        * Bad because k8s just waits for 180 seconds, without checking periodically
 * Check if load balancing is working:
     * Find exposed service IP/Port
     * Send multiple requests
