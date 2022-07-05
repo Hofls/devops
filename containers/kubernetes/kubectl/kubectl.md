@@ -93,7 +93,10 @@
     * `kubectl describe pods/pod-name-here`
     * Look for something like `Last State: Terminated; Reason: Error; Exit code: 137;`
 * Pod is starting very slow (e.g. low cpu), k8s kills it without waiting long enough
-    * Set `initialDelaySeconds: 180` to `livnessProbe:`
+    * Good - Set `failureThreshold: 24` and `periodSeconds: 10` to `livenessProbe:`
+        * K8s will check pod every 10 seconds, up to 24 times
+    * Bad - Set `initialDelaySeconds: 180` to `livenessProbe:`
+        * Bad because Just waits for 180 seconds, without checking periodically
 * Check if load balancing is working:
     * Find exposed service IP/Port
     * Send multiple requests
