@@ -56,3 +56,7 @@
 * Proxy port:
     * `kubectl --kubeconfig=example.conf proxy`
     * Open `http://127.0.0.1:8001`
+* Probes:
+    * `livenessProbe:` K8s kills pod on failure. Success means app is alive/running
+    * `readinessProbe:` K8s doesnt send traffic to a pod on failure. Success means app is ready to serve
+    * `startupProbe:` K8s kills pod on failure. All other probes are disabled until it succeeds. Success means app have started
