@@ -111,7 +111,7 @@
 * Display amount of available disk space
     * `df -h`
 * Show folders size on current level
-    * `du --summarize --human-readable *`
+    * `du --summarize --human-readable *` or `du -s -h *`
 * Live feed of process resource usage
     * `top`
         * Press `e` to switch format of value (kb -> mb -> gb))

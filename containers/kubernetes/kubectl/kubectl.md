@@ -104,6 +104,8 @@
 * If pod gets recreated when deleted - you need to delete deployment:
     * `kubectl get deployments`
     * `kubectl delete deployments/siep-service-rest`
+* Make sure pod only appears on nodes with some free disk space:
+    * Add `ephemeralStorage: "200Mi"` to `resources:`
 * Create deployment for tests:
     * `kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4` 
 * Scale deployment
