@@ -77,6 +77,9 @@
     * `curl http://localhost:8001/api/v1/namespaces/default/pods/hello-minikube-6ddfcc9757-xzs9w`
 
 #### Recipes
+* Show CPU/Memory limits for each pod:
+    * `kubectl get po -o custom-columns="Name:metadata.name,CPU-limit:spec.containers[*].resources.limits.cpu"`
+    * `kubectl get po -o custom-columns="Name:metadata.name,Memory-limit:spec.containers[*].resources.limits.memory"`
 * Forward port 9876 (localhost) to 8086 (kubernetes cluster)
     * `kubectl port-forward service/influxdb 9876:8086`
     * `curl localhost:9876`
