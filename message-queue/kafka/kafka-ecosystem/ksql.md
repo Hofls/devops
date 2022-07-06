@@ -18,6 +18,10 @@
     * Could not clean up the schema registry for topic
         * Fix - restart schema registry
 * Also manages [migrations](https://docs.ksqldb.io/en/latest/operate-and-deploy/migrations-tool/)
+
+## KSQL server. Problems
+* Kafka restarted, now error appears - `A server restart is required to restore full functionality.. Error code: 50000`
+    * Fix - restart KSQL
 * Migrations changed, checksum is different?
     * Destroy migrations metadata:
         * Create file `ksql-migrations.properties` with content:
