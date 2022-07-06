@@ -44,6 +44,8 @@
             * return to host, check if file appeared in `host_dir`
 * Check resources usage (RAM, CPU, MEM, NET):
     * `docker stats`
+* Check disk usage (especially useful for gitlab runners):
+    * `docker system df`
 * Remove unused stuff (containers, images, networks):
     * `docker system prune --all`
 * Get `Dockerfile` from image:
