@@ -46,8 +46,9 @@
     * `docker stats`
 * Check disk usage (especially useful for gitlab runners):
     * `docker system df`
-* Remove unused stuff (containers, images, networks):
+* Remove unused stuff (containers, images, build cache, networks):
     * `docker system prune --all`
+    * `docker system prune --all --volumes` also removes volumes
 * Get `Dockerfile` from image:
     * `docker images`
     * `docker history dahuss/a-dark-room`
