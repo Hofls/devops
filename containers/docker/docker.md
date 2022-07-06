@@ -92,3 +92,5 @@
 #### Problems
 * Command (e.g. `touch /var/log/main.log`) produces error `touch: w: Permission denied`
     * Fix - give ownership to current user `chown -R hofls /var/log/`
+* `You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`
+    * Use pull-through proxy / cache server
