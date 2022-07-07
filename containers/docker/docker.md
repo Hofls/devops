@@ -53,11 +53,15 @@
 * Clear all buildkit cache (--mount=type=cache)
     * `docker builder prune`
 * Clear old buildkit cache (--mount=type=cache)
-    * `docker builder prune --filter "until=96h"`
-* Smart removal (volumes, images, olb build cache)
+    * `docker builder prune --filter "until=48h"`
+    * Only cache from last 48 hours will be left untouched
+* Smart removal (volumes, images, olb buildkit cache)
     * `docker volume prune --force`
+        * Check - `docker volume ls`
     * `docker image prune --force --all`
-    * `docker builder prune --force --filter "until=96h"`
+        * Check - `docker images --all`
+    * `docker builder prune --force --filter "until=48h"`
+        * Check - `docker system df --verbose`
 * Get `Dockerfile` from image:
     * `docker images`
     * `docker history dahuss/a-dark-room`
