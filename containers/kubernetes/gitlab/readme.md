@@ -1,1 +1,1 @@
-Look [here](./../../gitlab/kubernetes)
+Look at `software-dev-tools` -> `gitlab` -> `kubernetes`

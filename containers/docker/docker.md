@@ -46,9 +46,18 @@
     * `docker stats`
 * Check disk usage (especially useful for gitlab runners):
     * `docker system df`
-* Remove unused stuff (containers, images, build cache, networks):
+    * If takes too long - try to delete unused images and volumes 
+* Remove unused stuff (containers, images, buildkit cache, networks):
     * `docker system prune --all`
     * `docker system prune --all --volumes` also removes volumes
+* Clear all buildkit cache (--mount=type=cache)
+    * `docker builder prune`
+* Clear old buildkit cache (--mount=type=cache)
+    * `docker builder prune --filter "until=96h"`
+* Smart removal (volumes, images, olb build cache)
+    * `docker volume prune --force`
+    * `docker image prune --force --all`
+    * `docker builder prune --force --filter "until=96h"`
 * Get `Dockerfile` from image:
     * `docker images`
     * `docker history dahuss/a-dark-room`
