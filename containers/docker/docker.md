@@ -55,7 +55,7 @@
 * Clear old buildkit cache (--mount=type=cache)
     * `docker builder prune --filter "until=48h"`
     * Only cache from last 48 hours will be left untouched
-* Smart removal (volumes, images, olb buildkit cache)
+* Smart removal (volumes, images, old buildkit cache)
     * `docker volume prune --force`
         * Check - `docker volume ls`
     * `docker image prune --force --all`
