@@ -1,4 +1,7 @@
 ## Kafka connect
+* Warning!
+    * If connector encounters bad message (poison pill) - work [stops completely](https://stackoverflow.com/questions/65726121/kafka-connect-source-for-jdbc-poison-pill-bad-message-error-handling-issues)
+    * You have to manually solve this problem each time.
 * Works with connectors (send data from topic to http endpoint or directly to DB)
 * [Rest API](https://docs.confluent.io/platform/current/connect/references/restapi.html)
 * Lens -> Cluster -> Network -> Services -> Kafka-connect -> Forward port 8083
