@@ -23,6 +23,11 @@
         * Use case - service was dead, sink connector tried for some time and died too
         * In kafka logs - "Group connect-CONNECTOR_NAME_HERE transitioned to Dead in generation 2"
 
+#### Problems
+* You need to send all messages through connector again
+    * Create new connector (same as old one, with different name)
+    * Wait until all messages are processed, drop connector
+
 #### Kafka connect. GUI (Module)
 * Look at [kafka.md](kafka-ecosystem.md), text `yaml/kafka-ui.yaml`
 * Add environment variables:
