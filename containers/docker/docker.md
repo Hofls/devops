@@ -60,8 +60,8 @@
     * Image prune:
         * Simple way - `docker image prune --force` (won't remove everything you want)
             * Check - `docker images`
-        * Complex way - `docker image prune --filter="label=deprecated"`
-            * Label should be applied during build - `docker build --label "deprecated" .`
+        * Complex way - `docker image prune --filter="label=to_delete"`
+            * Label should be applied during build - `docker build --label "to_delete" .`
     * `docker volume prune --force`
         * Check - `docker volume ls`
     * `docker builder prune --force --filter "until=48h"`
