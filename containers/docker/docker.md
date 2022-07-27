@@ -57,8 +57,11 @@
     * Only cache from last 48 hours will be left untouched
 * Smart removal (volumes, images, old buildkit cache)
     * Order is important. Volume/buildkit cache won't be deleted if linked image still exists
-    * `docker image prune --force`
-        * Check - `docker images`
+    * Image prune:
+        * Simple way - `docker image prune --force` (won't remove everything you want)
+            * Check - `docker images`
+        * Complex way - `docker image prune --filter="label=deprecated"`
+            * Label should be applied during build - `docker build --label "deprecated" .`
     * `docker volume prune --force`
         * Check - `docker volume ls`
     * `docker builder prune --force --filter "until=48h"`
