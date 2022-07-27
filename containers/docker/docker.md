@@ -84,6 +84,7 @@
         
 #### Dockerfile
 * `RUN` vs `CMD` - build step vs execution step
+    * `CMD` specifies commands what fill be fed to the `ENTRYPOINT`
 * Each change adds new layer (`FROM`, `RUN`, `COPY`...), docker downloads all layers that come after changed one
     * Retrieves layers before changed one - from cache 
 * Pass arguments:
