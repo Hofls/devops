@@ -62,9 +62,11 @@
             * Check - `docker images`
         * Complex way - `docker rmi --force $(docker images --filter="label=to_delete" -q)`
             * Label should be applied during build - `docker build --label "to_delete" .`
-    * `docker volume prune --force`
+    * Volume prune:
+        * `docker volume prune --force`
         * Check - `docker volume ls`
-    * `docker builder prune --force --filter "until=48h"`
+    * Buildkit cache prune:
+        * `docker builder prune --force --filter "until=48h"`
         * Check - `docker system df --verbose`
 * Get `Dockerfile` from image:
     * `docker images`
