@@ -60,7 +60,7 @@
     * Image prune:
         * Simple way - `docker image prune --force` (won't remove everything you want)
             * Check - `docker images`
-        * Complex way - `docker image prune --filter="label=to_delete"`
+        * Complex way - `docker rmi --force $(docker images --filter="label=to_delete" -q)`
             * Label should be applied during build - `docker build --label "to_delete" .`
     * `docker volume prune --force`
         * Check - `docker volume ls`
