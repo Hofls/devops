@@ -1,0 +1,23 @@
+<changeSet id="fill_directory_table" author="hofls">
+    <preConditions onFail="MARK_RAN">
+        <sqlCheck expectedResult="f">
+            SELECT EXISTS (SELECT FROM DIRECTORY WHERE STATUS_ID::BIGINT BETWEEN 22 AND 36);
+        </sqlCheck>
+    </preConditions>
+    <insert tableName="DIRECTORY">
+        <column name="ID" valueSequenceNext="DIRECTORY_ID_SEQ"/>
+        <column name="KEY" value="HEADACHE"/>
+        <column name="STATUS_ID" value="22"/>
+    </insert>
+    -- A lot of inserts omitted here
+    <insert tableName="DIRECTORY_VALUE">
+        <column name="ID" valueSequenceNext="DIRECTORY_ID_SEQ"/>
+        <column name="KEY" value="PSYCHOSIS"/>
+        <column name="STATUS_ID" value="36"/>
+    </insert>
+    <rollback>
+        <delete tableName="DIRECTORY_VALUE">
+            <where>DIRECTORY_KEY='ambulanceReasonForCallCC' AND EXTERNAL_ID::BIGINT BETWEEN 22 AND 36</where>
+        </delete>
+    </rollback>
+</changeSet>
