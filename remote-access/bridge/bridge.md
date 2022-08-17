@@ -27,6 +27,12 @@
     * `ip route add 13.12.233.222 via 16.154.33.122`
         * Error `Nexthop has invalid gateway` means servers not in the same network
         * Error `Network is unreachable` means you are in the different network
+        * Error `ip: RTNETLINK answers: Operation not permitted` means you are inside of a container. Add missing capabilities (k8s):
+            ```
+            securityContext:
+              capabilities:
+                add: ["NET_ADMIN"]
+            ```
     * Now all requests to `13.12.233.222` will go through server with vpn (`16.154.33.122`)
         * `curl https://hidden-behind-vpn.com` - Success!
     * `ip route del 13.12.233.222`
