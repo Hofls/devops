@@ -78,6 +78,8 @@
     * `strace ls`
 
 #### Files/Folders
+* Find lines with text "hello world" in main.log
+    * `grep -F 'hello world' main.log`
 * Find file with name containing 'specopsfls' in this folder and all subfolders
     * `find . -name *specopsfls*` 
 * Find folder with name containing 'fldtofnd' in this folder and all subfolders 
