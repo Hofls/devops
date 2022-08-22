@@ -11,6 +11,7 @@ Use case - you got tired of entering password each time / want to improve level 
 #### Putty:
 * Generate ssh keys (private and public)
     * On Windows - use `PuTTYgen.exe`
+    * SSH-1 (RSA) is deprecated, better use Ed25519
 * Add public key to authorized list on server
     * Make sure authorized_keys exist - `cat ~/.ssh/authorized_keys`
         * If doesnt exist: `mkdir ~/.ssh && chmod 700 ~/.ssh`
