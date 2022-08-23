@@ -7,4 +7,4 @@
 * Run backend demo, that will send data to zipkin:
     * `docker run --detach --network host --add-host=zipkin:127.0.0.1 openzipkin/example-sleuth-webmvc backend`
     * Open `http://YOUR_SERVER_IP:9000/api`
-* 
+* More in depth info at `java-examples` repository
