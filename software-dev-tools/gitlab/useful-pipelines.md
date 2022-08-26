@@ -77,3 +77,17 @@ deploy-test:
     MESSAGE: 'Deploying to test!'
   <<: *deploy
 ```
+
+* Send notification about merged request to telegram
+```
+.notify:
+  stage: notify
+  script:
+    - >
+      if [ "$SEND_NOTIFICATION" != "true" ]; then
+        exit 0;
+      fi
+    - TELEGRAM_HEADER="New version of service <b>$CI_PROJECT_TITLE</b> available! %0A %0A"
+    - TELEGRAM_BODY=$(printf "$CI_COMMIT_MESSAGE" | sed -n 3p)
+    - curl "https://api.telegram.org/bot4235655:Skilkj238dLSOSisjoqjw28443/sendMessage?chat_id=-38772194&parse_mode=html&text=$TELEGRAM_HEADER$TELEGRAM_BODY"
+```
