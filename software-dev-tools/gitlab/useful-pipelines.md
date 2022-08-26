@@ -91,3 +91,11 @@ deploy-test:
     - TELEGRAM_BODY=$(printf "$CI_COMMIT_MESSAGE" | sed -n 3p)
     - curl "https://api.telegram.org/bot4235655:Skilkj238dLSOSisjoqjw28443/sendMessage?chat_id=-38772194&parse_mode=html&text=$TELEGRAM_HEADER$TELEGRAM_BODY"
 ```
+
+* Print all environment variables (useful for CI script development, e.g. - CI_PROJECT_TITLE, CI_COMMIT_MESSAGE)
+```
+.notify:
+  stage: notify
+  script:
+    - export
+```

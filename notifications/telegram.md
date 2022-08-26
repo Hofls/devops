@@ -22,4 +22,5 @@
 * To get group id, add bot `@getmyid_bot`
 * To manually send message via bot:
     * curl "https://api.telegram.org/bot238482123:SK82kjSklxcjz92SKSKSJDzcLSD/sendMessage?chat_id=-238478721&text=Hello world!";
+    * curl "https://api.telegram.org/bot238482123:SK82kjSklxcjz92SKSKSJDzcLSD/sendMessage?chat_id=-238478721&parse_mode=html&text=Hello <b>world</b>!";
 * 
