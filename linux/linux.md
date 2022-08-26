@@ -208,7 +208,14 @@
 * CIDR - ip addressing scheme
     * `198.51.100.0/24` means all IP addresses from 198.51.100.0 to 198.51.100.255
     
-#### Text processing
+#### Text
+* Print text
+    * Good - `printf "Hello \n world!`
+    * Bad - `echo "Hello \n world!` (cant even handle linebreaks)
+* Get third line of text:
+    * `TELEGRAM_BODY=$(printf "$CI_COMMIT_MESSAGE" | sed -n 3p)`
+* Get all text before `See merge request`
+    * `TELEGRAM_BODY=${CI_COMMIT_DESCRIPTION%See merge request*}`
 * Replace every occurrence of `Sam` with `Mike` in `report.txt`
     * `sed 's/Sam/Mike/g' report.txt > report_new.txt`
     * `sed -i 's/Sam/Mike/g' report.txt`
