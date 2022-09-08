@@ -14,12 +14,13 @@ build:
   tags:
     - docker
 
+# KUBERNETES_CONFIG is gitlab variable (type = file, value = config used to connect to k8s)
 deploy:
   stage: deploy
   image: somehtk/kubectl
   script:
     - sed "s/IMAGE_TAG/$IMAGE_TAG/" deploy/emrawler.yaml > ./emrawler.yaml
-    - kubectl apply -f ./emrawler.yaml --validate=false
+    - kubectl --kubeconfig=$KUBERNETES_CONFIG apply -f ./emrawler.yaml --validate=false
   tags:
     - k8s
   when: manual

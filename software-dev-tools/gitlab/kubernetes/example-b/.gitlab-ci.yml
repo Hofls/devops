@@ -17,10 +17,12 @@ build-kubernetes:
   tags:
     - openjdk
 
+# KUBERNETES_CONFIG is gitlab variable (type = file, value = config used to connect to k8s)
 deploy-kubernetes:
   stage: deploy
   image: sv01a/kubectl
   script:
+    - export KUBECONFIG=$KUBERNETES_CONFIG
     - kubectl apply -f extras/kube-environment.yaml --validate=false
     - sed "s/IMAGE_TAG/$IMAGE_TAG/" extras/kube-deployment.yaml > ./kube-deployment.yaml
     - kubectl apply -f ./kube-deployment.yaml --validate=false
