@@ -295,7 +295,12 @@
     * Add user to group:
         * Get sudo group `cat /etc/sudoers` (e.g. root)
         * `usermod -aG root hofls` or `usermod -aG sudo hofls`
+    * Optional - enable SSH password authentication:
+        * `nano /etc/ssh/sshd_config`
+            * Replace `PasswordAuthentication no` with `PasswordAuthentication yes`
+        * `service ssh restart`
     * Test:
+        * Connect with new user via ssh
         * `groups` /  `sudo su` / `ls -la /root`
         * Reboot may be required
 * Change password:
