@@ -92,6 +92,9 @@
     * `CMD` specifies commands what fill be fed to the `ENTRYPOINT`
 * Each change adds new layer (`FROM`, `RUN`, `COPY`...), docker downloads all layers that come after changed one
     * Retrieves layers before changed one - from cache 
+* Find which package manager to use:
+    * First way - look at image layers (e.g. on hub.docker.com), often package manager is used here
+    * Second way - look at "Find package manager" in `linux.md`
 * Pass arguments:
     * Dockerfile:
         * `ARG TEST_ARGUMENT`

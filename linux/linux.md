@@ -246,14 +246,23 @@
 * `\` - Escape next character
 
 #### Packages
+* Find package manager:
+    * Check linux distribution - `cat /etc/*-release`
+        * Debian (Ubuntu) = `apt`; Alpine = `apk`; SuSE = `zypp`; 
+        * Redhat = `yum`, `dnf`, `microdnf`; 
+        * Arch = `pacman`; Gentoo = `emerge`;
+* Install Docker with different package managers:
+    * `apt update && apt install docker.io`
+    * `apk update && apk add docker`
+    * `yum check-update && yum install docker`
+    * `zypper refresh && zypper install docker.io`
 * `snapd` - universal package manager (apps packaged with all their dependencies)
     * To run installed package - either just `openfortivpn` or `snap run openfortivpn`
-* Install Docker with apt
-    * `apt update && apt install docker.io`
 * Download & install package manually (.deb):
     * `wget http://ftp.cz.debian.org/debian/pool/main/o/openfortivpn/openfortivpn_1.15.0-1_amd64.deb`
     * `dpkg -i openfortivpn_1.15.0-1_amd64.deb`
     * `openfortivpn --version`
+* `apt` vs `apt-get` - high level vs low level
 
 #### Docs
 * Explain command, e.g. `netstat -tuplen`
