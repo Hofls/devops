@@ -34,7 +34,7 @@
     * [check your IP](https://api.ipify.org/?format=json)
 ##### Basic auth
 * Super bloated. Better use `Tinyproxy`
-##### Problems
+##### Problems + Solutions
 * Proxy is slow
     * Problem:
         * After connecting to VPN - proxy is very slow
@@ -49,6 +49,14 @@
         * Try pinging resource with VPN and without VPN - results in 2 different IP addresses
         * Check logs - `/var/log/squid/access.log`, possibly IP on the right side is wrong
         * Edit `/etc/hosts`, add correct IP, restart VPN (otherwise VPN will ignore changes)
+* Ban websites to make sure people use proxy according to its purpose (e.g. access to sites available only through VPN)
+    * `nano /etc/squid/squid.conf`
+        * Look for `# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS`
+        * `acl bad_url dstdomain "/etc/squid/banned-sites.acl"`
+        * `http_access deny bad_url`
+    * `nano /etc/squid/banned-sites.acl`
+        * `.youtube.com`
+        * `.twitch.tv`
 
 ## Client side
 * Dockerfile:
