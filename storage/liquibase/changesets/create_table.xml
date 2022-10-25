@@ -14,7 +14,11 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="GRADE" type="VARCHAR(255)"/>
-            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="NAME" type="TEXT"/>
+            <column name="for_period" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="JSONB"/>
         </createTable>
     </changeSet>
 
