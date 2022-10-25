@@ -16,7 +16,7 @@ check-commit-name:
   stage: build
   script:
   - >
-    if git log -n 1 | grep -q -e 'jira.hofls.ru' -e 'Merge branch'; then
+    if git log -n 1 | grep -q -e 'jira.hofls.com' -e 'Merge branch' -e 'Merge remote-tracking'; then
       echo "Commit name is OK";
       exit 0;
     else
