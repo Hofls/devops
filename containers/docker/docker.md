@@ -89,7 +89,7 @@
         
 #### Dockerfile
 * `RUN` vs `CMD` - build step vs execution step
-    * `CMD` specifies commands what fill be fed to the `ENTRYPOINT`
+    * `CMD` specifies commands that fill be fed to the `ENTRYPOINT` (which is `/bin/sh -c` by default)
 * Each change adds new layer (`FROM`, `RUN`, `COPY`...), docker downloads all layers that come after changed one
     * Retrieves layers before changed one - from cache 
 * Find which package manager to use:
