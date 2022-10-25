@@ -28,5 +28,5 @@ spec:
       containers:
         - name: some-rawler
           image: registry.someit.com/swops/some-rawler:IMAGE_TAG
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
       restartPolicy: Always

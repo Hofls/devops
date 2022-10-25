@@ -20,7 +20,7 @@ spec:
       containers:
       - name: emrawler
         image: registry.nonit.com/donops/emrawler:IMAGE_TAG
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         resources:
           requests:
             cpu: 0.05

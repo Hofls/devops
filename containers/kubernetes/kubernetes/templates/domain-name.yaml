@@ -19,7 +19,7 @@ spec:
       containers:
         - name: long-stick
           image: registry.someit.com/qqe/long-stick:IMAGE_TAG
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - name: sub-port
               containerPort: 8999

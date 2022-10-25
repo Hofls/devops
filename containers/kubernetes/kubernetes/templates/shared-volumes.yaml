@@ -20,7 +20,7 @@ spec:
       containers:
         - name: shop
           image: registry.someit.com/swas-dups/mobile-shop:IMAGE_TAG
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
                 name: shop-config
