@@ -99,3 +99,20 @@ deploy-test:
   script:
     - export
 ```
+
+* If variable = true, allow deployment only from release branch:
+```
+.deploy-from-release:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH !~ /^release.*$/ && $DEPLOY_ONLY_FROM_RELEASE_BRANCH == "true"'
+      when: never
+    - when: manual
+      allow_failure: true
+deploy-kubernetes:
+  extends: .deploy-from-release
+  stage: deploy
+  script:
+    - echo "Deploying!"
+```
