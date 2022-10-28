@@ -1,5 +1,8 @@
 #### Info
 * Flyway - version control for database
+* Warning! 
+    * No way to automatically generate rollback script
+    * No way to rollback migrations at all (in free version)
 * Info about migrations stored in table `flyway_schema_history`
 
 #### Getting started
