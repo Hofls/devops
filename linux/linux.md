@@ -169,6 +169,7 @@
 * Send anything to IP:PORT (TCP/IP)
     * `telnet 84.154.131.23 9200`
     * Often used to check availability
+    * Escape character is `^]`. To produce `^]` press `Ctrl + ]`
     * Possible errors:
         * `Connection refused` - nothing listens on the port
         * `No route to host` - port blocked by firewall
