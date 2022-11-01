@@ -1,20 +1,31 @@
 ##### Generic
 * Execution plan is main metric, less cost means better performance (`EXPLAIN` / `ANALYZE`)
-* Replace `Sequential scan` with `Index scan` by adding indexes
-    * Index for `name like 'Joh%'` is `varchar_pattern_ops`
 * First priority - minimize an amount of rows by applying filters
     * Only after that use functions, aggregates, etc
 * Try to avoid using functions/type conversions (especially in `WHERE`/`JOIN`)
     * If you have 1 million rows, function will be called on every one of them
-* Only use wildcards for beginning of the phrase if you use special indexes
-    * Standard indexes only work with this: `name like 'Benjami%'` 
-    * Special indexes (`gin_trgm_ops`) can work with this: `name like '%enjamin%'` (look at [text-search.md](text-search.md))
 * Pick specific columns, don't use `*`
 * Use `UNION ALL` instead of `UNION` (`UNION` wastes resources to remove duplicates)
 * Use pagination if possible
 * Use connection pool to avoid constantly creating new connections (it's expensive)
     * e.g. HikariCP (best used as fixed-size connection pool)
     
+#### Indexes
+* Replace `Sequential scan` with `Index scan` by adding indexes
+    * `B-tree` is default index. Works for specific value search, range scanning and sorting
+* `Hash` index for equality operators, e.g. `WHERE city = 'Paris'`
+    * `CREATE INDEX IX_Addresses_city on address using HASH(city)`;
+* `GIN` index for composite types (JSONB, Array, Range, full-text search)
+    * Standard indexes only work with this: `name like 'Benjami%'`
+    * `gin_trgm_ops` can work with this: `name like '%enjamin%'` (look at [text-search.md](text-search.md))
+* `BRIN` index for summary (min/max), e.g. `SELECT MAX(temperature) FROM sensor WHERE timestamp > '2020-03-17' and timestamp < '2020-03-26'`
+    * `CREATE INDEX salary_idx ON sensor USING BRIN(timestamp)`
+* Index for multiple columns, e.g. `WHERE city = 'Paris' and street = 'Olamore'`
+    * `CREATE INDEX user_city_street_idx ON address (city, street);`
+* Index for partial search, e.g. `name like 'Joh%'` is `varchar_pattern_ops`
+* Index for function, e.g. `WHERE lower(email) = "qq@mail.com`
+   * `CREATE INDEX user_email_idx ON user(lower(email));`)
+
 ##### Index not working / query execution plan is slow
 * `name like '%enjamin%'`
     * Look for `gin_trgm_ops` at [text-search.md](text-search.md)
