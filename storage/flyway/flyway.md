@@ -6,7 +6,7 @@
 * Info about migrations stored in table `flyway_schema_history`
 
 #### Getting started
-* [Prerequisites](../postgresql/postgresql.md)
+* [Prerequisites](../database/relational/postgresql/devops.md)
 * Install flyway:
     * `wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/8.5.4/flyway-commandline-8.5.4-linux-x64.tar.gz`
     * `tar -xvf flyway-commandline-8.5.4-linux-x64.tar.gz`
