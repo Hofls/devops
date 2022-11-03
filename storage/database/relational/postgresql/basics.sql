@@ -10,7 +10,7 @@ CREATE TABLE user (
 );
 
 -- Insert data
-INSERT INTO user(name) VALUES('John');
+INSERT INTO user(name, rank) VALUES('John', 7);
 
 -- Select data
 SELECT * FROM user
@@ -18,16 +18,18 @@ WHERE name = 'John' and rank > 3;
 
 -- Update data
 UPDATE user
-SET name = 'Rick'
+SET name = 'Rick',
+    rank = 3
 WHERE id = 11;
 
 -- Delete data
 DELETE FROM user WHERE id = 11;
 
--- Count, average, sum
-SELECT count(*), avg(rank), sum(rank) from user;
+-- Aggregation - count, average, sum
+SELECT count(*), avg(rank), sum(rank) from user
+WHERE rank > 2;
 
--- Order, offset, limit (pagination)
+-- Pagination - sort, offset, limit
 SELECT * FROM user
 ORDER BY rank ASC
 LIMIT 10 OFFSET 50;
