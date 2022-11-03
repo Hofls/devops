@@ -13,8 +13,9 @@
 #### Indexes
 * Replace `Sequential scan` with `Index scan` by adding indexes
     * `B-tree` is default index. Works for specific value search, range scanning and sorting
+    * `CREATE INDEX idx_address_city on address(city)`
 * `Hash` index for equality operators, e.g. `WHERE city = 'Paris'`
-    * `CREATE INDEX IX_Addresses_city on address using HASH(city)`;
+    * `CREATE INDEX idx_address_city on address using HASH(city)`;
 * `GIN` index for composite types (JSONB, Array, Range, full-text search)
     * Standard indexes only work with this: `name like 'Benjami%'`
     * `gin_trgm_ops` can work with this: `name like '%enjamin%'` (look at [text-search.md](text-search.md))

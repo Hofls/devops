@@ -29,7 +29,7 @@
     from filtered
     group by filtered.house_id
     ```
-* Complex query structure
+* Complex query structure (subqueries)
     ```
     WITH 
       specials AS (SELECT * FROM ...),
