@@ -1,1 +1,0 @@
-Also look at `useful-info` and `architecture` repository
