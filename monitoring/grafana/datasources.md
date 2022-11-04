@@ -1,5 +1,10 @@
 #### Grafana + Prometheus
 * Install using instructions in this repo - `grafana.md`, `prometheus.md`
+* Grafana UI -> Configuration -> Data sources -> Add data source -> Prometheus
+    * Host - `http://YOUR_SERVER_IP:9090`
+    * Press `Save & Test`
+* Explore:
+    * Metric - `go_gc_duration_seconds`
 
 #### Grafana + Mongodb
 * Install using instructions in this repo - `grafana.md`, `mongodb-devops.md`

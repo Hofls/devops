@@ -13,9 +13,8 @@
     * `http://YOUS_SERVER_IP:9090/graph` (open in web browser)
 
 ### Install (Docker)
-* 
-* 
-* 
+* `docker run --publish 9090:9090 --detach prom/prometheus`
+* Open in web browser -  `http://YOUS_SERVER_IP:9090/graph`
 
 ### Getting started
 * Install prometheus
