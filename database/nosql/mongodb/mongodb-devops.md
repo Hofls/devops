@@ -2,7 +2,6 @@
 * MongoDB - NoSQL database (for json documents)
 
 #### Getting started. CLI
-* `docker pull mongo`
 * `docker run --name some-mongo -p 27017:27017 -d mongo`
 * `curl localhost:27017` and `http://YOUR_SERVER_IP:27017`
     * It looks like you are trying to access MongoDB over HTTP on the native driver port.

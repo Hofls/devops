@@ -6,9 +6,6 @@
 * Explore:
     * Metric - `go_gc_duration_seconds`
 
-#### Grafana + Mongodb
-* Install using instructions in this repo - `grafana.md`, `mongodb-devops.md`
-
 #### Grafana + PostgreSQL
 * Install using instructions in this repo - `grafana.md`, `postgresql-devops.md`
 * Execute SQL queries with DBeaver:
