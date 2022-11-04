@@ -6,7 +6,8 @@ CREATE DATABASE db_name;
 -- Create table
 CREATE TABLE customer (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    name VARCHAR(100) NOT NULL,
+    rank BIGINT
 );
 
 -- Insert data
