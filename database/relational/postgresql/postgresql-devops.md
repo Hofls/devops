@@ -9,5 +9,6 @@
 * Run DBeaver on client:
     * New Database Connection -> PostgreSQL
         * Host: YOUR_SERVER_IP
+        * Username: postgres
         * Password: postgres
     * Test Connection -> Finish
