@@ -182,6 +182,8 @@
     * On local VMs - `ip addr | grep inet` (look for something like `inet 192.168.183.122/24 brd`)
 * Check which DNS you use (changes with VPN)
     * `cat /etc/resolv.conf`
+* Get domain name by IP address:
+    * `nslookup` -> `93.184.216.34` (returns example.com)
 * Redirect traffic (Port-forwarding)
     * `socat tcp-listen:9090,reuseaddr,fork tcp:localhost:8000`
     * For more info look at `devops` repository
