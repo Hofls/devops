@@ -53,6 +53,7 @@
     * `File -> Add Cluster -> Copy text from example.conf`
 * To debug k8s network - use [busybox pod](templates/busybox.yaml)
     * Has ping, wget, traceroute
+    * To add curl - `opkg-install curl`
 * Proxy port:
     * `kubectl --kubeconfig=example.conf proxy`
     * Open `http://127.0.0.1:8001`
