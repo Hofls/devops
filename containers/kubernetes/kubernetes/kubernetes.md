@@ -46,6 +46,8 @@
     * `kind: CronJob` - run `Job` on repeating schedule (e.g. backup DB every day)
         * Job is a pod that executes actions, then stops
         * Job stops with error without logs? Add `backofflimit: 10`, logs will be available while its trying again and again
+        * Warning! K8s will refuse to run job if it fails often enough (e.g. if service is down)
+            * `Cannot determine if job needs to be started. Too many missed start time (> 100)`
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
 ##### Etc
