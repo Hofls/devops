@@ -27,7 +27,7 @@
 * Index for function, e.g. `WHERE lower(email) = "qq@mail.com`
    * `CREATE INDEX user_email_idx ON user(lower(email));`)
 
-##### Index not working / query execution plan is slow
+##### Query execution plan is slow / Index not working 
 * `name like '%enjamin%'`
     * Look for `gin_trgm_ops` at [text-search.md](text-search.md)
 * `OR clause`
@@ -83,4 +83,18 @@
         * Use approximate count:
         ```
         SELECT reltuples AS estimate FROM pg_class where relname = 'user';
+        ```
+* `order by + limit is very slow` 
+    * Problem:
+        * Query with `order by` is very fast, but comes down to a halt if you add `limit`
+        * `order by value asc limit 10`
+    * Explanation:
+        * Often happens when you query complex view (instead of table)
+        * Most likely optimizer got confused and did poor job with creating query plan
+    * Fix:
+        * Help optimizer by separating `order by` and `limit`:
+        ```
+        with result as (
+            // insert query with "order by" here
+        ) select * from result limit 10
         ```
