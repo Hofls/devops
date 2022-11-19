@@ -89,7 +89,7 @@
         * Query with `order by` is very fast, but comes down to a halt if you add `limit`
         * `order by value asc limit 10`
     * Explanation:
-        * Often happens when you query complex view (instead of table)
+        * Often happens when you query complex view (instead of table), look at `view is slow`
         * Most likely optimizer got confused and did poor job with creating query plan
     * Fix:
         * Help optimizer by separating `order by` and `limit`:
@@ -98,3 +98,8 @@
             // insert query with "order by" here
         ) select * from result limit 10
         ```
+* `View is slow`
+    * Problem:
+        * Each time you query `view` - you execute underlying queries (view doesnt store any data itself)
+    * Fix:
+        * If data doesnt change very often - replace `view` with `materialized view`
