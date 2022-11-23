@@ -11,13 +11,15 @@
     * Add liquibase folder to `PATH`
     * Check `liquibase --version`
 * Save postgresql driver in `\Liquibase\drivers\` folder
-* Go to folder with changesets (e.g. `gen_tokens.xml`)
-* Change parameters to suit your needs, then execute:
+* If `logicalFilePath` is not used - you have to go to correct folder (parent of changesets), e.g.:
+    * Execute `SELECT filename from databasechangelog`
+    * If path is `db-migrations/v4/gen_tokens.xml`, then go to parent folder of `db-migrations`
+* Change parameters to suit your needs, then execute from correct folder:
 ```
 liquibase ^
     --driver=org.postgresql.Driver ^
-    --classpath=C:\Programs\Liquibase\drivers\postgresql-42.2.5.jar ^
-    --changeLogFile=gen_tokens.xml ^
+    --classpath=D:\Programs\Programming\Liquibase\drivers\postgresql-42.2.18.jar ^
+    --changeLogFile=db-migrations/changelog.xml ^
     --url=jdbc:postgresql://178.43.67.143:5432/db-name ^
     --username=postgres ^
     --password=postgres ^
