@@ -12,4 +12,11 @@
         <!-- Rollback is a must with <sql>. Otherwise liquibase throws error: No inverse to liquibase.change.core.RawSQLChange created-->
     </changeSet>
 
+    <changeSet id="hello_world_view" author="hofls">
+        <sqlFile path="sql/hello_world_view_v3.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="sql/hello_world_view_v2.sql"  relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

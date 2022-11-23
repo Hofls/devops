@@ -1,0 +1,2 @@
+CREATE OR REPLACE VIEW hello_world_view AS
+    SELECT 'Hi' FROM DUAL
