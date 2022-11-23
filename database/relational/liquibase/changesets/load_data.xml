@@ -8,6 +8,7 @@
         <loadData encoding="UTF-8"
                   file="csv/load_data.csv"
                   separator=","
+                  relativeToChangelogFile="true"
                   tableName="claim">
         </loadData>
     </changeSet>
