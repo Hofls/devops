@@ -1,28 +1,3 @@
-#### Info
-* Kafka - event streaming platform (publish/subscribe)
-
-#### Getting started
-* Install Java:
-    * `apt update && apt install default-jre`
-    * `java --version` (should be 8+)
-* Install & run Kafka:
-    * `wget https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz`
-    * `cd kafka_2.13-3.1.0`
-    * `nohup bin/zookeeper-server-start.sh config/zookeeper.properties &`
-    * `nohup bin/kafka-server-start.sh config/server.properties &`
-* Create topic:
-    * `bin/kafka-topics.sh --create --topic quickstart-topic --bootstrap-server localhost:9092`
-    * `bin/kafka-topics.sh --describe --topic quickstart-topic --bootstrap-server localhost:9092`
-* Write events:
-    * ```
-      bin/kafka-console-producer.sh --topic quickstart-topic --bootstrap-server localhost:9092
-      First event!
-      Second event.
-      ```
-* Read events:
-    * `bin/kafka-console-consumer.sh --topic quickstart-topic --from-beginning --bootstrap-server localhost:9092`
-* To read/write events with client - look at `java-dependencies` repository
-
 #### Kafka GUI client
 * In lens - find kafka pod, forward port 9092 to localhost:64064
 * Run client (pick 1, not really working):
@@ -52,7 +27,6 @@
         * Make sure that kafka service name is `kafka`, port is `9092`
         * Lens -> Create resource -> Paste -> Create & Close
     * Find kafka-ui pod, forward container port 8080 to localhost:9044, open it in browser
-* 
 
 #### Kafka GUI clients comparison
 * [kafka-ui](https://github.com/provectus/kafka-ui)
@@ -68,8 +42,8 @@
     * Topics list, Create Topic, Publish Message, Topic messages/consumers/partitions/configuration
     * Consumer group list, Edit Group, Delete Group
     * Broker parameters, Access Control List, Quotas
-    * Schema Registry - TODO
-    * Kafka Connect - TODO
+    * Schema Registry - ?
+    * Kafka Connect - ?
 * [kafdrop](https://github.com/obsidiandynamics/kafdrop)
     * Notice: amount of functionality is very low (no KSQL, no Kafka Connect, no Schema Registry, no Send message, etc)
     * Topics list, New topic, Delete topic, Messages, Consumers
