@@ -15,12 +15,17 @@ If that's not the case - just make your only app listen on http port (80).
 * Check that nginx is working correctly (should show "Welcome to nginx!"):
     * `curl localhost`
     * Open in browser http://YOUR_SERVER_IP/
-* Go to nginx dir `cd /etc/nginx `
+* Go to nginx dir `cd /etc/nginx`
+* Backup old config, create new one:
+    * `mv nginx.conf nginx.conf.backup`
+    * `touch nginx.conf`
 * Open up config to edit `nano nginx.conf`
-* Insert text in `http` section, so it looks like this:
+* Insert text text in new config:
 ```	
+events {
+}
 http {
-    #It is useful when you have multiple http applications on one server, so each app has its own location. E.g. prometheus, grafana, jenkins, etc
+        #It is useful when you have multiple http applications on one server, so each app has its own location. E.g. prometheus, grafana, jenkins, etc
         server {
                 location /local-serv/ {
                         proxy_pass http://localhost:8000/;

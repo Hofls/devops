@@ -251,7 +251,7 @@
 #### Packages
 * Find package manager:
     * Check linux distribution - `cat /etc/*-release`
-        * Debian (Ubuntu) = `apt`; Alpine = `apk`; SuSE = `zypp`; 
+        * Debian (Ubuntu) = `apt`; Alpine = `apk`; SuSE = `zypper`; 
         * Redhat = `yum`, `dnf`, `microdnf`; 
         * Arch = `pacman`; Gentoo = `emerge`;
 * Install Docker with different package managers:
