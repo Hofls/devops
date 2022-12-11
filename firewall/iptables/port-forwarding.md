@@ -5,8 +5,8 @@
     * Edit hosts on client, to send traffic through this server
     * It's an alternative to proxy and ip routes
 * On server 84.212.150.105:
-    * Firewall should be disabled - `systemctl status firewalld`
-        * To disable - `systemctl stop firewalld`
+    * Frontends for iptables should be disablec (e.g. firewalld, ufw)
+        * Check status - `systemctl status firewalld`, disable - `systemctl stop firewalld`
     * `echo 1 > /proc/sys/net/ipv4/ip_forward`
         * If not working - try adding `net.ipv4.ip_forward=1` to `/etc/sysctl.conf`
     * Configure iptables:
