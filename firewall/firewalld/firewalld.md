@@ -15,3 +15,9 @@
     * `firewall-cmd --permanent --zone=public --remove-port=7777/tcp`
     * `firewall-cmd --zone=public --permanent --remove-forward-port=port=7777:proto=tcp:toport=8000:toaddr=138.120.15.70`
 * Reload - `firewall-cmd --reload`
+
+#### Port forwarding. Problems
+* Port forwarding for kubernetes (6443)
+    * You have configured port forwarding for 6443, changed `server:` in Kubeconfig
+    * But error appears - `Unable to connect to the server: x509: certificate is valid for...`
+    * Fix - replace `certificate-authority-data: ...` with `insecure-skip-tls-verify: true`
