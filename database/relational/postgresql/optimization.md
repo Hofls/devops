@@ -103,3 +103,4 @@
         * Each time you query `view` - you execute underlying queries (view doesnt store any data itself)
     * Fix:
         * If data doesnt change very often - replace `view` with `materialized view`
+        * Refresh materialized via via trigger (on source data change)
