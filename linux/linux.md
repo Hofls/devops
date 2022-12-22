@@ -189,6 +189,8 @@
     * For more info look at `devops` repository
 * Show internet usage
     * Pick one: `apt-get install bmon slurm tcptrack`
+* Change IP address:
+    * Look at `cloud` repository, file `vSphere.md`
 * Send SOAP request
     ```
     curl -X POST -H "Content-Type: text/xml" \
@@ -252,7 +254,8 @@
 * Find package manager:
     * Check linux distribution - `cat /etc/*-release`
         * Debian (Ubuntu) = `apt`; Alpine = `apk`; SuSE = `zypper`; 
-        * Redhat = `yum`, `dnf`, `microdnf`; 
+        * Redhat = `yum`, `dnf`, `microdnf`;
+        * CentOS = `yum`;
         * Arch = `pacman`; Gentoo = `emerge`;
 * Install Docker with different package managers:
     * `apt update && apt install docker.io`
