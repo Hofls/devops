@@ -8,3 +8,6 @@
 * [CronJob example](cronjob.yaml)
 * [Shared volumes](shared-volumes.yaml)
     * Shop pod writes logs to file, filebeat pod read them.
+* [Disable websocket timeouts](websockets.yaml)
+    * By default - timeout appears after 1 minute of inactivity. For some apps its too little, they want hours/days
+    * `nginx.ingress.kubernetes.io/configuration-snippet` is optional, try to remove it if something doesnt work
