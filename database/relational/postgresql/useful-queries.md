@@ -47,10 +47,11 @@ limit 400;
 * Table index usage
 ```
 -- should be around 0.99 for all big tables:
-SELECT relname, 100 * idx_scan / (seq_scan + idx_scan) percent_of_times_index_used
-FROM pg_stat_user_tables 
+SELECT stat.relname, 100 * idx_scan / (seq_scan + idx_scan) percent_of_times_index_used, cl.reltuples as approximate_count
+FROM pg_stat_user_tables stat
+inner join pg_class cl on cl.relname = stat.relname
 WHERE (seq_scan + idx_scan) <> 0
-ORDER BY n_live_tup DESC;
+ORDER BY approximate_count DESC;
 ```
 * Unused indexes:
 ```
