@@ -3,6 +3,7 @@
 * Good defaults:
     * Run minimum 2 containers (if 1 stops unexpectedly, another will carry on)
     * Add/remove containers based on load
+* Typical path of http request: `Ingress` -> `Service` -> `Pod` -> `Container`
 * `Cluster` => `Nodes` => `Deployment` => `Pods` => `Containers`:
 	* `Cluster` -  set of `Nodes` that run containerized applications
 	* `Node` - virtual machine, contains services necessary to run Pods
@@ -53,6 +54,10 @@
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
 ##### Etc
+* Direct access to service (alternative to ingress):
+    * Go to services, click on one, look for ports (something like 8080:31563/TCP)
+    * Get k8s IP address from kubeconfig
+    * Construct direct access URL, e.g. `http://14.173.44.122:31563/shop/swagger-ui.html`
 * Lens (GUI):
     * `File -> Add Cluster -> Copy text from example.conf`
 * To debug k8s network - use [busybox pod](templates/busybox.yaml)
