@@ -41,3 +41,5 @@
         * New field, new index (with `CONCURRENTLY`), view update
 * It's ok to create indexes on DB even during high load, just add `CONCURRENTLY` (Postgres):
     * CREATE INDEX CONCURRENTLY idx_guest_address_id ON public.guest USING btree (address_id);
+* `Cascade`
+    * Delete main row + all related rows from other tables (linked by foreign key)
