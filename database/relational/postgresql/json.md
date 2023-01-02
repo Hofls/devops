@@ -17,7 +17,7 @@
     * `SELECT * FROM building WHERE data->>'finished' = 'true'`
 * Check if field exists
     * `SELECT count(*) FROM cards WHERE data ? 'finished';`
-* Expanding data
+* Expanding data (returns 2 rows - "Business-center" and "Shop")
     * `SELECT jsonb_array_elements_text(data->'tags') as tag FROM cards`
 * Indexing
     * `CREATE INDEX finished_index ON cards ((data->>'finished'));`
