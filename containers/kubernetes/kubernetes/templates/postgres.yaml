@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-postgres
+  labels:
+    app: example-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-postgres
+  template:
+    metadata:
+      labels:
+        name: example-postgres
+        app: example-postgres
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - db-registry.sun.wan
+      containers:
+        - name: example-postgres
+          image: postgres:11.4-alpine
+          resources:
+            requests:
+              cpu: 0.2
+              memory: 128Mi
+            limits:
+              cpu: 0.4
+              memory: 512Mi
+          env:
+            - name: POSTGRES_USER
+              value: "example_user"
+            - name: POSTGRES_PASSWORD
+              value: "example_pass"
+            - name: POSTGRES_DB
+              value: "example_db"
+            - name: PGDATA
+              value: "/var/lib/postgres"
+          volumeMounts:
+            - mountPath: /var/lib/postgres
+              name: example-postgres-volume
+          ports:
+            - containerPort: 5432
+      volumes:
+        - name: example-postgres-volume
+          hostPath:
+            path: /opt/db/example_postgres
+            type: DirectoryOrCreate
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: example-postgres
+spec:
+  selector:
+    name: example-postgres
+  type: NodePort
+  ports:
+    - name: postgresql-port
+      protocol: TCP
+      port: 5432
+      targetPort: 5432

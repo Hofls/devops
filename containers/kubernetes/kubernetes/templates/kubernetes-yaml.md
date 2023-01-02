@@ -12,3 +12,6 @@
     * Warning! Best solution is sending ping to websocket every 50 seconds (connection will always be active, no need to configure timeouts)
     * By default - timeout appears after 1 minute of inactivity. For some apps its too little, they want hours/days
     * `nginx.ingress.kubernetes.io/configuration-snippet` is optional, try to remove it if something doesnt work
+* [Postgres](postgres.yaml)
+    * To access from one of the pods in k8s - `example-postgres:5432`
+    * To access from outside - look at `Direct access to service` in `kubernetes.md`
