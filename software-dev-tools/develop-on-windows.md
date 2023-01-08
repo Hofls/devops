@@ -95,3 +95,7 @@
 
 ##### Develop locally. WSL 
 * TODO
+
+##### Develop locally. Native
+* Just install everything on windows, even linux CLI (`MinGW` comes bundled with git)
+    * To convert CRLF to LF `sed -i -e 's/\r$//' script.sh`
