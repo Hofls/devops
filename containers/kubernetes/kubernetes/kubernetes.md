@@ -22,7 +22,7 @@
 * `Deployment` => `Service` (optional) / `Scaling` (optional)
     * `Service` - logical set of pods, exposes them as a network service (with their own IP, DNS name and load balancing)
         * `ClusterIP` - (default) exposes the Service on an internal IP in the cluster
-        * `NodePort` - Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>
+        * `NodePort` - Makes a Service accessible from outside the cluster (look at "Direct access to service")
         * `LoadBalancer` - External load balancer with a fixed, external IP
             * Distributes traffic to all Pods of an exposed Deployment
         * `ExternalName` - Exposes the Service using an arbitrary name
@@ -55,7 +55,7 @@
 
 ##### Etc
 * Direct access to service (alternative to ingress):
-    * Go to services, click on one, look for ports (something like 8080:31563/TCP)
+    * Go to services, click on one, look for ports (something like `8080:31563/TCP`; only works with `NodePort`)
     * Get k8s IP address from kubeconfig
     * Construct direct access URL, e.g. `http://14.173.44.122:31563/shop/swagger-ui.html`
 * Lens (GUI):
