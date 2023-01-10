@@ -5,7 +5,9 @@
 * [Domain name for a service](domain-name.yaml)
     * To access service via url - http://long-stick.k8s.someit.ru
 * [Set environment variables](env-variables.yaml)
-* [CronJob example](cronjob.yaml)
+* [Simple cronJob example](cronjob.yaml)
+* [Fault-tolerant cronJob](fault-tolerant-cronjob.yaml)
+    * If did not succeed - tries again (up to 5 times)
 * [Shared volumes](shared-volumes.yaml)
     * Shop pod writes logs to file, filebeat pod read them.
 * [Disable websocket timeouts](websockets.yaml)
