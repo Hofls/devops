@@ -4,6 +4,7 @@
 * Json better with:
     * Dynamic fields (e.g. grafana config)
     * Isolated fields (e.g. trello card)
+    * Limited size lists (e.g. list of available protocols)
     * When you need to store json response from external service
         * E.g. [Charge from Stripe API](https://stripe.com/docs/api/ruby#charge_object)
     * When optimization is very important
