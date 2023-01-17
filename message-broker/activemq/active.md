@@ -5,3 +5,7 @@
     * Credentials - admin/admin
 * Features:
     * Queues, Topics, Subscribers, Connections, Network, Send message
+    
+#### Info
+* Topic - each consumer receives a copy of a message (publish/subscribe)
+* Queue - only one consumer receives a message (load balancer semantics)
