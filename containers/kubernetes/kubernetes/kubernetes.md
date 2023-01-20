@@ -49,7 +49,7 @@
         * Job stops with error without logs? Add `backofflimit: 10`, logs will be available while its trying again and again
         * Warning! K8s will refuse to run job if it fails often enough (e.g. if service is down)
             * `Cannot determine if job needs to be started. Too many missed start time (> 100)`
-    * `kind: Secret` - store sensitive data
+    * `kind: Secret` - store sensitive data (encoded with base64)
         * E.g. credentials to pull images from artifactory via `imagePullSecrets:`
     * Everything else is rare: `ReplicaSet`, `Pod`, `Job`, `ReplicationController`...
 
