@@ -1,4 +1,4 @@
--- Haven't used Postgres for a long time? Here is a quick reminder:
+-- Haven't used SQL for a long time? Here is a quick reminder:
 
 -- Create database
 CREATE DATABASE db_name;
