@@ -1,3 +1,22 @@
+### High level (abstract)
+* `Relational` - data stored in tables (with rows and columns), has ACID transactions, in CAP choses CP
+    * Use cases:
+        * Relational data (e.g. person.id, workplace.person_id, passenger.person_id, seller.person_id)
+* `Standby` - total replica of main DB. If main DB dies - just start using standby
+* `Replication` - process of copying data from one database to another 
+    * Increases availability and scalability (if one DB dies, switch to another one)
+* `Sharding` - distributes data across different databases (each DB has only subset of data)
+    * If no space left - just add another shard (server), all new data will be stored there
+* `Federation` - splits database by domain (one db for users, another db for products)
+* `Denormalization` - redundant copies of data written in different tables to avoid expensive joins
+    * Better read performance, worse write performance
+* `ACID` - properties of database transactions
+    * `Atomicity` - transaction is either succeeds completely, or fails completely
+    * `Consistency` - transaction can only bring the database from one valid state to another (constraints are satisfied)
+    * `Isolation` - concurrent execution of transactions leaves the database in the same state that would have been obtained if the transactions were executed sequentially
+    * `Durability` - once a transaction has been committed, it will remain committed even in the case of a system failure
+    
+### Low level (details)
 * `Decision influencing factors`
     * Simplicity, Performance, Ease of writing/reading SQL queries
 * `Primary key` - person.id
