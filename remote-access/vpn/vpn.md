@@ -8,6 +8,9 @@
     * Being part of big corporate private network
     * Ability to access geo restricted services
     * Secure data exchange (data is encrypted)
+* After connecting to a VPN - you get new IP address, available only for VPN network
+    * Windows - `ipconfig/all`, look for something like `Unknown adapter Local Area Connection`
+    * Linux - `ifconfig -a`
 
 ### Problems/Solutions
 * If after connecting to vpn - server becomes unavailable (ssh disconnects)

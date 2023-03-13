@@ -177,7 +177,7 @@
 * Send anything to IP:PORT (UDP)
     * `nc -v -u -z -w 3 32.143.88.73 5050`
     * Should return something like `Connection to 32.143.88.73 5050 port [udp/sip] succeeded!`
-* Get you IP address:
+* Get your IP address:
     * Standard - `curl ifconfig.co`
     * On local VMs - `ip addr | grep inet` (look for something like `inet 192.168.183.122/24 brd`)
 * Check which DNS you use (changes with VPN)
