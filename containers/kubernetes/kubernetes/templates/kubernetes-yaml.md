@@ -17,3 +17,5 @@
 * [Postgres](postgres.yaml)
     * To access from one of the pods in k8s - `example-postgres:5432`
     * To access from outside - look at `Direct access to service` in `kubernetes.md`
+* [Host aliases](host-aliases.yaml)
+    * Changes DNS, alternative to edit `/etc/hosts`

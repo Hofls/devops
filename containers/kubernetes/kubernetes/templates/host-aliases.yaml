@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-sleep
+spec:
+  hostAliases:
+    - ip: "104.222.34.82"
+      hostnames:
+        - "user.hofls.com"
+        - "shop.hofls.com"
+  containers:
+    - name: busybox-sleep
+      image: progrium/busybox
+      command:
+        - sleep
+        - "86400"
