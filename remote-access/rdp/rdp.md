@@ -7,18 +7,24 @@
 
 ## Servers 
 #### Install RDP server on Ubuntu
-* Install GUI: `apt update && apt install --no-install-recommends ubuntu-desktop`
+* Install GUI (pick one): 
+    * GNOME (heavy):
+        * `apt update && apt install --no-install-recommends ubuntu-desktop`
+    * XFCE (light):
+        * `apt update && apt install xfce4-session`
+        * Install a browser (look at desktop.md)
 * Install RDP: `apt install -y xrdp`
 * Add xrdp user to cert group: `adduser xrdp ssl-cert`
+* Set password for main user - `passwd hofls`
 * Done! Use RDP client to connect to server
 
 #### Install RDP server on CentOS 7
 * Install GUI (pick one):
-    * GNOME:
+    * GNOME (heavy):
         * `yum check-update`
         * `yum -y groups install "GNOME Desktop"`
         * `systemctl set-default graphical`
-    * XFCE:
+    * XFCE (light):
         * `yum check-update`
         * `yum install -y epel-release`
         * `yum groupinstall -y "Xfce"`
@@ -28,6 +34,7 @@
     * `yum install -y epel-release`
     * `yum install -y xrdp`
     * `systemctl start xrdp`
+* Set password for main user - `passwd hofls`
 * Turn off VPN:
     * `systemctl stop firewalld`
 
