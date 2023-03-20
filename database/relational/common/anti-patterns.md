@@ -23,6 +23,9 @@
     * Hard to work with
 * `Everything in different tables`
     * Joins are expensive
+* `Actually deleting data`
+    * Just mark it as "deleted", without deleting
+    * Advantages - easy restoration, no problems with foreign keys
 * `UUID as primary key`
 * `Unnecessary cache`
     * If most queries are unique - cache makes no sense.
