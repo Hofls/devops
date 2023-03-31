@@ -14,6 +14,7 @@
         * `apt update && apt install xfce4-session`
         * Install a browser (look at desktop.md)
 * Install RDP: `apt install -y xrdp`
+    * Check that RDP is running - `netstat -tupln` (xrdp should listen on ports 3389, 3350)
 * Add xrdp user to cert group: `adduser xrdp ssl-cert`
 * Set password for main user - `passwd hofls`
 * Done! Use RDP client to connect to server

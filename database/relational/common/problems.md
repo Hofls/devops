@@ -1,3 +1,13 @@
+#### Different users update same record simultaneously
+* Problem:
+    * Record has two fields - name and count
+    * One user updates name, another updates count
+    * What should happen?
+* Solutions
+    * Default behaviour - second update completely overrides first (new count, old name)
+    * Optimistic lock - second update will fail, system will ask user to update page
+    * Update only changed fields - first update will change only name, second update will change only count
+
 #### Send notification only once
 * Problem:
     * Multiple backend instances work with the single DB
