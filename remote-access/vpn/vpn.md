@@ -21,7 +21,7 @@
         * `ip route add 10.129.0.0/24 via 10.129.27.1 dev ens192 metric 40`
     * Explanation: it works because after connection to VPN new gateways appear, but we need to use old one
 * If after connecting to vpn - you lose access to previously available resource (e.g. timeout):
-    * IP addresses with VPN and without VPN might be different
+    * IP addresses with VPN and without VPN might be different (internal vs external)
     * Turn off vpn, `ping registry.someit.com`, get ip (e.g. 17.211.56.173)
     * `nano /etc/hosts`, insert: `17.211.56.173 registry.someit.com`
 * All traffic goes through VPN, but you need to access 133.211.7.232 without VPN (directly):
