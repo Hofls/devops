@@ -17,3 +17,8 @@
 * Features:
     * Key/Value - CRUD
     * CLI, Profiler, Command helper, Performance metrics
+
+#### Pubsub
+* Launch CLI - `redis-cli`
+* List all channels - `PUBSUB CHANNELS *`
+* Subscribe to channel - `SUBSCRIBE sales`
