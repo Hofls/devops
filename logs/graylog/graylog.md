@@ -45,5 +45,9 @@
     * "First log message" should appear in logs
 * Configure limits:
     * `System / Indices` -> `Indices` -> `Edit`
-    * `Rotation strategy` - `Index Size`
-    * `Max size per index` -> `2GiB`
+    * Index Rotation Configuration:
+        * `Rotation strategy` - `Index Size`
+        * `Max size per index` -> `2GiB`
+    * Index Retention Configuration:
+        * `Retention strategy` - `Delete index`
+        * `Max number of indices` - `2`
