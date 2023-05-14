@@ -1,3 +1,6 @@
+## Info
+* Warning - proxy is limited to http/https traffic only. Better use VPN.
+
 ## Tinyproxy
 ##### Installation
 * Server side:
