@@ -4,12 +4,14 @@
 * Scaling resources: CPU for Graylog. Ram and Disk for Elasticsearch
 
 #### Search syntax
-* Strict search - "Hello world"
-* Regex search - "/Hell+/"
-* Both - "Hello" && "world"
-* At least one - "Hello" || "world"
-* Only hello - "Hello" && NOT "world"
-* Search by graylog parameters - server_name: maskd-prp-2
+* Strict search - `"Hello world"`
+* Regex search - `"/Hell+/"`
+* Both - `"Hello" && "world"`
+* At least one - `"Hello" || "world"`
+* Only hello - `"Hello" && NOT "world"`
+* Search by graylog parameters:
+    * Find specific server - `server_name: "maskd-prp-2"`
+    * Find any server, except this one - `-server_name: "maskd-prp-2"`
 
 #### Configuration
 * Create a user to view logs:
