@@ -3,13 +3,31 @@
 * Graylog uses: Elasticsearch, MongoDB, Java
 * Scaling resources: CPU for Graylog. Ram and Disk for Elasticsearch
 
-#### Syntax
+#### Search syntax
 * Strict search - "Hello world"
 * Regex search - "/Hell+/"
 * Both - "Hello" && "world"
 * At least one - "Hello" || "world"
 * Only hello - "Hello" && NOT "world"
 * Search by graylog parameters - server_name: maskd-prp-2
+
+#### Configuration
+* Create a user to view logs:
+    * `System` -> `Users and Teams` -> `Create User`
+    * `Username` - `graylog`
+    * `Password` - `graylog`
+    * `Assign Roles` - `View Manager`
+    * Fill in the rest of the required fields with random data
+* Add privileges to view messages:
+    * `Streams` -> `All messages` -> `Share`
+    * Select user -> `Add Collaborator` -> `Save`
+* Create an input with type Beats:
+    * `System` -> `Inputs` -> `Select input` -> `Beats` -> `Launch new input`
+    * `Title` - `Beats input`
+* Add restrictions on index size:
+    * `System` -> `Indices` -> `Default index set` -> `Edit`
+    * `Max size per index` - `400MiB`
+    * `Max number of indices` - `2`
 
 #### Getting started
 * Run MongoDB:
