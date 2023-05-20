@@ -25,3 +25,23 @@
     * `SELECT jsonb_array_elements_text(data->'tags') as tag FROM cards`
 * Indexing
     * `CREATE INDEX finished_index ON cards ((data->>'finished'));`
+
+#### JSONB modification via SQL
+* Add value
+    * Request - `SELECT jsonb_set('{"message": "hello"}'::jsonb, '{id}', '44')`
+    * Result - `{"id": 44, "message": "hello"}`
+* Add nested value
+    * Request - `SELECT jsonb_set('{"user": {"firstName": "john"}}'::jsonb, '{user, lastName}', '"Doe"')`
+    * Result - `{"user": {"lastName": "Doe", "firstName": "john"}}`
+* Replace value
+    * Request - `select jsonb_set('{"message": "hello"}', '{message}', '"what"')`
+    * Result - `{"message": "what"}`
+* Replace nested value
+    * Request - `select jsonb_set('{"a": "23", "c": {"a": "44"}}'::jsonb, '{c, a}', '66')`
+    * Result - `{"a": "23", "c": {"a": 66}}`
+* Remove key
+    * Request - `select '{"message": "hello", "id": "23"}'::jsonb - 'id'`
+    * Result - `{"message": "hello"}`
+* Remove nested key
+    * Request - `select '{"a": "23", "c": {"a": "44"}}'::jsonb #- '{c,a}'`
+    * Result - `{"a": "23", "c": {}}`
