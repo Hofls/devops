@@ -166,6 +166,9 @@
     * `wget "https://apache-mirror.com/file.tar.gz"`
 * Send get request
     * `curl https://example.com`
+* Fully packed curl:
+    * `curl --max-time 60 --verbose --fail --location example.com`
+    * Timeout = 60 seconds; Verbose output; Returns non-zero exit code on errors; Follows redirects;
 * Send anything to IP:PORT (TCP/IP)
     * `telnet 84.154.131.23 9200`
     * Often used to check availability

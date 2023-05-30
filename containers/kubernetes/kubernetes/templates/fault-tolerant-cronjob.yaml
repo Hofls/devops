@@ -8,7 +8,7 @@ spec:
   successfulJobsHistoryLimit: 1
   jobTemplate:
     spec:
-      backoffLimit: 5
+      backoffLimit: 5 # Tries with exponential delay (10s, 20s, 40s, 80s, 160s)
       template:
         spec:
           restartPolicy: "OnFailure"
@@ -17,7 +17,7 @@ spec:
               image: curlimages/curl
               imagePullPolicy: IfNotPresent
               command: ["/bin/sh", "-c"]
-              args: ["curl example.com"]
+              args: ["curl --max-time 60 --verbose --fail --location example.com"]
               resources:
                 limits:
                   cpu: 0.05
