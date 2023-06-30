@@ -3,6 +3,11 @@
     * https://tatiyants.com/pev/#/plans
 
 ## Queries
+* Get id of record with biggest/smallest value
+    ```
+    SELECT id FROM users
+    ORDER BY points DESC LIMIT 1;
+    ```
 * Sane way to handle nulls:
     ```
         SELECT * FROM contact
@@ -18,6 +23,15 @@
         UPDATE SET uto.address = o.alternative_address
       WHEN NOT MATCHED THEN
         ... insert or ignore
+    ```
+* Update based on a bunch of selects
+    ```
+    UPDATE unique_trade_object
+    SET uto.address = o.alternative_address
+    FROM (
+        ... a lot of selects
+    ) AS o
+    WHERE uto.id = o.uto_id
     ```
 * Calculate count of rows with unique conditions
     ```
