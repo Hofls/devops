@@ -2,6 +2,10 @@
 * Execution plan is main metric, less cost means better performance (`EXPLAIN` / `ANALYZE`)
 * First priority - minimize an amount of rows by applying filters
     * Only after that use functions, aggregates, etc
+* Second priority - make sure subqueries execute only once
+    * Subquery - `with subquery as (select * from ...)`
+    * Bad usage - `select * from subquery`, will execute subquery for each row
+    * Good usage - `inner join subquery`, will execute subquery only once (something like cache)
 * Try to avoid using functions/type conversions (especially in `WHERE`/`JOIN`)
     * If you have 1 million rows, function will be called on every one of them
 * Pick specific columns, don't use `*`

@@ -24,9 +24,18 @@
       WHEN NOT MATCHED THEN
         ... insert or ignore
     ```
-* Update based on a bunch of selects
+* Update based on a bunch of selects (main)
     ```
-    UPDATE unique_trade_object
+    WITH o as (
+        ... a lot of selects
+    )
+    UPDATE unique_trade_object uto
+    SET uto.address = o.alternative_address
+    WHERE uto.id = o.uto_id -- For optimization - use inner join instead
+    ```
+* Update based on a bunch of selects (alternative)
+    ```
+    UPDATE unique_trade_object uto
     SET uto.address = o.alternative_address
     FROM (
         ... a lot of selects
