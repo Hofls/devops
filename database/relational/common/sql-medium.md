@@ -13,6 +13,15 @@
         SELECT * FROM contact
         WHERE COALESCE(home_phone, '') <> COALESCE(mobile_phone, '')
     ```
+* Update based on value in other field
+    ```
+    UPDATE customer
+    SET status_enum = CASE
+      WHEN status = 0 THEN 'INIT'
+      WHEN status = 1 THEN 'LOADING'
+      WHEN status = 2 THEN 'DONE'
+    END;
+    ```
 * Update/Insert based on a bunch of selects
     ```
     MERGE INTO unique_trade_object uto
