@@ -11,7 +11,7 @@ build-kubernetes:
     - mvn --settings mavenSettings.xml clean $MAVEN_CLI_OPTS -P jar package
     - cp leyas-mobile-lector-server/target/lector-server.jar extras/lector.jar
     - cd extras
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.someit.ru
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.someit.ru
     - docker build -t registry.someit.ru/leyas-kybd/leyas-mobile-lector:$IMAGE_TAG .
     - docker push registry.someit.ru/leyas-kybd/leyas-mobile-lector:$IMAGE_TAG
   tags:

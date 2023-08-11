@@ -9,7 +9,7 @@ build:
   stage: build
   script:
     - docker build -t registry.nonit.com/donops/emrawler:$IMAGE_TAG .
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.nonit.com
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.nonit.com
     - docker push registry.nonit.com/donops/emrawler:$IMAGE_TAG
   tags:
     - docker

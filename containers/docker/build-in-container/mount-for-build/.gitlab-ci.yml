@@ -8,7 +8,7 @@ build-your-project:
     - docker:18.06-spdf
   stage: build
   script:
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN "$CI_REGISTRY"
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN "$CI_REGISTRY"
     - DOCKER_BUILDKIT=1 docker build .
   when: manual
   tags:
