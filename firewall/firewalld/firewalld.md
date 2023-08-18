@@ -4,9 +4,11 @@
 #### Getting started
 * Install - `apt update && apt install firewalld`
 
-#### Useful commands
-
 #### Port forwarding
+* Allow ip forwarding in system kernel (not sure if necessary):
+    * `nano /etc/sysctl.conf`, modify attribute:
+        * `net.ipv4.ip_forward=1`
+    * Apply changes - `sysctl -p /etc/sysctl.conf`
 * Check rules list - `firewall-cmd --list-all`
 * Add new rule:
     * `firewall-cmd --permanent --zone=public --add-port=7777/tcp`
