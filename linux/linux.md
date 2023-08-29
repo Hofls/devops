@@ -257,8 +257,8 @@
 * Find package manager:
     * Check linux distribution - `cat /etc/*-release`
         * Debian (Ubuntu) = `apt`; Alpine = `apk`; SuSE = `zypper`; 
-        * Redhat = `yum`, `dnf`, `microdnf`;
-        * CentOS = `yum`;
+        * Redhat = `dnf`, `microdnf`, `yum` (outdated);
+        * CentOS = `dnf`, `yum` (outdated);
         * Arch = `pacman`; Gentoo = `emerge`;
 * Install Docker with different package managers:
     * `apt update && apt install docker.io`
