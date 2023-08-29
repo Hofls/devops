@@ -56,7 +56,7 @@
     * Access guest web-service (from the host)  
         * Get address: `ip addr | grep inet` (look for something like `inet 192.168.183.122/24 brd`)
         * Run web-service: `python3 -m http.server`
-        * Open URL on the host: http://GUEST_IP_ADDR:8000
+        * Open URL on the host: http://192.168.183.122:8000
 * `Docker`:
     * TODO (Using volumes)
 

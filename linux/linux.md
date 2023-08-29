@@ -181,8 +181,10 @@
     * `nc -v -u -z -w 3 32.143.88.73 5050`
     * Should return something like `Connection to 32.143.88.73 5050 port [udp/sip] succeeded!`
 * Get your IP address:
-    * Standard - `curl ifconfig.co`
     * On local VMs - `ip addr | grep inet` (look for something like `inet 192.168.183.122/24 brd`)
+        * Works even on local VMs
+    * Standard - `curl ifconfig.co`
+        * Works only with direct connection (otherwise will just show IP of your vpn/proxy/gateway)
 * Check which DNS you use (changes with VPN)
     * `cat /etc/resolv.conf`
 * Get domain name by IP address:
