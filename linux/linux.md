@@ -258,10 +258,13 @@
 #### Packages
 * Find package manager:
     * Check linux distribution - `cat /etc/*-release`
-        * Debian (Ubuntu) = `apt`; Alpine = `apk`; SuSE = `zypper`; 
+        * Debian (Ubuntu) = `apt`;
+            * Manual - wget `.deb` install with `dpkg`
         * Redhat = `dnf`, `microdnf`, `yum` (outdated);
+            * Manual - wget `.rpm` install with `rpm`
         * CentOS = `dnf`, `yum` (outdated);
         * Arch = `pacman`; Gentoo = `emerge`;
+        * Alpine = `apk`; SuSE = `zypper`;
 * Install Docker with different package managers:
     * `apt update && apt install docker.io`
     * `apk update && apk add docker`
