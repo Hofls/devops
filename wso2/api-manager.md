@@ -12,6 +12,8 @@
     * [API Manager 4.2.0](https://apim.docs.wso2.com/en/4.2.0/)
     * [Architecture](https://apim.docs.wso2.com/en/latest/get-started/apim-architecture/)
     * [Install + Quick start](https://apim.docs.wso2.com/en/latest/get-started/api-manager-quick-start-guide/)
+    * [Detailed installation guides](https://apim.docs.wso2.com/en/latest/install-and-setup/install-and-setup-overview/)
+    * [Observability (logs/metrics)](https://apim.docs.wso2.com/en/latest/observe/observe-overview/)
 
 ### Getting started (Ubuntu)
 * Install JDK:
@@ -26,7 +28,7 @@
     ```
 * Install API Manager:
     * Download archive [wso2am-4.2.0](https://wso2.com/api-management/), unzip, put everything in `/opt` folder on server
-    * `cd /opt/wso2am-4.2.0/bin && chmod +x api-manager.sh && sh api-manager.sh`
+    * `cd /opt/wso2am-4.2.0/bin && chmod a+x api-manager.sh && sh api-manager.sh`
 * Make sure API Manager is working:
     * https://localhost:9443/publisher
         * `admin/admin`
