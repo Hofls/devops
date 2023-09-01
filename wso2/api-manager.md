@@ -45,9 +45,9 @@
 ### Test & Configure API Manager
 * Open URLS:
     * Login/Password - `admin/admin`
-    * https://YOUR_SERVER_IP:9443/carbon
-    * https://YOUR_SERVER_IP:9443/publisher
-    * https://YOUR_SERVER_IP:9443/devportal
+    * https://123.165.77.188:9443/carbon
+    * https://123.165.77.188:9443/publisher
+    * https://123.165.77.188:9443/devportal
 * Publisher and devportal throw error - `Registered callback does not match with the provided URL`. To fix it:
     * Open `Carbon` -> `Service Providers` -> `List` -> `Edit` -> `Inbound Authentication Configuration` -> `OAuth/OpenID Connect Configuration` -> `Edit`
     * In `Callback Url` replace `localhost` with you server IP address - `123.165.77.188`; Press `Update`.
