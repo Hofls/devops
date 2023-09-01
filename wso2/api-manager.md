@@ -40,7 +40,10 @@
     [server]
     hostname = "123.165.77.188"
     ```
-* Run API Manager - `sh /opt/wso2am-4.2.0/bin/api-manager.sh start`
+* Launch API Manager:
+    * Copy [launcher](src/wso2-control.sh) to `/opt/wso2am-4.2.0/`
+    * Start API Manager - `sh /opt/wso2am-4.2.0/wso2-control.sh start`
+    * Check logs - `tail -f /opt/wso2am-4.2.0/repository/logs/wso2carbon.log`
 
 ### Test & Configure API Manager
 * Open URLS:
