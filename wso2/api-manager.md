@@ -14,11 +14,12 @@
     * [Install + Quick start](https://apim.docs.wso2.com/en/latest/get-started/api-manager-quick-start-guide/)
     * [Detailed installation guides](https://apim.docs.wso2.com/en/latest/install-and-setup/install-and-setup-overview/)
     * [Observability (logs/metrics)](https://apim.docs.wso2.com/en/latest/observe/observe-overview/)
+    * [Deployment.toml description](https://apim.docs.wso2.com/en/latest/reference/config-catalog/)
 * Important files/folders:
     * Configs - `/opt/wso2am-4.2.0/repository/conf`
     * Logs - `/opt/wso2am-4.2.0/repository/logs`
 
-### Getting started (Ubuntu)
+### Install API Manager
 * Install JDK:
     ```
     cd /opt
@@ -39,13 +40,26 @@
     [server]
     hostname = "123.165.77.188"
     ```
-* Run API Manager - `sh /opt/wso2am-4.2.0/bin/api-manager.sh`
+* Run API Manager - `sh /opt/wso2am-4.2.0/bin/api-manager.sh start`
+
+### Test & Configure API Manager
 * Open URLS:
     * Login/Password - `admin/admin`
     * https://YOUR_SERVER_IP:9443/carbon
     * https://YOUR_SERVER_IP:9443/publisher
     * https://YOUR_SERVER_IP:9443/devportal
 * Publisher and devportal throw error - `Registered callback does not match with the provided URL`. To fix it:
-    * Open carbon -> `Service Providers` -> `List` -> `Edit` -> `Inbound Authentication Configuration` -> `OAuth/OpenID Connect Configuration` -> `Edit`
+    * Open `Carbon` -> `Service Providers` -> `List` -> `Edit` -> `Inbound Authentication Configuration` -> `OAuth/OpenID Connect Configuration` -> `Edit`
     * In `Callback Url` replace `localhost` with you server IP address - `123.165.77.188`; Press `Update`.
-
+* Publish and subscribe to API:
+    * Open `Publisher` -> `Create API` -> `Deploy Sample API`
+    * Open `Devportal` -> `PizzaShackAPI` -> `TRY OUT` -> `TRY OUT` -> `GET TEST KEY` -> Execute endpoint `GET /menu`
+    * Error appears - Failed to fetch. To fix it:
+        * `nano /opt/wso2am-4.2.0/repository/conf/deployment.toml`, change:
+        ```
+        [[apim.gateway.environment]]
+        http_endpoint = "http://123.165.77.188:${http.nio.port}"
+        https_endpoint = "https://123.165.77.188:${https.nio.port}"
+        ```
+        * Restart api-manager
+* 
