@@ -7,7 +7,7 @@
     * `API Developer Portal` - app store for apis
         * Allows publishers to advertise their APIs
         * Allows consumers to discover, evaluate and consume APIs
-    * `Service Catalog` - devs can register their services in a RESTful manner
+    * `Management Console (Carbon)` - admin panel, where you can add/configure almost everything
 * Documentation:
     * [API Manager 4.2.0](https://apim.docs.wso2.com/en/4.2.0/)
     * [Architecture](https://apim.docs.wso2.com/en/latest/get-started/apim-architecture/)
