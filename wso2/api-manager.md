@@ -3,10 +3,8 @@
 * Use case - you have a lot of servers with APIs and a lot of systems that use those APIs.
 * Built on top of OSGI framework `Carbon` (modular architecture, where application = bunch of jar files)
 * API Manager components:
-    * `API Publisher` - publish API, monetize, limit rates
-    * `API Developer Portal` - app store for apis
-        * Allows publishers to advertise their APIs
-        * Allows consumers to discover, evaluate and consume APIs
+    * `API Publisher` - publish API, monetize, limit rates (for producers)
+    * `API Developer Portal` - discover APIs, subscribe and try them out (for consumers)
     * `Management Console (Carbon)` - admin panel, where you can add/configure almost everything
 * Documentation:
     * [API Manager 4.2.0](https://apim.docs.wso2.com/en/4.2.0/)
@@ -25,9 +23,6 @@
     cd /opt
     wget https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz
     tar -xvf openjdk-17.0.2_linux-x64_bin.tar.gz
-    export JAVA_HOME=/opt/jdk-17.0.2
-    export PATH=$JAVA_HOME/bin:$PATH
-    source ~/.bashrc
     java --version
     ```
 * Install API Manager:
