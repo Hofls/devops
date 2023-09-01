@@ -43,17 +43,18 @@
     url = "https://123.165.77.188:${mgt.transport.https.port}/devportal"
     ```
 * Launch API Manager:
-    * Copy [launcher](src/wso2-control.sh) to `/opt/wso2am-4.2.0/`
+    * Copy [launcher](src/wso2-control.sh) to `/opt/`
     * Start API Manager:
         ```
-        chmod a+x /opt/wso2am-4.2.0/wso2-control.sh
+        chmod a+x /opt/wso2-control.sh
+        mv /opt/wso2-control.sh /opt/wso2am-4.2.0/
         sh /opt/wso2am-4.2.0/wso2-control.sh start
         ```
     * Check logs - `tail -f /opt/wso2am-4.2.0/repository/logs/wso2carbon.log`
     * Check carbon - `curl -k -L https://123.165.77.188:9443/carbon`
 
 ### Test API Manager
-* Open URLS:
+* Open URLS in web browser:
     * Login/Password - `admin/admin`
     * https://123.165.77.188:9443/carbon
     * https://123.165.77.188:9443/publisher
