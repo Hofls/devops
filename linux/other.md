@@ -8,6 +8,32 @@
     * `/var/log` - logs
     
 ## Systemd
+* Make your own service:
+    * `touch /etc/systemd/system/http-srv.service`
+    * `chmod 664 /etc/systemd/system/http-srv.service`
+    * `nano /etc/systemd/system/http-srv.service`, insert:
+        ```
+        [Unit]
+        Description=python http server as a service
+        
+        [Service]
+        WorkingDirectory=/opt
+        ExecStart=python3 -m http.server 8000
+        
+        [Install]
+        WantedBy=multi-user.target
+        ```
+    * `systemctl daemon-reload`
+    * Make sure it works:
+        ```
+        systemctl start http-srv
+        systemctl status http-srv
+        curl localhost:8000
+      
+        systemctl stop http-srv
+        systemctl status http-srv
+        curl localhost:8000
+        ```
 * Automatically restart service (e.g. VPN should always be ON):
     * `systemctl status openvpn`
         * Copy path to `.service` file
@@ -20,7 +46,7 @@
 * Example: after `zypper refresh`, zypper still installs ancient version of openvpn
 * `OpenSUSE 42.3` fixes (pick 1):
     * Via repository:
-        * Find [repository]([Download .rpm package](https://software.opensuse.org/download/package?package=openvpn&project=network%3Avpn))
+        * Find [repository](https://download.opensuse.org/repositories/)
         * ```
           zypper addrepo https://download.opensuse.org/repositories/network:vpn/openSUSE_Leap_42.3/network:vpn.repo
           zypper refresh

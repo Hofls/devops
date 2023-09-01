@@ -69,10 +69,12 @@
         * `JAVA_HOME=/opt/jdk-15.0.1`
         * Add to the end of PATH - `:/opt/jdk-15.0.1/bin`
         * Restart server - `reboot`
-* Service manager
+* Service manager (systemd)
+    * For more info look at [other.md](other.md)
     * List all services `systemctl list-units --type=service`
     * Restart service apache2 `systemctl restart apache2`
     * Show apache2 status `systemctl status apache2`
+    * Start service automatically on server boot `systemctl enable apache2`
     * Look at service logs `journalctl -u apache2.service`
 * Monitor system calls and signals
     * `strace ls`
@@ -229,9 +231,8 @@
 * Replace every occurrence of `Sam` with `Mike` in `report.txt`
     * `sed 's/Sam/Mike/g' report.txt > report_new.txt`
     * `sed -i 's/Sam/Mike/g' report.txt`
-* `awk` is outdated, better use `python`
-    * Extract a 3rd column of text:
-        * `ls -l | awk '{print $3}`
+* Extract a 3rd column of text:
+    * `ls -l | awk '{print $3}`
 * Read/Edit text file
     * `nano /etc/config.toml`
     * `vim /etc/config.toml`
