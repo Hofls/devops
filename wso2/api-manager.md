@@ -51,7 +51,7 @@
     * https://123.165.77.188:9443/carbon
     * https://123.165.77.188:9443/publisher
     * https://123.165.77.188:9443/devportal
-* Publisher and devportal throw error - `Registered callback does not match with the provided URL`. To fix it:
+* `Publisher` and `Devportal` may throw error - `Registered callback does not match with the provided URL`. To fix it:
     * Open `Carbon` -> `Service Providers` -> `List` -> `Edit` -> `Inbound Authentication Configuration` -> `OAuth/OpenID Connect Configuration` -> `Edit`
     * In `Callback Url` replace `localhost` with you server IP address - `123.165.77.188`; Press `Update`.
 * Publish and subscribe to API:
