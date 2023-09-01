@@ -32,7 +32,7 @@
 * Install API Manager:
     * Download archive [wso2am-4.2.0](https://wso2.com/api-management/), unzip, put everything in `/opt` folder on server
     * `unzip wso2am-4.2.0.zip`
-    * `cd /opt/wso2am-4.2.0/bin && chmod a+x api-manager.sh`
+    * `chmod a+x /opt/wso2am-4.2.0/bin/api-manager.sh`
 * Change hostname to your server IP:
     * `nano /opt/wso2am-4.2.0/repository/conf/deployment.toml`, change:
     ```
