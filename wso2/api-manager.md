@@ -53,16 +53,24 @@
     * https://123.165.77.188:9443/devportal
 * `Publisher` and `Devportal` may throw error - `Registered callback does not match with the provided URL`. To fix it:
     * Open `Carbon` -> `Service Providers` -> `List` -> `Edit` -> `Inbound Authentication Configuration` -> `OAuth/OpenID Connect Configuration` -> `Edit`
-    * In `Callback Url` replace `localhost` with you server IP address - `123.165.77.188`; Press `Update`.
+    * In `Callback Url` replace `localhost` with server IP address - `123.165.77.188`; Press `Update`.
 * Publish and subscribe to API:
     * Open `Publisher` -> `Create API` -> `Deploy Sample API`
     * Open `Devportal` -> `PizzaShackAPI` -> `TRY OUT` -> `TRY OUT` -> `GET TEST KEY` -> Execute endpoint `GET /menu`
-    * Error appears - Failed to fetch. To fix it:
-        * `nano /opt/wso2am-4.2.0/repository/conf/deployment.toml`, change:
+    * May appear error `Failed to fetch`. To fix it:
+        * `nano /opt/wso2am-4.2.0/repository/conf/deployment.toml`, set server IP:
         ```
         [[apim.gateway.environment]]
         http_endpoint = "http://123.165.77.188:${http.nio.port}"
         https_endpoint = "https://123.165.77.188:${https.nio.port}"
         ```
-        * Restart api-manager
-* 
+        * Restart api-manager - `sh /opt/wso2am-4.2.0/wso2-control.sh restart`
+* Check links to devportal:
+    * Open `Publisher` -> `PizzaShackAPI` -> `View in devportal`
+    * May appear error `ERR_CONNECTION_REFUSED`. To fix it:
+        * `nano /opt/wso2am-4.2.0/repository/conf/deployment.toml`, set server IP:
+        ```
+        [apim.devportal]
+        url = "https://123.165.77.188:${mgt.transport.https.port}/devportal"
+        ```
+        * Restart api-manager - `sh /opt/wso2am-4.2.0/wso2-control.sh restart`
