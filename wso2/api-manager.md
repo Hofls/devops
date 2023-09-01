@@ -39,13 +39,20 @@
     ```
     [server]
     hostname = "123.165.77.188"
+  
+    [[apim.gateway.environment]]
+    http_endpoint = "http://123.165.77.188:${http.nio.port}"
+    https_endpoint = "https://123.165.77.188:${https.nio.port}"
+  
+    [apim.devportal]
+    url = "https://123.165.77.188:${mgt.transport.https.port}/devportal"
     ```
 * Launch API Manager:
     * Copy [launcher](src/wso2-control.sh) to `/opt/wso2am-4.2.0/`
     * Start API Manager - `sh /opt/wso2am-4.2.0/wso2-control.sh start`
     * Check logs - `tail -f /opt/wso2am-4.2.0/repository/logs/wso2carbon.log`
 
-### Test & Configure API Manager
+### Test API Manager
 * Open URLS:
     * Login/Password - `admin/admin`
     * https://123.165.77.188:9443/carbon
@@ -57,20 +64,7 @@
 * Publish and subscribe to API:
     * Open `Publisher` -> `Create API` -> `Deploy Sample API`
     * Open `Devportal` -> `PizzaShackAPI` -> `TRY OUT` -> `TRY OUT` -> `GET TEST KEY` -> Execute endpoint `GET /menu`
-    * May appear error `Failed to fetch`. To fix it:
-        * `nano /opt/wso2am-4.2.0/repository/conf/deployment.toml`, set server IP:
-        ```
-        [[apim.gateway.environment]]
-        http_endpoint = "http://123.165.77.188:${http.nio.port}"
-        https_endpoint = "https://123.165.77.188:${https.nio.port}"
-        ```
-        * Restart api-manager - `sh /opt/wso2am-4.2.0/wso2-control.sh restart`
+    * If appears error `Failed to fetch` - check config section `[[apim.gateway.environment]]`
 * Check links to devportal:
     * Open `Publisher` -> `PizzaShackAPI` -> `View in devportal`
-    * May appear error `ERR_CONNECTION_REFUSED`. To fix it:
-        * `nano /opt/wso2am-4.2.0/repository/conf/deployment.toml`, set server IP:
-        ```
-        [apim.devportal]
-        url = "https://123.165.77.188:${mgt.transport.https.port}/devportal"
-        ```
-        * Restart api-manager - `sh /opt/wso2am-4.2.0/wso2-control.sh restart`
+    * If appears error `ERR_CONNECTION_REFUSED` - check config section `[apim.devportal]`
