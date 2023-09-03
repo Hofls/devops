@@ -12,3 +12,11 @@
         * Username: postgres
         * Password: postgres
     * Test Connection -> Finish
+
+#### Getting started. CLI
+* TODO - run PosgreSQL on server
+* Launch psql console - `sudo -u postgres psql`
+* List databases - `SELECT datname FROM pg_database;`
+* Connect to db named "shop_db" - `\c shop_db`
+* List tables - `\dt`
+* Look at rows in a table  - `select * from customer limit 10;`

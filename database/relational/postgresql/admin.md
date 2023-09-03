@@ -7,8 +7,11 @@
     * `ALTER USER hofls WITH PASSWORD '123456'`
 * Dump:
     * Create [db for tests](test_db.sql)
-    * In source PostgreSQL:
-        * `pg_dump -U postgres -F t customers_db > dump.tar`
+    * In source PostgreSQL, 
+        * Log in as `posgres` user - `sudo -u postgres -i`
+        * Dump data `pg_dump customers_db > customers_dump.sql`
     * In target PostgreSQL:
         * Manually create database `customers_db`
-        * `psql -U postgres customers_db < dump.sql`
+        * Pick 1:
+            * Via console - `psql -U postgres customers_db < dump.sql`
+            * Via DBeaver - `customers_db` -> right click -> `Tools` -> `Execute script` -> set path to `customers_dump.sql`
