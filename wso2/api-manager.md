@@ -15,6 +15,8 @@
     * [Deployment.toml description](https://apim.docs.wso2.com/en/latest/reference/config-catalog/)
 * Important files/folders:
     * Configs - `/opt/wso2am-4.2.0/repository/conf`
+        * `/conf/deployment.toml`
+        * `/conf/datasources/master-datasources.xml`
     * Logs - `/opt/wso2am-4.2.0/repository/logs`
 
 ### Install API Manager

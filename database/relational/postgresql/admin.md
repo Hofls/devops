@@ -7,9 +7,12 @@
     * `ALTER USER hofls WITH PASSWORD '123456'`
 * Dump:
     * Create [db for tests](test_db.sql)
-    * In source PostgreSQL, 
-        * Log in as `posgres` user - `sudo -u postgres -i`
-        * Dump data `pg_dump customers_db > customers_dump.sql`
+    * In source PostgreSQL, pick 1:
+        * A:
+            * `pg_dump -U postgres -F t customers_db > customers_dump.tar`
+        * B:
+            * Log in as `postgres` user - `sudo -u postgres -i`
+            * Dump data `pg_dump customers_db > customers_dump.sql`
     * In target PostgreSQL:
         * Manually create database `customers_db`
         * Pick 1:
