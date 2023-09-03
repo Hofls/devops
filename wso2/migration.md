@@ -1,6 +1,6 @@
 # Data migration from 2.6.0 to 4.2.0
 
-### How migration algorithm was created [INFO]
+### How data migration algorithm was created [INFO]
 * Download [H2 DB 2.0.202](https://www.h2database.com/html/download-archive.html) on your PC
     * Right version is very important, 2.2.222 won't even open DB files
 * Download DB files from new and old wso2:
@@ -15,5 +15,10 @@
     * If there is data in a table - add table to `pg_dump`
     * Then, if 4.2.0 has new fields - fill them in `after_dump.sql`
 
-### Migration
+### Data migration
+* 
+
+# Config migration from 2.6.0 to 4.2.0
+* 
+* 
 * 
