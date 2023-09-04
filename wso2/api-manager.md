@@ -1,7 +1,9 @@
 # WSO2. API Manager
 ### Info
 * Use case - you have a lot of servers with APIs and a lot of systems that use those APIs.
-* Built on top of OSGI framework `Carbon` (modular architecture, where application = bunch of jar files)
+* How it works?
+    * API Manager is a middleman. Typical request path: Client -> WSO2 API Manager -> Server. 
+    * WSO2 checks token and privileges, applies rate limiting. Only if everything is ok - sends request to server, returns response to client
 * API Manager components:
     * `API Publisher` - publish API, monetize, limit rates (for producers)
     * `API Developer Portal` - discover APIs, subscribe and try them out (for consumers)
@@ -64,10 +66,15 @@
 * `Publisher` and `Devportal` may throw error - `Registered callback does not match with the provided URL`. To fix it:
     * Open `Carbon` -> `Service Providers` -> `List` -> `Edit` -> `Inbound Authentication Configuration` -> `OAuth/OpenID Connect Configuration` -> `Edit`
     * In `Callback Url` replace `localhost` with server IP address - `123.165.77.188`; Press `Update`.
-* Publish and subscribe to API:
+* Publish and subscribe to API (sample):
     * Open `Publisher` -> `Create API` -> `Deploy Sample API`
     * Open `Devportal` -> `PizzaShackAPI` -> `TRY OUT` -> `TRY OUT` -> `GET TEST KEY` -> Execute endpoint `GET /menu`
     * If appears error `Failed to fetch` - check config section `[[apim.gateway.environment]]`
+* Publish and subscribe to API (external):
+    * Open `Publisher` -> `Create API` -> `Import Open API` -> `OpenAPI URL` -> Insert `https://petstore.swagger.io/v2/swagger.json` -> `Next`
+    * `Context` -> Insert `/petstore` -> `Endpoint` -> Insert `https://petstore.swagger.io/v2` -> `Create`
+    * `Business Plan` -> `Unlimited` -> `Deploy` -> `Try Out` -> Execute `GET /store/inventory` 
+    * If appears error `404 Not Found`, check `Endpoint` field
 * Check links to devportal:
     * Open `Publisher` -> `PizzaShackAPI` -> `View in devportal`
     * If appears error `ERR_CONNECTION_REFUSED` - check config section `[apim.devportal]`
