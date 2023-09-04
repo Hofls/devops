@@ -16,7 +16,12 @@
     * Then, if 4.2.0 has new fields - fill them in `after_dump.sql`
 
 ### Data migration
-* 
+* Create partial dump of `wso2am_db` in WSO 2.6.0:
+    ```
+    pg_dump wso2am_db --column-inserts --data-only \
+    -t am_api -t am_api_default_version \
+    > wso2am_db_dump_v2.sql
+    ```
 
 # Config migration from 2.6.0 to 4.2.0
 * 

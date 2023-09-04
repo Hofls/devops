@@ -20,6 +20,7 @@
         * `/conf/deployment.toml`
         * `/conf/datasources/master-datasources.xml`
     * Logs - `/opt/wso2am-4.2.0/repository/logs`
+    * H2DB - `/opt/wso2am-4.2.0/repository/database`
 
 ### Install API Manager
 * Install JDK:

@@ -311,7 +311,7 @@
 * Print environment variables
         * `printenv`
         * `echo $JAVA_HOME`
-* Make long command readable:
+* Make long command readable (multiline):
     ```
     docker run \
         --network host \
