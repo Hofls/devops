@@ -1,4 +1,5 @@
-# Data migration from 2.6.0 to 4.2.0
+# DB migration from 2.6.0 to 4.2.0
+# Disclaimer - this approach is abandoned. DB structure is too different, scripts for data migration will take a lot of time
 
 ### How data migration algorithm was created [INFO]
 * Download [H2 DB 2.0.202](https://www.h2database.com/html/download-archive.html) on your PC
@@ -16,7 +17,7 @@
     * Then, if 4.2.0 has new fields - fill them in `after_dump.sql`
 
 ### Data migration
-* Important! WSO 4.2.0 should be empty
+* Important! WSO 4.2.0 should be empty (to avoid rows with duplicate ids)
 * TODO - remove quotes from dump, e.g. from `"name"`
 * Create partial dump of `wso2am_db` in WSO 2.6.0:
     ```
@@ -25,9 +26,7 @@
     -t am_subscriber -t am_application \
     > wso2am_db_dump_v2.sql
     ```
-* Execute [before_dump_wso2am_db.sql](src/before_dump_wso2am_db.sql)
-* Load dump into WSO 4.2.0: 
-    * TODO
+* TODO - Load dump into WSO 4.2.0
 * Execute [after_dump_wso2am_db.sql](src/after_dump_wso2am_db.sql)
 
 # Config migration from 2.6.0 to 4.2.0
