@@ -25,4 +25,4 @@
         * Execute [keys-transfer.sql](src/keys-transfer.sql)
 
 ### Transfer API + subscriptions
-* TODO
+* TODO - via Playwirght (transfer data from old UI to new UI)
