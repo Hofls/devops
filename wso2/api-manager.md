@@ -58,15 +58,12 @@
     * Check logs - `tail -f /opt/wso2am-4.2.0/repository/logs/wso2carbon.log`
     * Check carbon - `curl -k -L https://123.165.77.188:9443/carbon`
 
-### Test API Manager
+### Test & Configure API Manager
 * Open URLS in web browser:
     * Login/Password - `admin/admin`
     * https://123.165.77.188:9443/carbon
     * https://123.165.77.188:9443/publisher
     * https://123.165.77.188:9443/devportal
-* `Publisher` and `Devportal` may throw error - `Registered callback does not match with the provided URL`. To fix it:
-    * Open `Carbon` -> `Service Providers` -> `List` -> `Edit` -> `Inbound Authentication Configuration` -> `OAuth/OpenID Connect Configuration` -> `Edit`
-    * In `Callback Url` replace `localhost` with server IP address - `123.165.77.188`; Press `Update`.
 * Publish and subscribe to API (sample):
     * Open `Publisher` -> `Create API` -> `Deploy Sample API`
     * Open `Devportal` -> `PizzaShackAPI` -> `TRY OUT` -> `TRY OUT` -> `GET TEST KEY` -> Execute endpoint `GET /menu`
@@ -74,8 +71,18 @@
 * Publish and subscribe to API (external):
     * Open `Publisher` -> `Create API` -> `Import Open API` -> `OpenAPI URL` -> Insert `https://petstore.swagger.io/v2/swagger.json` -> `Next`
     * `Context` -> Insert `/petstore` -> `Endpoint` -> Insert `https://petstore.swagger.io/v2` -> `Create`
-    * `Business Plan` -> `Unlimited` -> `Deploy` -> `Try Out` -> Execute `GET /store/inventory` 
+    * `Business Plan` -> `Unlimited` -> `Deploy` -> `Try Out` -> Execute `GET /store/inventory`
     * If appears error `404 Not Found`, check `Endpoint` field
 * Check links to devportal:
     * Open `Publisher` -> `PizzaShackAPI` -> `View in devportal`
     * If appears error `ERR_CONNECTION_REFUSED` - check config section `[apim.devportal]`
+* `Publisher` and `Devportal` may throw error - `Registered callback does not match with the provided URL`. To fix it:
+    * Open `Carbon` -> `Service Providers` -> `List` -> `Edit` -> `Inbound Authentication Configuration` -> `OAuth/OpenID Connect Configuration` -> `Edit`
+    * In `Callback Url` replace `localhost` with server IP address - `123.165.77.188`; Press `Update`.
+* Set tokens expiry time:
+    * Open `Devportal` -> `Applications` -> `DefaultApplication` -> Production keys -> Put `3153600000` into all `Expiry Time` fields -> `Update`
+    * You have to do it for each user
+* If tokens are too long (100+ symbols) and they get deprecated after each generation:
+    * Open `Carbon` -> `Service Providers` -> `List` -> Edit `admin_*_PRODUCTION` -> `Inbound Authentication Configuration`
+        -> `OAuth/OpenID Connect Configuration` -> `Edit` -> Pick `Default` in `Token Issuer` field -> Update
+    * You have to do it for each user
