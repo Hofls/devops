@@ -1,3 +1,15 @@
+### Architecture patterns
+* One DB, many microservice replicas
+    * Replicas read and write into same DB
+    * Replicas dynamically created and destroyed, based on load (usually in k8s)
+* One main DB, one DB replica (on standby), multiple microservice replicas
+    * If main DB fails, standby DB takes it place
+* One main DB, multiple DB replicas, multiple microservice replicas
+    * `CQRS` - Insert into main DB, read from replica DB (via load balancer)
+* `Sharding` - distributes data across different databases (each DB has only subset of data)
+    * If no space left - just add another shard (server), all new data will be stored there
+* `Federation` - splits database by domain (one db for users, another db for products)
+
 ### High level (abstract)
 * `Relational` - data stored in tables (with rows and columns), has ACID transactions, in CAP choses CP
     * Use cases:
@@ -5,9 +17,6 @@
 * `Standby` - total replica of main DB. If main DB dies - just start using standby
 * `Replication` - process of copying data from one database to another 
     * Increases availability and scalability (if one DB dies, switch to another one)
-* `Sharding` - distributes data across different databases (each DB has only subset of data)
-    * If no space left - just add another shard (server), all new data will be stored there
-* `Federation` - splits database by domain (one db for users, another db for products)
 * `Denormalization` - redundant copies of data written in different tables to avoid expensive joins
     * Better read performance, worse write performance
 * `ACID` - properties of database transactions
