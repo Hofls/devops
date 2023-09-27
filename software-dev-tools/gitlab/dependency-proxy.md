@@ -12,5 +12,5 @@
 
 #### Problems
 * If you need to pull through dependency proxy image from another repository (e.g. mcr.microsoft.com)
-    * Bad way - push it do dockerhub
+    * Bad way - manually push it to your dockerhub repository, then pull from it
     * Good way - todo
