@@ -156,8 +156,6 @@
     firewall-cmd --permanent --zone=public --add-port=433/tcp
     firewall-cmd --reload
     ```
-* Local DNS:
-    * In file `etc/hosts` insert `231.23.143.25 camel.keras.com`
 * Check reachability of a host
     * `ping google.com`
 * Show path of an IP packet (to find where problem occurs)
@@ -187,10 +185,15 @@
         * Works even on local VMs
     * Standard - `curl ifconfig.co`
         * Works only with direct connection (otherwise will just show IP of your vpn/proxy/gateway)
+* Local DNS:
+    * In file `etc/hosts` insert `231.23.143.25 camel.keras.com`
 * Check which DNS you use (changes with VPN)
     * `cat /etc/resolv.conf`
 * Get domain name by IP address:
     * `nslookup` -> `93.184.216.34` (returns example.com)
+* Check which DNS gave you the IP address:
+    * `dig example.com`
+    * `nslookup example.com`
 * Redirect traffic (Port-forwarding)
     * `socat tcp-listen:9090,reuseaddr,fork tcp:localhost:8000`
     * For more info look at `devops` repository
