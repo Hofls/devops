@@ -191,7 +191,7 @@
     * `cat /etc/resolv.conf`
 * Get domain name by IP address:
     * `nslookup` -> `93.184.216.34` (returns example.com)
-* Check which DNS gave you the IP address:
+* Find which DNS gave you the IP address:
     * `dig example.com`
     * `nslookup example.com`
 * Redirect traffic (Port-forwarding)
