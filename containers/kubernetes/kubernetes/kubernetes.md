@@ -68,9 +68,9 @@
     * Open `http://127.0.0.1:8001`
 * Probes:
     * `livenessProbe:` K8s kills pod on failure. Success means app is alive/running
-        * Example - `failureThreshold: 2; timeoutSeconds: 4; periodSeconds: 5`
+        * Example - `failureThreshold: 6; timeoutSeconds: 5; periodSeconds: 6`
     * `readinessProbe:` K8s doesnt send traffic to a pod on failure. Success means app is ready to serve
-        * Example - `failureThreshold: 2; timeoutSeconds: 4; periodSeconds: 5`
+        * Example - `failureThreshold: 6; timeoutSeconds: 5; periodSeconds: 6`
     * `startupProbe:` K8s kills pod on failure. All other probes are disabled until it succeeds. Success means app have started
-        * Example - `failureThreshold: 40; timeoutSeconds: 4; periodSeconds: 10`
+        * Example - `initialDelaySeconds: 60, failureThreshold: 24; timeoutSeconds: 4; periodSeconds: 10`
 * `ephemeral-storage:` - logs that go to stdout and stderr, any files created by container, emptyDir volumes you mount
