@@ -8,6 +8,7 @@
 * Launch redis instance:
     ```
     docker run -d --name redis-server \
+        -p 6379:6379 \
         -e ALLOW_EMPTY_PASSWORD=yes \
         --network app-tier \
         bitnami/redis:latest
@@ -15,6 +16,7 @@
 * Launch sentinel instance:
     ```
     docker run -d -it --rm \
+        -p 26379:26379 \
         -e REDIS_MASTER_HOST=redis-server \
         --network app-tier \
         bitnami/redis-sentinel:latest
@@ -23,3 +25,7 @@
     * SSH into sentinel - `docker exec -it f45127613ba6 bash`
     * Redis-cli into sentinel - `redis-cli -p 26379`
     * List monitored masters - `SENTINEL masters` (should have IP address and runid)
+
+### Docker compose
+* Start `docker-compose up -d` in [directory](sentinel)
+* Stop - `docker-compose down`
