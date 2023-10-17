@@ -29,6 +29,9 @@
 * Connect to container `SK284KD2J` via ssh
     * `docker exec -it SK284KD2J bash`
     * `docker exec -it SK284KD2J /bin/sh`
+* Connect to container `SK284KD2J` as a root user (superuser)
+    * `docker exec -u 0 -it SK284KD2J bash`
+    * Useful if you need to manually install bunch of packages for debug
 * Execute command inside container`SK284KD2J`
     * `docker exec SK284KD2J ls /etc`
     * `docker exec -it SK284KD2J ls /etc`
