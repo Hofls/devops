@@ -6,16 +6,20 @@
 * Install docker:
     * `apt update && apt install docker.io`
 * Launch redis instance:
-    * `docker run -d -p 6379:6379 -e ALLOW_EMPTY_PASSWORD=yes bitnami/redis:latest`
+    ```
+    docker run -d --name redis-server \
+        -e ALLOW_EMPTY_PASSWORD=yes \
+        --network app-tier \
+        bitnami/redis:latest
+    ```
 * Launch sentinel instance:
     ```
     docker run -d -it --rm \
-        --network host \
-        -e REDIS_MASTER_HOST=localhost \
-        -p 26379:26379 \
+        -e REDIS_MASTER_HOST=redis-server \
+        --network app-tier \
         bitnami/redis-sentinel:latest
     ```
 * Check sentinel instance:
-    * Ssh into sentinel - `docker exec -it f45127613ba6 bash`
-    * Redis-cli into sentinel - `redis-cli -h localhost -p 26379`
-    * List monitored masters - `SENTINEL masters`
+    * SSH into sentinel - `docker exec -it f45127613ba6 bash`
+    * Redis-cli into sentinel - `redis-cli -p 26379`
+    * List monitored masters - `SENTINEL masters` (should have IP address and runid)
