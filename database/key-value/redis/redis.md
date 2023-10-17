@@ -1,6 +1,7 @@
 #### Info
 * Redis - in-memory key value store
 * Use cases: caching, session store, messaging (pub/sub)
+* [Redis as message broker](/message-broker/redis/redis.md)
 
 #### Getting started. CLI
 * `docker run --name some-redis -p 6379:6379 --detach redis:6.2.6`
