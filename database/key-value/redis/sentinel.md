@@ -2,7 +2,7 @@
 * `Redis Sentinel` - redis with high availability (distributed)
     * Monitors redis instances, sends notifications, automatic failover (if master fails - promotes replica to new master)
     
-### Getting started
+### Getting started (on server)
 * Install docker:
     * `apt update && apt install docker.io`
 * Launch redis instance:
@@ -26,6 +26,6 @@
     * Redis-cli into sentinel - `redis-cli -p 26379`
     * List monitored masters - `SENTINEL masters` (should have IP address and runid)
 
-### Docker compose
+### Docker compose (locally)
 * Start `docker-compose up -d` in [directory](sentinel)
 * Stop - `docker-compose down`
