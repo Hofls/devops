@@ -45,6 +45,8 @@
         * To test if its working:
             * ssh into container, create file in `container_dir`
             * return to host, check if file appeared in `host_dir`
+* Copy file from container `SAK2D83JK` to host:
+    * `docker cp SAK2D83JK:/file_path_container /filt_path_host`
 * Check resources usage (RAM, CPU, MEM, NET):
     * `docker stats`
 * Check disk usage (especially useful for gitlab runners):
