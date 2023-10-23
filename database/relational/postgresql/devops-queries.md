@@ -38,6 +38,7 @@ SELECT * FROM pg_user;
 ```
 * Slow queries:
 ```
+-- In new version, use column mean_exec_time instead of calculating avg_time_ms
 select query, calls, (total_time/calls)::integer as avg_time_ms 
 from pg_stat_statements
 where calls > 20 and query <> '<insufficient privilege>'
