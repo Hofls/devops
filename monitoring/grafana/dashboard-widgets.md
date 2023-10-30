@@ -53,3 +53,14 @@ UNION
 SELECT NOW() - INTERVAL '1 minutes', 'azr' as grp, 23
 ) as q order by time asc
 ```
+* Similar to `Heatmap`, `Status history`
+
+#### Text (markdown/html):
+```
+# Welcome to My Grafana Dashboard
+This is a sample text widget.
+- Item 1
+- Item 2
+
+For more information, visit [Grafana website](https://grafana.com).
+```
