@@ -22,6 +22,16 @@
       WHEN status = 2 THEN 'DONE'
     END;
     ```
+* Insert/Update
+```
+INSERT INTO task (id, type, created_at, direction) 
+VALUES(123, 'EXPO', 'today', 'RIGHT') 
+ON conflict(id) DO UPDATE 
+SET 
+    type = EXCLUDED.type,
+    created_at = EXCLUDED.created_at,
+    direction = EXCLUDED.direction
+```
 * Update/Insert based on a bunch of selects
     ```
     MERGE INTO unique_trade_object uto
