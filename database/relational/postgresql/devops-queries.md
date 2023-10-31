@@ -1,22 +1,16 @@
-* Show everything that references table:
+#### DB health check
+* List 20 biggest tables:
 ```
-select 
-  (select r.relname from pg_class r where r.oid = c.conrelid) as table, 
-  (select array_agg(attname) from pg_attribute 
-   where attrelid = c.conrelid and ARRAY[attnum] <@ c.conkey) as col, 
-  (select r.relname from pg_class r where r.oid = c.confrelid) as ftable 
-from pg_constraint c 
-where c.confrelid = (select oid from pg_class where relname = 'INSERT_TABLE_NAME_HERE');
-```
-* List everything table refers to:
-```
-select 
-  (select r.relname from pg_class r where r.oid = c.conrelid) as table, 
-  (select array_agg(attname) from pg_attribute 
-   where attrelid = c.conrelid and ARRAY[attnum] <@ c.conkey) as col, 
-  (select r.relname from pg_class r where r.oid = c.confrelid) as ftable 
-from pg_constraint c 
-where c.conrelid = (select oid from pg_class where relname = 'INSERT_TABLE_NAME_HERE');
+select schemaname as table_schema,
+    relname as table_name,
+    pg_size_pretty(pg_total_relation_size(relid)) as total_size,
+    pg_size_pretty(pg_relation_size(relid)) as data_size,
+    pg_size_pretty(pg_total_relation_size(relid) - pg_relation_size(relid))
+      as external_size
+from pg_catalog.pg_statio_user_tables
+order by pg_total_relation_size(relid) desc,
+         pg_relation_size(relid) desc
+limit 20;
 ```
 * Running queries:
 ```
@@ -25,16 +19,12 @@ FROM pg_stat_activity
 where state <> 'idle'
 ORDER BY query_start asc;
 ```
-* Kill query:
+* Active connections (grouped):
 ```
--- running:
-SELECT pg_cancel_backend(pid);
--- idle:
-SELECT pg_terminate_backend(pid);
-```
-* All users:
-```
-SELECT * FROM pg_user;
+SELECT application_name, count(*) 
+FROM pg_stat_activity
+group by application_name
+order by application_name;
 ```
 * Slow queries:
 ```
@@ -86,33 +76,42 @@ WHERE
 ORDER BY
   too_much_seq DESC;
 ```
-* List 20 biggest tables:
+
+#### Etc
+* Show everything that references table:
 ```
-select schemaname as table_schema,
-    relname as table_name,
-    pg_size_pretty(pg_total_relation_size(relid)) as total_size,
-    pg_size_pretty(pg_relation_size(relid)) as data_size,
-    pg_size_pretty(pg_total_relation_size(relid) - pg_relation_size(relid))
-      as external_size
-from pg_catalog.pg_statio_user_tables
-order by pg_total_relation_size(relid) desc,
-         pg_relation_size(relid) desc
-limit 20;
+select 
+  (select r.relname from pg_class r where r.oid = c.conrelid) as table, 
+  (select array_agg(attname) from pg_attribute 
+   where attrelid = c.conrelid and ARRAY[attnum] <@ c.conkey) as col, 
+  (select r.relname from pg_class r where r.oid = c.confrelid) as ftable 
+from pg_constraint c 
+where c.confrelid = (select oid from pg_class where relname = 'INSERT_TABLE_NAME_HERE');
+```
+* List everything table refers to:
+```
+select 
+  (select r.relname from pg_class r where r.oid = c.conrelid) as table, 
+  (select array_agg(attname) from pg_attribute 
+   where attrelid = c.conrelid and ARRAY[attnum] <@ c.conkey) as col, 
+  (select r.relname from pg_class r where r.oid = c.confrelid) as ftable 
+from pg_constraint c 
+where c.conrelid = (select oid from pg_class where relname = 'INSERT_TABLE_NAME_HERE');
+```
+* Kill query:
+```
+-- running:
+SELECT pg_cancel_backend(pid);
+-- idle:
+SELECT pg_terminate_backend(pid);
+```
+* All users:
+```
+SELECT * FROM pg_user;
 ```
 * Settings:
 ```
 SELECT * FROM pg_settings;
-```
-* Active connections:
-```
-SELECT * FROM pg_stat_activity;
-```
-* Active connections (grouped):
-```
-SELECT client_hostname, count(*) 
-FROM pg_stat_activity
-group by client_hostname
-order by client_hostname;
 ```
 * Locks held by open transactions:
 ```
