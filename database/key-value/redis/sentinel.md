@@ -26,7 +26,7 @@
     * Redis-cli into sentinel - `redis-cli -p 26379`
     * List monitored masters - `SENTINEL masters` (should have IP address and runid)
 * Connect from local PC to remote sentinel:
-    * `redis-cli -h 153.26.144.76 -p 26379`
+    * `redis-cli -h 153.26.144.76 -p 26379` (if needed password - `-a 'qwertyB'`)
 
 ### Docker compose (locally)
 * Start `docker-compose up -d` in [directory](sentinel)
