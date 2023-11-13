@@ -20,6 +20,8 @@
     firewall-cmd --direct --permanent --add-rule ipv4 filter FORWARD 0 -i tun0 -o ens192 -m state --state RELATED,ESTABLISHED -j ACCEPT
     systemctl restart firewalld
     ```
+  * If you need multiple VPNs - add firewall rules for each (replace `tun0` with `tun1`, `tun2` etc)
+    * In openvpn, you can set tun name in config file (replace `dev tun` with `dev tun1`)
 * Check everything again - `ip route`, `ifconfig`
 * Test from another server in the same network:
     * Resource not available:
