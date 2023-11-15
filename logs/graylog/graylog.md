@@ -28,6 +28,7 @@
     * `Title` - `Beats input`
 * Add restrictions on index size:
     * `System` -> `Indices` -> `Default index set` -> `Edit`
+    * `Select rotation strategy` - `Index Size`
     * `Max size per index` - `400MiB`
     * `Max number of indices` - `2`
 
