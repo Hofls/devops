@@ -46,9 +46,11 @@
         * Add in `/etc/hosts` IP of this server, e.g. `10.154.34.222 powos-web-t`
 * If you have server with VPN and proxy. Resources are available directly from server, but unavailable via proxy
     * Solution 1:
+        * VPN should be running -> Change /etc/hosts -> Restart proxy
+    * Solution 2:
         * IP addresses/routes depend on if VPN was ON/OFF while you started proxy
         * Try restarting proxy (with VPN turned ON/OFF)
-    * Solution 2:
+    * Solution 3:
         * Try pinging resource with VPN and without VPN - results in 2 different IP addresses
         * Check logs - `/var/log/squid/access.log`, possibly IP on the right side is wrong
         * Edit `/etc/hosts`, add correct IP, restart VPN (otherwise VPN will ignore changes)
