@@ -59,7 +59,9 @@
 
 #### [Configure Gitlab Runner](https://docs.gitlab.com/runner/register/index.html)
 * sudo gitlab-runner register
-    * Token located here - [e.g.](https://vcs.your-company.com/groups/your-group/-/settings/ci_cd)
+    * Token located here: 
+        * [Old gitlab](https://vcs.your-company.com/groups/your-group/-/settings/ci_cd)
+        * [New gitlab](https://vcs.your-company.com/groups/your-group/-/runners)
     * Description: fresh openjdk runner
     * Tags: jvm, linux, openjdk
     * Executor: shell
@@ -77,5 +79,9 @@
     * sudo gitlab-runner run &
 
 #### Common problems
+* Build runner is resource hungry, should have small limit; Deploy runner need no resources, should have big limit
+    * In first line of config set `concurrent = 12` (max 12 concurrent jobs)
+    * In builder `[[runners]]` set `limit = 2` (max 2 builds in parallel)
+    * In deployer `[[runners]]` set `limit = 10` (max 10 deployments in parallel)
 * Runner quits without showing logs
     * Add sleep after_script to `.gitlab-ci.yml` (example at `tests` repository)
