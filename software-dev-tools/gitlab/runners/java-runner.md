@@ -74,9 +74,13 @@
         ```
 #### Gitlab Runner Commands
 * Launch
-    * Make sure its not running - ps aux | grep gitlab 
-    * cd /opt
-    * sudo gitlab-runner run &
+    * Option A:
+        * Make sure its not running - `ps aux | grep gitlab`
+        * `cd /opt`
+        * `sudo gitlab-runner run &`
+    * Option B:
+        * Make sure its not running - `systemctl status gitlab-runner`
+        * `systemctl start gitlab-runner`
 
 #### Common problems
 * Build runner is resource hungry, should have small limit; Deploy runner need no resources, should have big limit
