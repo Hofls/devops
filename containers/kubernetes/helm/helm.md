@@ -6,6 +6,8 @@
         * For this use case also consider Kustomize
 * `Chart` - helm package
     * `Template` - base for generating k8s yaml files
+    * `Values` - inserted into template
+    * `Template` + `Values` = `k8s yaml`
 * `Repository` - charts storage
 * `Release` - instance of a chart running in a k8s cluster
 * [ArtifactHUB](https://artifacthub.io/packages/search?kind=0) - list of public packages
