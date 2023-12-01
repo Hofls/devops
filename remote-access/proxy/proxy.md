@@ -40,6 +40,11 @@
 ##### Problems + Solutions
 * Cant access proxy
     * Turn off firewall - `systemctl stop firewalld`
+    * Or open port:
+    ```
+    firewall-cmd --permanent --zone=public --add-port=3128/tcp
+    firewall-cmd --reload
+    ```
 * Proxy is slow
     * Problem:
         * After connecting to VPN - proxy is very slow
