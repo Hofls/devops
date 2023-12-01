@@ -38,6 +38,8 @@
 ##### Basic auth
 * Super bloated. Better use `Tinyproxy`
 ##### Problems + Solutions
+* Cant access proxy
+    * Turn off firewall - `systemctl stop firewalld`
 * Proxy is slow
     * Problem:
         * After connecting to VPN - proxy is very slow
