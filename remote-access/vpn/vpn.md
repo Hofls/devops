@@ -13,6 +13,14 @@
     * Linux - `ifconfig -a`
 
 ### Problems/Solutions
+* Disconnect after initialization sequence:
+    * Logs:
+    ```
+    Initialization Sequence Completed
+    event_wait : Interrupted system call (code=4)
+    SIGTERM[hard,] received, process exiting
+    ```
+    * May mean that VPN with this user/password is already running on another server (you have to stop it manually)
 * If after connecting to vpn - server becomes unavailable (ssh disconnects)
     * `ip route`
         * Look for default gateway, something like `default via 10.129.27.1 dev eth0`
