@@ -3,9 +3,10 @@
 * Use case: 
     * Your server has installed VPN, some web sites only available through it
     * Edit hosts on client, to send traffic through this server
+        `84.212.150.105 example.com`
     * It's an alternative to proxy and ip routes
 * On server 84.212.150.105:
-    * Frontends for iptables should be disablec (e.g. firewalld, ufw)
+    * Sometimes it is necessary to disable frontends for iptables (e.g. firewalld, ufw)
         * Check status - `systemctl status firewalld`, disable - `systemctl stop firewalld`
     * `echo 1 > /proc/sys/net/ipv4/ip_forward`
         * If not working - try adding `net.ipv4.ip_forward=1` to `/etc/sysctl.conf`
