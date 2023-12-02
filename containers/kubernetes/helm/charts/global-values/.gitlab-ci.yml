@@ -1,0 +1,3 @@
+# Almost the same as .gitlab-ci.yml from folder "habor-push-pull", except:
+# Add "helm dependency update hello-world" before "helm lint", to help helm find subcharts
+# Add "-f values/values-stage.yaml" or "-f values/values-test.yaml" to "helm upgrade" command

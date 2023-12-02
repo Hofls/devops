@@ -1,0 +1,9 @@
+{{- define "library-charts.configmap" -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.name }}-configmap
+data:
+  greeting: "Hi from common template!"
+  postgresConnection: {{ .Values.global.dbConnection }}
+{{- end -}}
