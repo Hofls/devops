@@ -1,0 +1,41 @@
+stages:
+  - harbor-push
+  - k8s-deploy
+
+push-to-harbor:
+  image:
+    name: $DOCKER_REGISTRY/somesoft/helm-full:3.7.0
+    entrypoint: [""]
+  stage: harbor-push
+  tags:
+    - docker-runner
+  script:
+    - export HELM_EXPERIMENTAL_OCI=1
+    - helm lint
+    - helm create hello-world
+    - helm package hello-world
+    - helm registry login harbor.somesoft.com -u hofls -p "qwerty"
+    - helm push hello-world-0.1.0.tgz oci://harbor.somesoft.com/prj-team
+  environment:
+    name: $CI_JOB_NAME
+
+eploy-to-k8s:
+  image:
+    name: $DOCKER_REGISTRY/somesoft/helm-full:3.7.0
+    entrypoint: [""]
+  stage: k8s-deploy
+  tags:
+    - docker-runner
+  script:
+    - echo "1. Download chart from harbor -------------------------------------"
+    - export HELM_EXPERIMENTAL_OCI=1
+    - helm registry login harbor.somesoft.com -u hofls -p "qwerty"
+    - helm pull oci://harbor.somesoft.com/prj-team/hello-world --version 0.1.0 --untar
+    - cd hello-world && ls -l
+    - echo "2. Deploy to k8s -------------------------------------"
+    - chmod 600 $KUBE_CONFIG_TEST
+    - export KUBECONFIG=$KUBE_CONFIG_TEST
+    - export COMMAND="helm upgrade hello-world . --install --namespace $NAMESPACE_TEST"
+    - echo $COMMAND && $COMMAND
+  environment:
+    name: $CI_JOB_NAME

@@ -1,6 +1,6 @@
 .job.update.deploy:
   image:
-    name: $DOCKER_REGISTRY/library/helm-kubectl-docker:1.1
+    name: $DOCKER_REGISTRY/library/helm-kubectl-docker:3.7.0
     entrypoint: [ "" ]
   stage: k8s-deploy
   when: manual
@@ -9,7 +9,7 @@
   script:
     - chmod 600 $KUBE_CONFIG_TEST
     - export KUBECONFIG=$KUBE_CONFIG_TEST
-    - export COMMAND="helm upgrade hello-world . --install --namespace $NAMESPACE_TEST"
+    - export COMMAND="helm upgrade kafka-ui . --install --namespace $NAMESPACE_TEST -f values/values-common.yaml"
     - echo $COMMAND && $COMMAND
 
 # $NAMESPACE_TEST - standard gitlab variable
