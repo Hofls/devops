@@ -1,0 +1,2 @@
+# The same as .gitlab-ci.yml from folder "habor-push-pull"
+# Just add "helm dependency update hello-world" before "helm lint", to help helm find subcharts

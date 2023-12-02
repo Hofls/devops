@@ -1,0 +1,1 @@
+{{- include "library-charts.configmap" . | nindent 0 }}
