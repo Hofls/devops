@@ -11,8 +11,7 @@ push-to-harbor:
     - docker-runner
   script:
     - export HELM_EXPERIMENTAL_OCI=1
-    - helm lint
-    - helm create hello-world
+    - helm lint ./hello-world
     - helm package hello-world
     - helm registry login harbor.somesoft.com -u hofls -p "qwerty"
     - helm push hello-world-0.1.0.tgz oci://harbor.somesoft.com/prj-team
@@ -28,6 +27,7 @@ eploy-to-k8s:
     - docker-runner
   script:
     - echo "1. Download chart from harbor -------------------------------------"
+    - mkdir workspace && cd workspace
     - export HELM_EXPERIMENTAL_OCI=1
     - helm registry login harbor.somesoft.com -u hofls -p "qwerty"
     - helm pull oci://harbor.somesoft.com/prj-team/hello-world --version 0.1.0 --untar
