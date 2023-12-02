@@ -7,5 +7,11 @@
   tags:
     - docker
   script:
-    - helm -n $NAMESPACE delete kafka-ui
-    - helm -n $NAMESPACE install kafka-ui -f values/values-common.yaml .
+    - chmod 600 $KUBE_CONFIG_TEST
+    - export KUBECONFIG=$KUBE_CONFIG_TEST
+    - export COMMAND="helm upgrade hello-world . --install --namespace $NAMESPACE_TEST"
+    - echo $COMMAND && $COMMAND
+
+# $NAMESPACE_TEST - standard gitlab variable
+# $KUBE_CONFIG_FEATURE - gitlab variable with type 'file'
+# echo is for convenience (to see executed command in logs)
