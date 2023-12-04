@@ -1,5 +1,5 @@
 #### Info
-* Traefik - reverse proxy and load balancer
+* Haproxy - reverse proxy and load balancer
 
 #### Getting started
 * Install - `apt update && apt install haproxy`
