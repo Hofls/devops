@@ -35,7 +35,6 @@ eploy-to-k8s:
     - echo "2. Deploy to k8s -------------------------------------"
     - chmod 600 $KUBE_CONFIG_TEST
     - export KUBECONFIG=$KUBE_CONFIG_TEST
-    - export COMMAND="helm upgrade hello-world . --install --namespace $NAMESPACE_TEST"
-    - echo $COMMAND && $COMMAND
+    - helm upgrade hello-world . --install --namespace $NAMESPACE_TEST
   environment:
     name: $CI_JOB_NAME

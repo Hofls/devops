@@ -9,8 +9,7 @@
   script:
     - chmod 600 $KUBE_CONFIG_TEST
     - export KUBECONFIG=$KUBE_CONFIG_TEST
-    - export COMMAND="helm upgrade kafka-ui . --install --namespace $NAMESPACE_TEST -f values/values-common.yaml"
-    - echo $COMMAND && $COMMAND
+    - helm upgrade kafka-ui . --install --namespace $NAMESPACE_TEST -f values/values-common.yaml
 
 # $NAMESPACE_TEST - standard gitlab variable
 # $KUBE_CONFIG_FEATURE - gitlab variable with type 'file'
