@@ -58,6 +58,7 @@
     * Go to services, click on one, look for ports (something like `8080:31563/TCP`; only works with `NodePort`)
     * Get k8s IP address from kubeconfig
     * Construct direct access URL, e.g. `http://14.173.44.122:31563/shop/swagger-ui.html`
+    * Also, by default nodePort (external port) is random, you may need to set it manually (just as you do with `port` and `targetPort`)
 * Lens (GUI):
     * `File -> Add Cluster -> Copy text from example.conf`
 * To debug k8s network - use [busybox pod](templates/busybox.yaml)
