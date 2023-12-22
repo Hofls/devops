@@ -48,6 +48,8 @@
     * `kubectl top pods`
 * Copy file logs.txt from pod to your local system (file appears in current kubectl directory)
     * `kubectl cp spec-7664ff995c:logs.txt copied_logs.txt`
+* Remove all failed pods:
+    * `kubectl delete pods --field-selector status.phase=Failed`
     
 #### Deployments
 * Create deployment
