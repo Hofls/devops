@@ -16,6 +16,7 @@
             * `hibernate.query.plan_cache_max_size=16`
             * `hibernate.query.plan_parameter_metadata_max_size=8`
     * Big amount of queries text in dump (e.g. dynamic queries that are unlikely to be reused)
+        * Warning - not really sure about this one.
         * Fix - turn off 'prepared statement' cache (Postgres connection)
             * `jdbc:postgresql://potr-db-t:5432/puds2?preparedStatementCacheQueries=0`
 
