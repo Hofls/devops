@@ -9,11 +9,13 @@
 * Typical problems:
     * [IN clause](https://stackoverflow.com/questions/31557076/spring-hibernate-query-plan-cache-memory-usage)
         * Gradually increment parameters count (e.g. from 1 to 10000). Plan for each query will be stored in RAM.
-        * https://stackoverflow.com/questions/31557076/spring-hibernate-query-plan-cache-memory-usage
+            * https://stackoverflow.com/questions/31557076/spring-hibernate-query-plan-cache-memory-usage
+            * How it looks like in java dump (Eclipse MemoryAnalyzer):
+                ![](files/query-plan-leak.png)
         * Fix - decrease 'query plan' cache size (Hibernate)
             * `hibernate.query.plan_cache_max_size=16`
             * `hibernate.query.plan_parameter_metadata_max_size=8`
-    * Big amount of queries text in dump
+    * Big amount of queries text in dump (e.g. dynamic queries that are unlikely to be reused)
         * Fix - turn off 'prepared statement' cache (Postgres connection)
             * `jdbc:postgresql://potr-db-t:5432/puds2?preparedStatementCacheQueries=0`
 
