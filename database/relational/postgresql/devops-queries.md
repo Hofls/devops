@@ -35,6 +35,10 @@ where calls > 20 and query <> '<insufficient privilege>'
 order by avg_time_ms desc
 limit 400;
 ```
+* Approximate count (if standard count is too slow)
+```
+SELECT reltuples AS estimate FROM pg_class where relname = 'customer';
+```
 * Table index usage
 ```
 -- should be around 0.99 for all big tables:
