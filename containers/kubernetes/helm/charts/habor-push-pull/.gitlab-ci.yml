@@ -2,7 +2,8 @@ stages:
   - harbor-push
   - k8s-deploy
 
-push-to-harbor:
+# OCI works only in new versions of helm:
+push-to-harbor-oci:
   image:
     name: $DOCKER_REGISTRY/somesoft/helm-full:3.7.0
     entrypoint: [""]
@@ -18,7 +19,7 @@ push-to-harbor:
   environment:
     name: $CI_JOB_NAME
 
-eploy-to-k8s:
+deploy-to-k8s-oci:
   image:
     name: $DOCKER_REGISTRY/somesoft/helm-full:3.7.0
     entrypoint: [""]
@@ -31,6 +32,43 @@ eploy-to-k8s:
     - export HELM_EXPERIMENTAL_OCI=1
     - helm registry login harbor.somesoft.com -u hofls -p "qwerty"
     - helm pull oci://harbor.somesoft.com/prj-team/hello-world --version 0.1.0 --untar
+    - cd hello-world && ls -l
+    - echo "2. Deploy to k8s -------------------------------------"
+    - chmod 600 $KUBE_CONFIG_TEST
+    - export KUBECONFIG=$KUBE_CONFIG_TEST
+    - helm upgrade hello-world . --install --namespace $NAMESPACE_TEST
+  environment:
+    name: $CI_JOB_NAME
+
+# If you have an ancient version of helm:
+push-to-harbor:
+  image:
+    name: $DOCKER_REGISTRY/somesoft/helm-full:3.7.0
+    entrypoint: [""]
+  stage: harbor-push
+  tags:
+    - docker-runner
+  script:
+    - export HELM_EXPERIMENTAL_OCI=1
+    - helm lint ./hello-world
+    - helm package hello-world
+    - helm repo add --username hofls --password "qwerty" some-repo https://harbor.somesoft.com/chartrepo/smasks.smasdr
+    - helm cm-push ./hello-world/ some-repo
+  environment:
+    name: $CI_JOB_NAME
+
+deploy-to-k8s:
+  image:
+    name: $DOCKER_REGISTRY/somesoft/helm-full:3.7.0
+    entrypoint: [""]
+  stage: k8s-deploy
+  tags:
+    - docker-runner
+  script:
+    - echo "1. Download chart from harbor -------------------------------------"
+    - mkdir workspace && cd workspace
+    - helm repo add --username hofls --password "qwerty" some-repo https://harbor.somesoft.com/chartrepo/smasks.smasdr
+    - helm pull some-repo/hello-world --version 0.1.0 --untar
     - cd hello-world && ls -l
     - echo "2. Deploy to k8s -------------------------------------"
     - chmod 600 $KUBE_CONFIG_TEST
